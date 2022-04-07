@@ -17,8 +17,10 @@ import "./App.css";
 
 function App() {
   const { isAuth } = useSelector((state) => state.user);
+  console.log({isAuth})
   const token = localStorage.token;
-var decoded = jwt_decode(token);
+  console.log({token});
+  const decoded = token !== undefined ? jwt_decode(token) : null;
 
   return (
     <>
@@ -40,7 +42,7 @@ var decoded = jwt_decode(token);
           <Route
             path="/dashboard"
             element={
-              <PrivateRoute isAuthenticated={decoded.isLoggedIn}>
+              <PrivateRoute isAuthenticated={decoded !== null ? decoded.isLoggedIn : ''}>
                 <UserDashboard />
               </PrivateRoute>
             }
