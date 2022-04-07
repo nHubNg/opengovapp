@@ -34,29 +34,11 @@ const LoginPage = () => {
     password: Yup.string().required("Password is required"),
   });
   const dispatch = useDispatch();
-  const { register, errors, handleSubmit } = useForm();
+  const { register, formState: { errors}, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     
-    // try {
-    //   let isAuth = await dispatch(loginUser(data));
-    //   console.log(isAuth);
-    //   const result = isAuth.payload.data.data;
-    //   const { success } = isAuth.payload.data;
-    //   if (success) {
-    //     console.log(result.user);
-    //     sessionStorage.setItem("token", result.token);
-    //     localStorage.setItem("token", result.token);
-    //     dispatch(loginSuccess(result.user));
-    //     navigate("/dashboard");
-    //   } else {
-    //     console.log(isAuth);
-    //     dispatch(loginFail(isAuth.payload.data));
-    //   }
-    // } catch (e) {
-    //   console.log(e);
-    //   dispatch(loginFail(e));
-    // }
+    
     
      await dispatch(loginUser(data));
    
@@ -69,17 +51,18 @@ const LoginPage = () => {
 
     }
     if (isError) {
+      if(errorMessage.msg){
+        toast.error(errorMessage.msg);
+      }
       if(errorMessage.email){
         toast.error(errorMessage.email);
-        dispatch(clearState());
       }
       if(errorMessage.password){
         toast.error(errorMessage.password);
-        dispatch(clearState());
 
       }
     }
-  }, [isSuccess, isError]);
+  }, [isSuccess, isError, errorMessage]);
 
   
 
@@ -102,13 +85,15 @@ const LoginPage = () => {
           </div>
           <div class="w-full pt-4">
             <input
-              class="bg-inputcolor appearance-none rounded-full 
-                  border-2 border-inputcolor  w-full py-2 px-4 text-primary leading-tight focus:outline-none focus:bg-inputcolor focus:border-secondary"
+             							class='bg-primary text-white appearance-none rounded-md mb-2  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
+
               id="inline-full-name"
               name="emai"
-              {...register("email")}
+              {...register("email", {required: true})}
               type="text"
             />
+            {errors.email && <span className="text-xs text-secondary pt-4 ">This field is required</span>}
+
           </div>
         </div>
 
@@ -123,12 +108,15 @@ const LoginPage = () => {
           </div>
           <div class="w-full pt-4">
             <input
-              class="bg-inputcolor appearance-none rounded-full border-2 border-inputcolor  w-full py-2 px-4 text-primary leading-tight focus:outline-none focus:bg-inputcolor focus:border-secondary"
+              							class='bg-primary appearance-none  text-white rounded-md mb-2  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
+
               id="inline-full-name"
+              type="password"
               name="password"
-              {...register("password")}
-              type="text"
+              {...register("password", {required: true})}
             />
+           {errors.password && <span className="text-xs text-secondary  ">This field is required</span>}
+
           </div>
         </div>
 
@@ -157,7 +145,7 @@ const LoginPage = () => {
         <div className="submit-btn mt-14">
           <button
             type="submit"
-            class="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 uppercase rounded-full w-full"
+            class="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 uppercase rounded-md w-full"
           >
             {isLoading ? (
               <svg

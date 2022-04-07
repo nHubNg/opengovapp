@@ -9,8 +9,11 @@ const initialState = {
     isAdmin: false,
     isLoading: false,
     isSuccess: false,
+    isRegistered: false,
     isError: false,
+    isErrorR: false,
     errorMessage: "",
+    successMessage: "",
   }
   
   const authSlice = createSlice({
@@ -48,20 +51,17 @@ const initialState = {
         state.isLoading = true;
       },
       [registerUser.fulfilled]: (state, { payload }) => {
-        state.email = payload.email;
-        state.firstName = payload.first_name;
-        state.isAdmin = payload.isAdmin;
         state.isAuth = true;
-        state.isError = false
-        state.lastName = payload.last_name;
+        state.successMessage = payload.msg
+        state.isErrorR = false
         state.isLoading = false;
-        state.isSuccess = true;
+        state.isRegistered = true;
         return state;
       },
       [registerUser.rejected]: (state, { payload }) => {
-        console.log('payload', payload);
+        console.log('sadiq2');
         state.isLoading = false;
-        state.isError = true;
+        state.isErrorR = true;
         state.errorMessage = payload;
       }
     }

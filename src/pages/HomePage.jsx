@@ -8,7 +8,10 @@ import img_logo from "../assets/logo.png";
 import glogo from "../assets/open-global.png";
 import { Link } from "react-router-dom";
 
+
 const HomePage = () => {
+
+  
   return (
     <div className="wrapper">
       <div className="header">
@@ -25,12 +28,13 @@ const HomePage = () => {
               cupiditate eius.
             </p>
             <div className="heder-btns pt-10">
-              <Link
-                to="/auth"
-                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
-              >
-                Login / Register
-              </Link>
+            <Link
+						to='/auth'
+						class='bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one '
+					>
+						Login / Register
+					</Link>
+             
 
               <a
                 href="#"
@@ -242,7 +246,7 @@ const HomePage = () => {
               <div className="card shadow-2xl bg-white py-4 px-4 border-4 border-t-0 border-x-0 border-b-secondary  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-black capitalize text-lg font-extrabold">
-                    Gender Commitments{" "}
+                    Peace and Security{" "}
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-black">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -1,8 +1,8 @@
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	useNavigate,
 } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,48 +16,25 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
-  const { isAuth } = useSelector((state) => state.user);
-  console.log({isAuth})
-  const token = localStorage.token;
-  console.log({token});
-  const decoded = token !== undefined ? jwt_decode(token) : null;
+	return (
+		<>
+			<Router>
+				<Routes>
+					<Route path='/' element={<HomePage />} />
 
-  return (
-    <>
-      <Router>
-        <Routes>
-        
-        
-          <Route path="/" element={<HomePage />} />
-          
-          
+					<Route path='/auth' element={<SignUpAndSignUp />} />
 
-          <Route path="/auth" element={
-            
-            <SignUpAndSignUp />
-            
-            
-            } />
-
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute isAuthenticated={decoded !== null ? decoded.isLoggedIn : ''}>
-                <UserDashboard />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </Router>
-      <ToastContainer />
-    </>
-  );
+					<Route path='/dashboard' element={<UserDashboard />} />
+				</Routes>
+			</Router>
+			<ToastContainer />
+		</>
+	);
 }
 
-
 const PrivateRoute = ({ isAuthenticated, children }) => {
-  console.log(isAuthenticated)
-  return isAuthenticated ? children : <SignUpAndSignUp /> ;
+	console.log(isAuthenticated);
+	return isAuthenticated ? children : <SignUpAndSignUp />;
 };
 
 export default App;
