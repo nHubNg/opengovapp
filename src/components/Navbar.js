@@ -1,4 +1,4 @@
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
 import { Link, useNavigate } from "react-router-dom";
 import glogo from "../assets/open-global.png";
@@ -7,90 +7,185 @@ import logo from "../assets/logo.png";
 import jwt_decode from "jwt-decode";
 
 const token = localStorage.token;
-console.log(token)
-const decoded = token === "undefined" || token === undefined ? '' : jwt_decode(token);
+console.log(token);
+const decoded =
+  token === "undefined" || token === undefined ? "" : jwt_decode(token);
 
 console.log(decoded);
 
 export default () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const logout = async () => {
-		await localStorage.removeItem("token");
-		navigate("/auth");
-	};
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
-	return (
-		<nav className=' '>
-			<div className='first-nav flex justify-between w-3/4 mx-auto py-4 bg-white'>
-				<div className='logo items-center flex '>
-					<img class='block h-8 w-auto mr-2' src={glogo} alt='Workflow' />
-					<img class='block w-8 h-8 ' src={logo} alt='Workflow' />
+  const logout = async () => {
+    await localStorage.removeItem("token");
+    navigate("/auth");
+  };
 
-					<h1 className='font-bold text-secondary text-xl'>
-						pen
-						<span className='text-primary text-center mt-auto'>
-							Government Partnership
-						</span>
-					</h1>
-				</div>
-				<div class=' sm:block sm:ml-6 pt-1 pl-3'>
-					<div class='flex space-x-4 item-center'>
-						<Link to='/dashboard'>
-							<a
-								href='#'
-								class=' hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md '
-							>
-								Home
-							</a>
-						</Link>
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  };
 
-						<Link to='/dashboard'>
-							<a
-								href='#'
-								class=' hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md '
-							>
-								Feeds
-							</a>
-						</Link>
+  return (
+    <nav className=" ">
+      <div className="first-nav flex justify-between mx-8 md:w-3/4 md:mx-auto py-4 bg-white">
+        <div className="logo items-center flex ">
+          <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
+          <img class="block w-8 h-8 " src={logo} alt="Workflow" />
 
-						<Link to='/'>
-							<a
-								href='#'
-								class=' hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md '
-							>
-								About
-							</a>
-						</Link>
+          <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
+            pen
+            <span className="text-primary text-center mt-auto">
+              Government Partnership
+            </span>
+          </h1>
+        </div>
+        <Link to="" onClick={handleToggle}>
+          <div class="md:hidden flex items-center ">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class="w-6 h-6 text-gray-500"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </Link>
 
-						{token != undefined || token != 'undefined'  ? (
-							decoded.isLoggedIn ? (
-								<Link
-									to='/auth'
-									onClick={logout}
-									class='bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one '
-								>
-									Logout
-								</Link>
-							) : (
-								<Link
-									to='/auth'
-									class='bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one '
-								>
-									Login / Register
-								</Link>
-							)
-						) : (
-							<Link
-								to='/auth'
-								class='bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one '
-							>
-								Login / Register
-							</Link>
-						)}
-					</div>
-				</div>
-			</div>
-		</nav>
-	);
+        <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
+          <div class="flex space-x-4 item-center">
+            <Link to="/dashboard">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Home
+              </a>
+            </Link>
+
+            <Link to="/dashboard">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Feeds
+              </a>
+            </Link>
+
+            <Link to="/">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                About
+              </a>
+            </Link>
+
+            {token != undefined || token != "undefined" ? (
+              decoded.isLoggedIn ? (
+                <Link
+                  to="/auth"
+                  onClick={logout}
+                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-2 rounded-one "
+                >
+                  Logout
+                </Link>
+              ) : (
+                <Link
+                  to="/auth"
+                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
+                >
+                  Login / Register
+                </Link>
+              )
+            ) : (
+              <Link
+                to="/auth"
+                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
+              >
+                Login / Register
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`md:hidden ${
+          navbarOpen ? "  relative block w-full   " : "hidden"
+        }`}
+      >
+        <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
+          <div>
+            <Link to="/">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Home
+              </a>
+            </Link>
+          </div>
+
+          <div>
+            <Link to="/dashboard">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Feeds
+              </a>
+            </Link>
+          </div>
+
+          <div>
+            <Link to="/">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                About
+              </a>
+            </Link>
+          </div>
+
+          <div>
+            {token != undefined || token != "undefined" ? (
+              decoded.isLoggedIn ? (
+                <Link
+                  to="/auth"
+                  onClick={logout}
+                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-2 rounded-one "
+                >
+                  Logout
+                </Link>
+              ) : (
+                <Link
+                  to="/auth"
+                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
+                >
+                  Login / Register
+                </Link>
+              )
+            ) : (
+              <Link
+                to="/auth"
+                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
+              >
+                Login / Register
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 };

@@ -1,5 +1,9 @@
 import Navbar from "../components/Navbar";
 
+
+import Comment from "../components/comment";
+
+
 import { React, useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
@@ -20,13 +24,11 @@ import { useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
-
 import logo from "../assets/logo.png";
 
 import glogo from "../assets/open-global.png";
 
 import { Link } from "react-router-dom";
-
 
 const UserDashboard = () => {
   toast.configure();
@@ -35,122 +37,126 @@ const UserDashboard = () => {
 
   const { clearState } = feedReducer.actions;
 
-  const {
-    isLoading,
-    isError,
-    isSuccessCreate,
-    errorMessage,
-    feeds,
-  } = useSelector((state) => state.feed);
-
+  const [navbarOpen, setNavbarOpen] = useState(false);
   
+  const [commentOpen, setcommentOpen] = useState(false);
 
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  };
   
+  const handleCommentToggle = () => {
+    setcommentOpen(!commentOpen);
+  };
+
+  const { isLoading, isError, isSuccessCreate, errorMessage, feeds } =
+    useSelector((state) => state.feed);
 
   const [showModal, setShowModal] = useState(false);
 
   const [mediaFile, setMediaFile] = useState("");
 
   const dispatch = useDispatch();
-  const { register, formState: { errors }, handleSubmit } = useForm();
-  
-  const formatter = (date) =>{
-  return new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(date)
-  }
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const formatter = (date) => {
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(date);
+  };
 
   const onSubmit = async (data) => {
     const image = new FormData();
-		await	image.append("upload_preset", "nhubnigeria");
+    await image.append("upload_preset", "nhubnigeria");
 
-		await	image.append("cloud_name", "nhubnacademy");
-    await	image.append("file", mediaFile);
+    await image.append("cloud_name", "nhubnacademy");
+    await image.append("file", mediaFile);
 
     const feedData = {
       feed_title: data.feed_title,
       feed_description: data.feed_description,
       tag: data.tag,
-      image: image
+      image: image,
     };
 
-    await dispatch(createFeed(feedData)); 
-    
-    
-
+    await dispatch(createFeed(feedData));
   };
 
-;
-
-
-
   useEffect(() => {
-    
     dispatch(getFeeds());
 
     if (isSuccessCreate) {
-      console.log("sjjshshshjshjs")
+      console.log("sjjshshshjshjs");
       toast.success("Feed was created successfully!");
       setShowModal(false);
       dispatch(getFeeds());
       dispatch(clearState());
-
     }
     if (isError) {
-      if(errorMessage.msg){
+      if (errorMessage.msg) {
         toast.error(errorMessage.msg);
       }
 
-      if(errorMessage.error !== undefined){
+      if (errorMessage.error !== undefined) {
         toast.error(errorMessage.error);
       }
-     
-      
     }
-  }, [isError, isSuccessCreate, errorMessage ]);
+  }, [isError, isSuccessCreate, errorMessage]);
 
   const token = localStorage.token;
-  console.log({token});
-  const decoded = token === 'undefined' || token === undefined ? '' : jwt_decode(token) 
+  console.log({ token });
+  const decoded =
+    token === "undefined" || token === undefined ? "" : jwt_decode(token);
 
   console.log(decoded);
 
   return (
-    <div className="wrapper">
+    <div className="wrapper mx-2">
       <header>
         <nav className=" ">
-          <div className="first-nav flex justify-between md:mx-48  py-4 bg-white">
-            <div className="logo items-center flex sm:w-2/4 mx-14">
+          <div className="first-nav items-center flex justify-between md:mx-40 mx-10  py-4 bg-white">
+            <Link to="/">
+            <div className="logo items-center flex  ">
               <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
               <img class="block w-8 h-8 " src={logo} alt="Workflow" />
 
-                <Link to="/" >
-
-                <h1 className="font-bold text-secondary hidden md:block lg:block text-xl">
-                pen
-                <span className="text-primary  text-center mt-auto">
-                  Government Partnership
-                </span>
-              </h1>
-
-                </Link>
+                <h1 className="font-bold text-secondary hidden  lg:block text-xl">
+                  pen
+                  <span className="text-primary  text-center mt-auto">
+                    Government Partnership
+                  </span>
+                </h1>
             </div>
+            </Link>
 
-            <div class="md:hidden flex items-center mx-10">
-	<button class="outline-none mobile-menu-button">
-		<svg
-			class="w-6 h-6 text-gray-500"
-			x-show="!showMenu"
-			fill="none"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-		>
-		<path d="M4 6h16M4 12h16M4 18h16"></path>
-		</svg>
-	</button>
-</div>
-
+            <Link to="" onClick={handleToggle}>
+              <div class="md:hidden flex items-center mx-10">
+                <button class="outline-none mobile-menu-button">
+                  <svg
+                    class="w-6 h-6 text-gray-500"
+                    x-show="!showMenu"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </button>
+              </div>
+            </Link>
 
             <div class="hidden md:block  pt-1 pl-3">
               <div class="flex space-x-4">
@@ -168,45 +174,74 @@ const UserDashboard = () => {
                   </div>
                 </div>
 
-               <Link to="" className="pt-2">
-               <a
-                  href="#"
-                  class="text-white rounded-lg  text-sm font-semibold  hover:text-secondary px-2 py-2 "
-                >
-                  <i class="fa-solid fa-bell w-10 fa-3x text-primary  text-sm w- text-center mx-auto py-2 px-3"></i>
-                </a>
-               </Link>
-
-                {
-
-                  token != 'undefined' || token == undefined ? decoded.isLoggedIn ? (
-                    <a
+                <Link to="" className="pt-2">
+                  <a
                     href="#"
-                    class=" text-primary rounded-lg pt-4   text-md font-semibold  hover:text-secondary "
-                    onClick={() => setShowModal(true)}
+                    class="text-white rounded-lg  text-sm font-semibold  hover:text-secondary px-2 py-2 "
                   >
-                    <i class="fa-solid fa-plus pr-2 fa-3x text-primary  text-sm w- text-center mx-auto "></i>
-                    Create Feed
+                    <i class="fa-solid fa-bell w-10 fa-3x text-primary  text-sm w- text-center mx-auto py-2 px-3"></i>
                   </a>
-                  ) : (
-                    <Link to="/auth"  >
-                        Login to create feed
+                </Link>
 
-                    </Link>
+                {token != "undefined" || token == undefined ? (
+                  decoded.isLoggedIn ? (
+                    <a
+                      href="#"
+                      class=" text-primary rounded-lg pt-4   text-md font-semibold  hover:text-secondary "
+                      onClick={() => setShowModal(true)}
+                    >
+                      <i class="fa-solid fa-plus pr-2 fa-3x text-primary  text-sm  text-center mx-auto "></i>
+                      Create Feed
+                    </a>
                   ) : (
-                    <Link to="/auth" class="pt-4" >
-                        Login to create feed
-
-                    </Link>
+                    <Link to="/auth">Login to create feed</Link>
                   )
-                }
-               
+                ) : (
+                  <Link to="/auth" class="pt-4 text-md">
+                    Login to create feed
+                  </Link>
+                )}
               </div>
             </div>
+            
+            
           </div>
+          
+          <div
+        className={`md:hidden ${
+          navbarOpen ? "  relative block w-full   " : "hidden"
+        }`}
+      >
+        <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
+          <div>
+          {token != "undefined" || token == undefined ? (
+                  decoded.isLoggedIn ? (
+                    <a
+                      href="#"
+                      class=" text-primary rounded-lg pt-4  mx-4 text-md font-semibold  hover:text-secondary "
+                      onClick={() => setShowModal(true)}
+                    >
+                      <i class="fa-solid fa-plus pr-2 fa-3x text-primary  text-sm  text-center mx-auto "></i>
+                      Create Feed
+                    </a>
+                  ) : (
+                    <Link to="/auth">Login to create feed</Link>
+                  )
+                ) : (
+                  <Link to="/auth" class="pt-4">
+                    Login to create feed
+                  </Link>
+                )}
+          </div>
+
+         
+
+         
+        </div>
+        </div>
         </nav>
 
-        <div className="content md:pt-10  md:mx-40 lg:40 ">
+        <div className="content  md:pt-10  md:mx-60 lg:40 ">
           <h1 className="mx-10 py-8 text-xl text-primary">Feeds</h1>
           {isLoading ? (
             <div className="spiner w-1/4 mx-auto py-40">
@@ -228,41 +263,31 @@ const UserDashboard = () => {
               </svg>
             </div>
           ) : (
-
-            
             <div>
-          
-          {
-            
-          false ? (<h1 className="text-center pt-20 text-gray-500">No feeds or internet, please refresh your network</h1>) :
-            <div class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-              {
-               
-                feeds.map((feed) => (
-                  <div className=" ">
-                    
-                    
-                     
-                    
-                    <div className=" bg-white py-4 mb-10 shadow-2xl shadow- rounded-lg   p-4 md:flex md:flex-col justify-between leading-normal">
-                    <div className="flex items-center">
-                        <img
-                          className="w-10 h-10 rounded-full mr-4"
-                          src={logo}
-                        />
-                        <p>
-
-                          ogplateau
-                        </p>
-                     
-                      </div>
-                      <div className="mb-4">
-                      <div className="text-sm">
-                          <p className="text-gray-900 pb-2 text-xs leading-none">
-                          </p>
-                          <p className="text-gray-600 text-xs leading-none pt-2  ">{feed.createdAt}</p>
+              {false ? (
+                <h1 className="text-center pt-20 text-gray-500">
+                  No feeds or internet, please refresh your network
+                </h1>
+              ) : (
+                <div class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-10">
+                  {feeds.map((feed, i) => (
+                    <div className=" ">
+                      <div className=" bg-white py-4 mb-10 shadow-2xl shadow- rounded-lg   p-4 md:flex md:flex-col justify-between leading-normal">
+                        <div className="flex items-center">
+                          <img
+                            className="w-10 h-10 rounded-full mr-4"
+                            src={logo}
+                          />
+                          <p>ogplateau</p>
                         </div>
-                        {/* <p className="text-xs text-gray-600 flex items-center">
+                        <div className="mb-4">
+                          <div className="text-sm">
+                            <p className="text-gray-900 pb-2 text-xs leading-none"></p>
+                            <p className="text-gray-600 text-xs leading-none pt-2  ">
+                              {feed.createdAt}
+                            </p>
+                          </div>
+                          {/* <p className="text-xs text-gray-600 flex items-center">
                           <svg
                             className="fill-current text-gray-500 w-3 h-3 mr-2"
                             xmlns="http://www.w3.org/2000/svg"
@@ -272,45 +297,90 @@ const UserDashboard = () => {
                           </svg>
                           {feed.tag}
                         </p> */}
-                        <div className="text-primary capitalize pt-4 font-bold text-lg mb-2">
-                          {feed.feed_title}
+                          <div className="text-primary capitalize pt-4 font-bold text-lg mb-2">
+                            {feed.feed_title}
+                          </div>
+                          <p className="text-gray-700 text-sm w-2/4">
+                            {feed.feed_description}
+                          </p>
                         </div>
-                        <p className="text-gray-700 text-sm w-2/4">
-                          {feed.feed_description}
-                        </p>
-                      </div>
-                      <div className="img h-48">
-                        <img className=" h-full w-full object-fit " src={feed.feed_media} alt="" />
-                      </div>
+                        <div className="img h-48">
+                          <img
+                            className=" h-full w-full object-fit "
+                            src={feed.feed_media}
+                            alt=""
+                          />
+                        </div>
 
-                      <div className="social pt-4 flex justify-between">
-                          <p className="text-xs">2 likes</p>
+                        <div className="social pt-4 flex justify-between">
+                          <p className="text-xs">0 likes</p>
 
-                          <p className="text-xs">28 comments</p>
+                          <p className="text-xs">0 comments</p>
 
-                          <p className="text-xs">3 shares</p>
+                          <p className="text-xs">0 shares</p>
+                        </div>
 
+                        <div className="social pt-4 flex justify-between">
+                          <p>
+                            <i class="fa fa-thumbs-up text-gray-400"></i>
+                          </p>
 
+                          <Link to="" className="text-primary" onClick={handleCommentToggle}>
+                            <i class="fa fa-message text-priamry text-gray-400"></i>
+                          </Link>
 
-                      </div>
-
-                      <div className="social pt-2 flex justify-between">
-                          <p><i class="fa fa-thumbs-up text-gray-400"></i></p>
-
-                          <p className="text-primary"><i class="fa fa-message text-priamry text-gray-400"></i></p>
-
-                          <p><i class="fa fa-share text-gray-400"></i></p>
-
-
-
+                          <p>
+                            <i class="fa fa-share text-gray-400"></i>
+                          </p>
+                        </div>
+                        {
+                          commentOpen ? (
+                            <div>
+                            
+                            <Comment feedId={feed._id} />
+                            {
+                              
+                              feed.comments.length !== 0 ? (
+                                <div className="md:px-20 pt-6">
+                                
+                                  {
+                                    feed.comments.map((comment) => (
+                                      <div>
+                                       <div className="flex items-center mb-4">
+                                          <img
+                                            className="w-6 h-6 rounded-full mr-4"
+                                            src={logo}
+                                          />
+                                          <p className="text-xs text-gray-500">{comment.comment_description}</p>
+                                        </div>
+                                      </div>
+                                      
+                                      
+                                    ))
+                                  }
+                                
+                                </div>
+                              ) : (
+                                <div></div>
+    
+                              )
+                            }
+                            </div>
+                          
+                          ): (
+                            <div></div>
+                          )
+                        }
+                        
+                        
+                      
                       </div>
                      
                     </div>
-                  </div>
-                ))
-              }
+                  ))}
+                </div>
+              )}
             </div>
-}</div> 
           )}
         </div>
       </header>
@@ -324,10 +394,14 @@ const UserDashboard = () => {
               <div className="relative p-3 w-full max-w-2xl h-full md:h-auto">
                 <div className="border-0 rounded-lg drop-shadow-2xl relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-3 border-b border-solid border-gray-300 rounded-t ">
-                    <h6 className="text-xl font=semibold">Create new feed</h6>
+                    <h6 className="text-xl font=semibold capitalize">Create new feed</h6>
                     <button
                       className="bg-transparent border-0 text-black float-right"
-                      onClick={() => setShowModal(false)}
+                      onClick={() =>{ 
+                                     setShowModal(false)
+                                     handleToggle();
+                                     
+                                     }}
                     >
                       <span className="text-black opacity-7 h-6 w-6 text-xl block py-0 rounded-full">
                         <i
@@ -340,8 +414,8 @@ const UserDashboard = () => {
                   <div className="relative p-6 flex-auto">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       {/* feed title and Thematic areas */}
-                      <div className="flex">
-                        <div className="flex-auto w-80">
+                      <div className="md:flex">
+                        <div className="flex-auto w-80 pt-4 md:pt-0">
                           <label
                             for="small-input"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -354,14 +428,16 @@ const UserDashboard = () => {
                             class="block p-2 w-fit text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Title"
                             name="feed_title"
-                            {...register("feed_title", {required: true})}
-
+                            {...register("feed_title", { required: true })}
                           />
-                         {errors.feed_title && <span className="text-xs text-secondary pt-4 ">This field is required</span>}
-
+                          {errors.feed_title && (
+                            <span className="text-xs text-secondary pt-4 ">
+                              This field is required
+                            </span>
+                          )}
                         </div>
 
-                        <div className="flex-auto w-80">
+                        <div className="md:flex w-80 pt-6 md:pt-0">
                           <label
                             for="small-input"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -369,13 +445,12 @@ const UserDashboard = () => {
                             Feed Theme
                           </label>
                           <select
-                            class="form-select appearance-none block w-full p-2 font-light text-sm text-gray-900 bg-gray-50 bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            class="form-select appearance-none block w-fit p-2 font-light text-sm text-gray-900 bg-gray-50 bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             aria-label="feed thematic area"
-                            {...register("tag", {required: true})}
-
+                            {...register("tag", { required: true })}
                             name="tag"
                           >
-                            <option selected disabled className="text-gray-900" >
+                            <option selected disabled className="text-gray-900">
                               Select feed thematic area
                             </option>
                             <option value="Gender equality">
@@ -394,8 +469,11 @@ const UserDashboard = () => {
                               Peace and Security
                             </option>
                           </select>
-                          {errors.tag && <span className="text-xs text-secondary pt-4 ">This field is required</span>}
-
+                          {errors.tag && (
+                            <span className="text-xs text-secondary pt-4 ">
+                              This field is required
+                            </span>
+                          )}
                         </div>
                       </div>
 
@@ -413,17 +491,20 @@ const UserDashboard = () => {
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Description..."
                           name="feed_description"
-                          {...register("feed_description", {required: true})}
+                          {...register("feed_description", { required: true })}
                         ></textarea>
-                        {errors.feed_description && <span className="text-xs text-secondary pt-4 ">This field is required</span>}
-
+                        {errors.feed_description && (
+                          <span className="text-xs text-secondary pt-4 ">
+                            This field is required
+                          </span>
+                        )}
                       </div>
 
                       {/* feed medias */}
-                      <div className="flex items-end justify-between my-7">
+                      <div className="md:flex items-end justify-between my-7">
                         <div>
                           <label
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            class="block mb-4 text-sm font-medium text-gray-900 dark:text-gray-300"
                             for="user_avatar"
                           >
                             Feed Media
@@ -439,16 +520,16 @@ const UserDashboard = () => {
                             name="feed_media"
                             // {...register("feed_media", {required: true})}
                           />
-                                                  {errors.feed_media && <span className="text-xs text-secondary pt-4 ">This field is required</span>}
-
+                          {errors.feed_media && (
+                            <span className="text-xs text-secondary pt-4 ">
+                              This field is required
+                            </span>
+                          )}
                         </div>
 
-                        <div>
+                        <div></div>
 
-                        </div>
-
-
-                        <div>
+                        <div className="pt-4">
                           <a
                             href="#"
                             class=" text-primary rounded-lg pt-4 text-md font-semibold"
@@ -458,7 +539,7 @@ const UserDashboard = () => {
                           </a>
                         </div>
                       </div>
-                      <div className="flex items-center justify-end p-4 border-t border-solid border-blueGray-200 rounded-b">
+                      <div className="flex items-center justify-end p-4 mb-4 border-t border-solid border-blueGray-200 rounded-b">
                         <button
                           className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                           type="button"
@@ -473,7 +554,7 @@ const UserDashboard = () => {
                           {isLoading ? (
                             <svg
                               role="status"
-                              class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
+                              class="mr-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
                               viewBox="0 0 100 101"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
@@ -498,7 +579,9 @@ const UserDashboard = () => {
               </div>
             </div>
           </>
-        ) : ''}
+        ) : (
+          ""
+        )}
       </>
 
       {/* feed creation modal section ends */}
