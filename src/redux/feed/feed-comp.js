@@ -55,9 +55,66 @@ export const createFeed = createAsyncThunk(
 	}
 );
 
+
+export const createComment = createAsyncThunk(
+	"users/createComment",
+	async ({comment_description, id}, thunkAPI) => {
+		try {
+
+			const token = await localStorage.token;
+
+			const response = await fetch(`${baseurl}/feed/comment/${id}`, {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"content-type": "application/json",
+
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+				comment_description
+				}),
+			});
+			let data = await response.json();
+			console.log("response", data);
+			if (response.status == 201) {
+				return data.feed;
+			} else {
+				return thunkAPI.rejectWithValue(data);
+			}
+		} catch (e) {
+			console.log("Error", e.response.data);
+			thunkAPI.rejectWithValue(e.response.data);
+		}
+	}
+);
 export const getFeeds = createAsyncThunk("users/getfeeds", async (thunkAPI) => {
 	try {
 		const response = await fetch(baseurl + "/feed", {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				"content-type": "application/json",
+			},
+		});
+		let data = await response.json();
+		console.log("response", data);
+		if (response.status === 200) {
+			return data.data;
+		} else {
+			return thunkAPI.rejectWithValue(data);
+		}
+	} catch (e) {
+		console.log("Error", e.response.data);
+		thunkAPI.rejectWithValue(e.response.data);
+	}
+});
+
+
+export const getComments = createAsyncThunk("users/getcomments", async ({id}, thunkAPI) => {
+	try {
+		
+		const response = await fetch(`${baseurl}/feed/comment/${id}`, {
 			method: "GET",
 			headers: {
 				Accept: "application/json",

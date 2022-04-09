@@ -13,15 +13,15 @@ const HomePage = () => {
 
   
   return (
-    <div className="wrapper">
+    <div className="wrapper overflow-x-hidden">
       <div className="header">
         <Navbar />
-        <div className="h-auto bg-primary relative">
-          <div className="content py-28 w-3/4 mx-48">
-            <h1 className="text-white text-5xl font-extrabold capitalize">
+        <div className="h-auto bg-primary md:elative">
+          <div className="content py-28 md:w-3/4 md:mx-48 mx-4">
+            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
               Plateau state open <br /> government partnership
             </h1>
-            <p className="text-white leading-6 font-light text-sm pt-10 w-2/4 ">
+            <p className="text-white leading-6 font-light text-sm pt-10 md:w-2/4 ">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit
               autem natus ipsam ducimus. Sequi expedita at fugit excepturi, non
               odit quaerat dolorem, nam magni ipsum quia amet! Laborum,
@@ -44,7 +44,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="post mx-48 absolute top-80 pt-64">
+        <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
           <div className="card grid grid-cols-1 md:grid-cols-2">
             <div className="card shadow-2xl bg-white flex py-4 px-4 ">
               <div className="rounded-full w-3/12 h-8 bg-primary">
@@ -92,7 +92,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="citizen-engament mt-80 mb-40 mx-48 ">
+        <div className="citizen-engament md:mt-80 mx-10 mt-20 md:mb-40 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
               <h1 className=" capitalize text-4xl">
@@ -125,7 +125,7 @@ const HomePage = () => {
         </div>
 
         <section className="bg-secondary2">
-          <div className="current-action mx-48 pt-20 pb-20">
+          <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
               <h1 className=" capitalize text-4xl">
                 Current <span className="text-secondary">Action Plan</span>
@@ -214,7 +214,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="bottom-cards w-2/4 mx-auto  py-10">
+          <div className="bottom-cards md:w-2/4 md:mx-auto mx-10  py-10">
             <div className="cards  grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="card border-4 border-t-0 border-x-0 border-b-secondary shadow-2xl bg-white py-4 px-4  ">
                 <div className="content px-5 py-8">
@@ -269,7 +269,7 @@ const HomePage = () => {
         </section>
 
         <section className="bg-primary py-10">
-          <div className="citizen-engament pt-5 mx-48 ">
+          <div className="citizen-engament pt-5 md:mx-48 mx-10">
             <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="text">
                 <h1 className=" text-white font-extrabold capitalize text-4xl">
@@ -303,7 +303,7 @@ const HomePage = () => {
         </section>
 
         <section className="bg-white">
-          <div className="current-action mx-48 pt-20 pb-20">
+          <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
               <h1 className=" capitalize text-2xl">
                 Our latest <span className="text-secondary">Projects</span>
@@ -363,7 +363,7 @@ const HomePage = () => {
         </section>
 
         <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
-          <div className="section mx-48 ">
+          <div className="section md:mx-48 mx-10">
             <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
               <div className="card">
                 <h1 className="text-primary text-2xl">Our Action Plans</h1>

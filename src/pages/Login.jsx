@@ -85,7 +85,7 @@ const LoginPage = () => {
           </div>
           <div class="w-full pt-4">
             <input
-             							class='bg-primary text-white appearance-none rounded-md mb-2  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
+             						class='bg-primary text-white appearance-none rounded-md mb-2  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
 
               id="inline-full-name"
               name="emai"
