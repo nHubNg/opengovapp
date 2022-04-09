@@ -34,8 +34,6 @@ const HomePage = () => {
 					>
 						Login / Register
 					</Link>
-             
-
               <a
                 href="#"
                 class=" ml-8 text-secondary  text-md font-semibold underline underline-offset-8  capitalize  px-4 py-3  "
@@ -49,16 +47,15 @@ const HomePage = () => {
         <div className="post mx-48 absolute top-80 pt-64">
           <div className="card grid grid-cols-1 md:grid-cols-2">
             <div className="card shadow-2xl bg-white flex py-4 px-4 ">
-              <div className="rounded-full w-14 h-8 bg-primary">
-                <img src={glogo} alt="" className="rounded-full object-fit w-14 h-8" />
+              <div className="rounded-full w-3/12 h-8 bg-primary">
+                <img src={glogo} alt="" className="rounded-full object-fit w-full h-8" />
               </div>
               <div className="content px-10">
                 <h1 className="text-primary capitalize text-lg font-extrabold">
                   Open government partnership
                 </h1>
                 <p className="pt-2 text-sm leading-6 font-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet cumque delectus.
+                  OGP, Open Government Partnership is a global partnership made up of people from different works of life including; government, civil society, business, non-profits, and more.
                 </p>
                 <div className="mt-6">
                   <a
