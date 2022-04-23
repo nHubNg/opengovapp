@@ -77,7 +77,7 @@ export const createComment = createAsyncThunk(
 			});
 			let data = await response.json();
 			console.log("response", data);
-			if (response.status == 201) {
+			if (response.status === 201) {
 				return data.feed;
 			} else {
 				return thunkAPI.rejectWithValue(data);
