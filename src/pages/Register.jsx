@@ -90,7 +90,7 @@ const RegisterPage = () => {
 						<input
 							class='bg-primary appearance-none rounded-md text-white  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
 							id='inline-full-name'
-							type='password'
+							type='text'
 							name='first_name'
 							{...register("first_name", {required: true})}
               
@@ -228,7 +228,7 @@ const RegisterPage = () => {
 						<input
 							class='bg-primary appearance-none text-white rounded-md  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
 							id='inline-full-name'
-							type='text'
+							type='password'
 							name='password'
 							{...register("password", {required: true})}
 						/>
@@ -250,7 +250,7 @@ const RegisterPage = () => {
 						<input
 							class='bg-primary appearance-none text-white rounded-md  border border-gray-500  w-full py-3 px-4 text-primary leading-tight focus:outline-none focus:bg-primary focus:border-secondary'
 							id='inline-full-name'
-							type='text'
+							type='password'
 							name='password2'
 							{...register("password2", {required: true})}
 						/>

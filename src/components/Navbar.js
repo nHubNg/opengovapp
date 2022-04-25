@@ -36,7 +36,7 @@ export default () => {
 
           <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
-            <span className="text-primary text-center mt-auto">
+             <span className="text-primary text-center mt-auto ml-2">
               Government Partnership
             </span>
           </h1>

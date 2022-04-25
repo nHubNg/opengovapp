@@ -524,7 +524,7 @@ const HomePage = () => {
 						</div>
 						<hr className='mt-10 border-2 bg-inputcolor' />
 						<p className='text-center text-sm'>
-							Copyright © 2021 Designed and Developed by nHub Nigeria. All
+							Copyright © <span>{(new Date().getFullYear())}</span> Designed and Developed by nHub Nigeria. All
 							Rights Reserved
 						</p>
 					</div>
