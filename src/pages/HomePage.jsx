@@ -2,7 +2,10 @@ import Navbar from "../components/Navbar";
 
 import banner_pic from "../assets/Group 222.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
-import img_3 from "../assets/jake-blucker-OJX7gIU3E6U-unsplash (1) 2.png";
+import img_3 from "../assets/british.jpg";
+import img_4 from "../assets/british2.jpg";
+import img_5 from "../assets/british3.webp";
+
 import img_logo from "../assets/logo.png";
 import glogo from "../assets/open-global.png";
 import { Link } from "react-router-dom";
@@ -45,7 +48,7 @@ const HomePage = () => {
 				<div className='post md:mx-48 md:absolute md:top-80 md:pt-64'>
 					<div className='card grid grid-cols-1 md:grid-cols-2'>
 						<div className='card shadow-2xl bg-white flex py-4 px-4 '>
-							<div className='rounded-full w-36 h-8 bg-white'>
+							<div className='rounded-full h-8 w-auto bg-white'>
 								<img
 									src={glogo}
 									alt=''
@@ -72,7 +75,7 @@ const HomePage = () => {
 							</div>
 						</div>
 						<div className='card shadow-2xl bg-primary flex py-4 px-4'>
-							<div className='rounded-full w-36 h-8 bg-primary'>
+							<div className='rounded-full h-8 w-auto bg-primary'>
 								<img
 									src={img_logo}
 									alt=''
@@ -369,12 +372,13 @@ const HomePage = () => {
 									</div>
 
 									<div className='location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 '>
-										<p className='text-white text-center'>Jos South</p>
+										<p className='text-white text-center'>Jos North</p>
 									</div>
 
 									<p className='pt-6 px-5 py-8 text-sm leading-6 font-light text-black'>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Eveniet cumque delectus.
+										Plateau state Governor Bako Lalong will flag off the
+										construction of the British-American Flyover and dualisation
+										to the road to Lamingo junction roundabout.
 									</p>
 								</div>
 							</div>
@@ -383,7 +387,7 @@ const HomePage = () => {
 								<div className='content'>
 									<div className='card-img bg-primary h-40'>
 										<img
-											src={img_3}
+											src={img_4}
 											alt=''
 											className='object-cover h-40 w-96'
 										/>
@@ -393,8 +397,9 @@ const HomePage = () => {
 										<p className='text-white text-center'>Jos North</p>
 									</div>
 									<p className='pt-6 px-5 py-8 text-sm leading-6 font-light text-black'>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Eveniet cumque delectus.
+										Former Nigerian Head of State General Yakubu Gowon has
+										flagged off the construction of a new interchange at the
+										British-American Junction in Jos
 									</p>
 								</div>
 							</div>
@@ -403,18 +408,20 @@ const HomePage = () => {
 								<div className='content'>
 									<div className='card-img bg-primary h-40'>
 										<img
-											src={img_3}
+											src={img_5}
 											alt=''
 											className='object-cover h-40 w-96'
 										/>
 									</div>
 
 									<div className='location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 '>
-										<p className='text-white text-center'>Bassa</p>
+										<p className='text-white text-center'>Jos North</p>
 									</div>
 									<p className='pt-6 px-5 py-8 text-sm leading-6 font-light text-black'>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Eveniet cumque delectus.
+										The commencement of work by the contractor handling the
+										British-American interchange flyover road project has caused
+										hardship for motorists, pedestrians and residents of Jos
+										metropolis.
 									</p>
 								</div>
 							</div>
