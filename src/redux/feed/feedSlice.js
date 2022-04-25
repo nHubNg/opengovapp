@@ -17,6 +17,9 @@ const initialState = {
     isError: false,
     isErrorCG: false,
     errorMessage: "",
+    isDeleted: true,
+    successMessage: "",
+
 
   }
   
@@ -27,6 +30,13 @@ const initialState = {
      clearState:(state, { payload}) => {
       state.isError = false;
       state.errorMessage = "";
+     },
+     
+     clearDeletedState:(state, { payload}) => {
+      state.isDeleted = false;
+      state.errorMessage = "";
+      state.successMessage = "";
+
      }
    },
     extraReducers: {
@@ -95,15 +105,13 @@ const initialState = {
       
       [getComments.rejected]: (state, { payload }) => {
         console.log('payload', payload);
-        state.commentsdata = [];
-        state.isLoadingGC = false;
-
-
-        //  state.errorMessage = payload;
+        state.commentsdata = null;
+        state.isLoadingGC = false;    
       },
       
       [deletecomment.fulfilled]: (state, { payload }) => {
-        state.commentsdata = payload;
+        state.isDeleted = true;
+        state.successMessage = payload.msg
         return state;
       },
       
@@ -138,6 +146,8 @@ const initialState = {
     } 
   
   })
+  
+  
   
   
   export const userSelector = state => state.user

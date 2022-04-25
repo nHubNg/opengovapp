@@ -3,7 +3,7 @@ import { React, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Comment from "../components/comment";
-import { getComments, deletecomment } from "../redux/feed/feed-comp";
+import { getComments, deletecomment,  } from "../redux/feed/feed-comp";
 
 import { Link } from "react-router-dom";
 
@@ -18,8 +18,10 @@ const CommentSection = ({ feedId, updatecomments, activeComment }) => {
 
   const {
     isLoadingGC,
-
+    isDeleted,
+    successMessage,
     commentsdata,
+    clearDeletedState,
   } = useSelector((state) => state.feed);
   
   
@@ -58,6 +60,23 @@ const CommentSection = ({ feedId, updatecomments, activeComment }) => {
      );
     }
    }, [deleteCommentAct]);
+  
+  
+   useEffect(() => {
+    if(isDeleted){
+      
+     console.log("hello deletecomment")
+     
+     dispatch(
+       clearDeletedState()
+     )
+    
+    }
+   });
+   
+   
+   console.log(isDeleted)
+
 
   return (
     <div>

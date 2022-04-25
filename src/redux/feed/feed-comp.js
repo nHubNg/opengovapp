@@ -1,7 +1,8 @@
 import react from "react";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const baseurl = "https://opengovapi.herokuapp.com/api/v1";
+const baseurl = "https://opengovapi.herokuapp.com/api/v1"
+
 
 export const createFeed = createAsyncThunk(
   "users/createfeed",
@@ -199,12 +200,12 @@ export const getLikeCount = createAsyncThunk(
 
 export const deletecomment = createAsyncThunk(
   "users/deleteComment",
-  async ({ comment_description, id }, thunkAPI) => {
+  async ({ id }, thunkAPI) => {
     try {
       const token = await localStorage.token;
 
       const response = await fetch(`${baseurl}/feed/delete-comment/${id}`, {
-        method: "POST",
+        method: "DELETE",
         headers: {
           Accept: "application/json",
           "content-type": "application/json",
@@ -214,8 +215,8 @@ export const deletecomment = createAsyncThunk(
       });
       let data = await response.json();
       console.log("deleted", data);
-      if (response.status == 201) {
-        return data.data;
+      if (response.status == 200) {
+        return data;
       } else {
         return thunkAPI.rejectWithValue(data);
       }
