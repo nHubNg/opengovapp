@@ -1,14 +1,20 @@
 import Navbar from "../components/Navbar";
 
+import CommentSection from "./Comment";
 
-import Comment from "../components/comment";
+import LikeSection from "./Like";
+
+import UnLikeSection from "./Unlike";
+
+
+import SocialSection from "../components/social";
 
 
 import { React, useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
-import { createFeed, getFeeds } from "../redux/feed/feed-comp";
+import { createFeed, getFeeds, getLikeCount } from "../redux/feed/feed-comp";
 
 import { toast } from "react-toastify";
 
@@ -30,6 +36,10 @@ import glogo from "../assets/open-global.png";
 
 import { Link } from "react-router-dom";
 
+import { format } from 'fecha';
+import { comment } from "postcss";
+
+
 const UserDashboard = () => {
   toast.configure();
 
@@ -38,20 +48,31 @@ const UserDashboard = () => {
   const { clearState } = feedReducer.actions;
 
   const [navbarOpen, setNavbarOpen] = useState(false);
-  
+
   const [commentOpen, setcommentOpen] = useState(false);
 
+  const [openDropdown, setopenDropdown] = useState(true);
+
+  const [isActiveComment, setisActiveComment] = useState(null);
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
-  
-  const handleCommentToggle = () => {
+
+  const handleCommentToggle = (id) => {
     setcommentOpen(!commentOpen);
+    setisActiveComment({ id: id, type: "replying" });
   };
 
-  const { isLoading, isError, isSuccessCreate, errorMessage, feeds } =
-    useSelector((state) => state.feed);
+  const {
+    isLoading,
+    isError,
+    isSuccessCreate,
+    errorMessage,
+    feeds,
+    commentsdata,
+    likeCount,
+  } = useSelector((state) => state.feed);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -64,15 +85,8 @@ const UserDashboard = () => {
     handleSubmit,
   } = useForm();
 
-  const formatter = (date) => {
-    return new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    }).format(date);
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString();
   };
 
   const onSubmit = async (data) => {
@@ -102,23 +116,19 @@ const UserDashboard = () => {
       dispatch(getFeeds());
       dispatch(clearState());
     }
-    if (isError) {
-      if (errorMessage.msg) {
-        toast.error(errorMessage.msg);
-      }
+    
+  }, []);
 
-      if (errorMessage.error !== undefined) {
-        toast.error(errorMessage.error);
-      }
-    }
-  }, [isError, isSuccessCreate, errorMessage]);
+  // useEffect(() => {
+  //   dispatch(getLikeCount());
+  // }, []);
 
   const token = localStorage.token;
   console.log({ token });
   const decoded =
     token === "undefined" || token === undefined ? "" : jwt_decode(token);
 
-  console.log(decoded);
+  console.log(commentsdata);
 
   return (
     <div className="wrapper mx-2">
@@ -126,9 +136,9 @@ const UserDashboard = () => {
         <nav className=" ">
           <div className="first-nav items-center flex justify-between md:mx-40 mx-10  py-4 bg-white">
             <Link to="/">
-            <div className="logo items-center flex  ">
-              <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
-              <img class="block w-8 h-8 " src={logo} alt="Workflow" />
+              <div className="logo items-center flex  ">
+                <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
+                <img class="block w-8 h-8 " src={logo} alt="Workflow" />
 
                 <h1 className="font-bold text-secondary hidden  lg:block text-xl">
                   pen
@@ -136,7 +146,7 @@ const UserDashboard = () => {
                     Government Partnership
                   </span>
                 </h1>
-            </div>
+              </div>
             </Link>
 
             <Link to="" onClick={handleToggle}>
@@ -203,18 +213,16 @@ const UserDashboard = () => {
                 )}
               </div>
             </div>
-            
-            
           </div>
-          
+
           <div
-        className={`md:hidden ${
-          navbarOpen ? "  relative block w-full   " : "hidden"
-        }`}
-      >
-        <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
-          <div>
-          {token != "undefined" || token == undefined ? (
+            className={`md:hidden ${
+              navbarOpen ? "  relative block w-full   " : "hidden"
+            }`}
+          >
+            <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
+              <div>
+                {token != "undefined" || token == undefined ? (
                   decoded.isLoggedIn ? (
                     <a
                       href="#"
@@ -232,22 +240,18 @@ const UserDashboard = () => {
                     Login to create feed
                   </Link>
                 )}
+              </div>
+            </div>
           </div>
-
-         
-
-         
-        </div>
-        </div>
         </nav>
 
-        <div className="content  md:pt-10  md:mx-60 lg:40 ">
+        <div className="content  md:pt-10  md:mx-20  ">
           <h1 className="mx-10 py-8 text-xl text-primary">Feeds</h1>
           {isLoading ? (
             <div className="spiner w-1/4 mx-auto py-40">
               <svg
                 role="status"
-                class="mr-2 w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
+                class="mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-primary"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -269,24 +273,67 @@ const UserDashboard = () => {
                   No feeds or internet, please refresh your network
                 </h1>
               ) : (
-                <div class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-10">
+                <div class=" grid grid-cols-2 h-full sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10">
                   {feeds.map((feed, i) => (
                     <div className=" ">
-                      <div className=" bg-white py-4 mb-10 shadow-2xl shadow- rounded-lg   p-4 md:flex md:flex-col justify-between leading-normal">
-                        <div className="flex items-center">
-                          <img
-                            className="w-10 h-10 rounded-full mr-4"
-                            src={logo}
-                          />
-                          <p>ogplateau</p>
-                        </div>
-                        <div className="mb-4">
-                          <div className="text-sm">
-                            <p className="text-gray-900 pb-2 text-xs leading-none"></p>
-                            <p className="text-gray-600 text-xs leading-none pt-2  ">
-                              {feed.createdAt}
+                      <div
+                        key={feed._id}
+                        className=" bg-white py-4 mb-10 shadow-2xl shadow-rounded-lg   p-4 md:flex md:flex-col justify-between leading-normal"
+                      >
+                        <div className="flex items-center w-full justify-between ">
+                          <div className="md:flex w-3/4 items-center ">
+                            <img
+                              className="w-10 h-10 rounded-full mr-4 p"
+                              src={logo}
+                            />
+                            <p className="text-xl  ">Ogplateau</p>
+
+                            <p className="pl-4 text-gray-600 text-sm leading-none   ">
+                              {format(new Date(feed.createdAt), 'dddd MMMM Do, YYYY hh')} at {format(new Date(2021, 11, 10, 5, 30, 20), 'shortTime')}
                             </p>
                           </div>
+
+                          <div class="p-10">
+                            <Link
+                              onClick={() => setopenDropdown(true)}
+                              to=""
+                              className="pl-10 align-item text-gray-600 text-xs leading-none   "
+                            >
+                              <i class="md:fa-2x fa-solid fa-ellipsis-vertical text-gray-400"></i>
+                            </Link>
+                            {openDropdown ? (
+                              <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li class="">
+                                  <a
+                                    class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    href="#"
+                                  >
+                                    One
+                                  </a>
+                                </li>
+                                <li class="">
+                                  <a
+                                    class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    href="#"
+                                  >
+                                    Two
+                                  </a>
+                                </li>
+                                <li class="">
+                                  <a
+                                    class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    href="#"
+                                  >
+                                    Three is the magic number
+                                  </a>
+                                </li>
+                              </ul>
+                            ) : (
+                              <div className="hidden"></div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="mb-4">
                           {/* <p className="text-xs text-gray-600 flex items-center">
                           <svg
                             className="fill-current text-gray-500 w-3 h-3 mr-2"
@@ -312,70 +359,40 @@ const UserDashboard = () => {
                           />
                         </div>
 
+                       <SocialSection updatecomments={commentsdata} handleCommentToggle={handleCommentToggle} feed={feed} setisActiveComment={setisActiveComment} updatecomments={commentsdata} />
                         <div className="social pt-4 flex justify-between">
-                          <p className="text-xs">0 likes</p>
-
-                          <p className="text-xs">0 comments</p>
-
-                          <p className="text-xs">0 shares</p>
-                        </div>
-
-                        <div className="social pt-4 flex justify-between">
-                          <p>
-                            <i class="fa fa-thumbs-up text-gray-400"></i>
-                          </p>
-
-                          <Link to="" className="text-primary" onClick={handleCommentToggle}>
-                            <i class="fa fa-message text-priamry text-gray-400"></i>
-                          </Link>
-
-                          <p>
-                            <i class="fa fa-share text-gray-400"></i>
-                          </p>
-                        </div>
-                        {
-                          commentOpen ? (
-                            <div>
-                            
-                            <Comment feedId={feed._id} />
-                            {
-                              
-                              feed.comments.length !== 0 ? (
-                                <div className="md:px-20 pt-6">
-                                
-                                  {
-                                    feed.comments.map((comment) => (
-                                      <div>
-                                       <div className="flex items-center mb-4">
-                                          <img
-                                            className="w-6 h-6 rounded-full mr-4"
-                                            src={logo}
-                                          />
-                                          <p className="text-xs text-gray-500">{comment.comment_description}</p>
-                                        </div>
-                                      </div>
-                                      
-                                      
-                                    ))
-                                  }
-                                
-                                </div>
-                              ) : (
-                                <div></div>
-    
-                              )
-                            }
-                            </div>
-                          
-                          ): (
-                            <div></div>
-                          )
-                        }
-                        
-                        
                       
+                          <LikeSection
+                           updatecomments={commentsdata}
+                            feedId={isActiveComment ? isActiveComment.id : ""}
+                            activeComment={isActiveComment}
+                          />
+                          
+                          <UnLikeSection
+                           updatecomments={commentsdata}
+                            feedId={isActiveComment ? isActiveComment.id : ""}
+                            activeComment={isActiveComment}
+                          />
+
+                          {
+                            // isActiveComment ?  isActiveComment.type == 'liking' ?  <LikeSection feedId={isActiveComment ? isActiveComment.id : ''}  activeComment={isActiveComment} /> : <div className="hidden"></div> : <div className="hidden"></div>
+                          }
+
+                         
+
+                          
+                        </div>
+
+                        {commentOpen ? (
+                          <CommentSection
+                            feedId={feed._id}
+                            updatecomments={commentsdata}
+                            activeComment={isActiveComment}
+                          />
+                        ) : (
+                          <div></div>
+                        )}
                       </div>
-                     
                     </div>
                   ))}
                 </div>
@@ -394,14 +411,15 @@ const UserDashboard = () => {
               <div className="relative p-3 w-full max-w-2xl h-full md:h-auto">
                 <div className="border-0 rounded-lg drop-shadow-2xl relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-3 border-b border-solid border-gray-300 rounded-t ">
-                    <h6 className="text-xl font=semibold capitalize">Create new feed</h6>
+                    <h6 className="text-xl font=semibold capitalize">
+                      Create new feed
+                    </h6>
                     <button
                       className="bg-transparent border-0 text-black float-right"
-                      onClick={() =>{ 
-                                     setShowModal(false)
-                                     handleToggle();
-                                     
-                                     }}
+                      onClick={() => {
+                        setShowModal(false);
+                        handleToggle();
+                      }}
                     >
                       <span className="text-black opacity-7 h-6 w-6 text-xl block py-0 rounded-full">
                         <i

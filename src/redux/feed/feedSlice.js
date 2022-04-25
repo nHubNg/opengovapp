@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createFeed, getFeeds, createComment, getComments } from "./feed-comp";
+import { createFeed, getFeeds, createComment, getComments, likePost, getLikeCount, deletecomment } from "./feed-comp";
 
 const initialState = {
     feeds: [],
-    commentsdata: [],
+    commentsdata:null,
     isLoading: false,
     isSuccess: false,
+    likeCount: null,
+    unLikeCount: null,
+    isikedByUser: false,
     isSuccessCreate: false,
     isLoadingC: false,
     isLoadingGC: false,
@@ -48,8 +51,9 @@ const initialState = {
         state.isLoading = true;
       },
       [getFeeds.fulfilled]: (state, { payload }) => {
+        console.log(payload)
         state.feeds = payload;
-        state.isError = false
+        state.isError = false;
         state.isLoading = false;
         state.isSuccess = true;
         return state;
@@ -64,10 +68,11 @@ const initialState = {
         state.isLoadingC = true;
       },
       [createComment.fulfilled]: (state, { payload }) => {
-        console.log("comment")
-        state.isError = false
+        console.log(payload)
+        state.isError = false;
+        state.commentsdata = payload;
         state.isLoadingC = false;
-        state.isSuccessCreateComment = true;
+        state.isSuccessCreateComment = false;
       },
       [createComment.rejected]: (state, { payload }) => {
         console.log('payload', payload);
@@ -81,23 +86,56 @@ const initialState = {
       [getComments.pending]: (state, { payload }) => {
         state.isLoadingGC = true;
       },
+      
       [getComments.fulfilled]: (state, { payload }) => {
-        console.log(payload)
-        state.comments = payload;
-        state.isErrorCG = false
+        state.commentsdata = payload;
         state.isLoadingGC = false;
-        state.isSuccess = true;
         return state;
       },
+      
       [getComments.rejected]: (state, { payload }) => {
-        state.isLoading = false;
-        state.isErrorGC = true;
-        state.errorMessage = payload;
+        console.log('payload', payload);
+        state.commentsdata = [];
+        state.isLoadingGC = false;
+
+
+        //  state.errorMessage = payload;
       },
       
+      [deletecomment.fulfilled]: (state, { payload }) => {
+        state.commentsdata = payload;
+        return state;
+      },
+      
+      [deletecomment.rejected]: (state, { payload }) => {
+        state.isError = true;
+        state.errorMessage = payload;
+        return state;
+      },
+      
+      [likePost.fulfilled]: (state, { payload }) => {
+        console.log(payload)
+        state.likeCount = payload.feed;
+        return state
+      },
+      [likePost.rejected]: (state, { payload }) => {
+        // state.isError = true;
+        // state.errorMessage = payload;
+      },
+      
+      
+      [getLikeCount.fulfilled]: (state, { payload }) => {
+        console.log(payload)
+        state.likeCount = payload.likeCount;
+        state.isLikedByUser = payload.isLikedByUser;
+        return state;
+      },
+      [getLikeCount.rejected]: (state, { payload }) => {
+        return state;
+
+      },
        
-    }
-    
+    } 
   
   })
   
