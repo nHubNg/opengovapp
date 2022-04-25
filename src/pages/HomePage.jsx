@@ -52,7 +52,8 @@ const HomePage = () => {
 								<img
 									src={glogo}
 									alt=''
-									className='rounded-full object-fit w-full h-fit'
+									className='rounded-full object-fit w-full'
+									style={{maxHeight: '150px'}}
 								/>
 							</div>
 							<div className='content px-10'>
@@ -79,7 +80,8 @@ const HomePage = () => {
 								<img
 									src={img_logo}
 									alt=''
-									className='rounded-full object-fit w-full h-fit'
+									className='rounded-full object-fit w-full'
+									style={{maxHeight: '150px'}}
 								/>
 							</div>
 							<div className='content px-10'>
