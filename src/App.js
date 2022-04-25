@@ -24,7 +24,7 @@ function App() {
 
 					<Route path='/auth' element={<SignUpAndSignUp />} />
 
-					<Route path='/dashboard' element={<UserDashboard />} />
+					<Route path='/feeds' element={<UserDashboard />} />
 				</Routes>
 			</Router>
 			<ToastContainer />

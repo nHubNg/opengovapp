@@ -46,7 +46,7 @@ const LoginPage = () => {
   
   useEffect(() => {
     if (isSuccess) {
-      navigate('/dashboard')
+      navigate('/feeds')
       toast.success("Login Successfully");
 
     }

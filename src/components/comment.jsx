@@ -36,22 +36,6 @@ const Comment = ({ feedId }) => {
     await dispatch(createComment(newData));
   };
   
-  
-  useEffect(() => {
-    dispatch(getComments(
-       { id: feedId}
-    ));
-
-    if (isErrorGC) {
-      if (errorMessage.msg) {
-        toast.error(errorMessage.msg);
-      }
-
-      if (errorMessage.error !== undefined) {
-        toast.error(errorMessage.error);
-      }
-    }
-  }, [isErrorGC, isSuccessCreate, errorMessage]);
 
   return (
     <div className="comments">
