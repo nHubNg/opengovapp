@@ -21,7 +21,6 @@ const CommentSection = ({ feedId, updatecomments, activeComment }) => {
     isDeleted,
     successMessage,
     commentsdata,
-    clearDeletedState,
   } = useSelector((state) => state.feed);
   
   
@@ -62,17 +61,17 @@ const CommentSection = ({ feedId, updatecomments, activeComment }) => {
    }, [deleteCommentAct]);
   
   
-   useEffect(() => {
-    if(isDeleted){
+  //  useEffect(() => {
+  //   if(isDeleted){
       
-     console.log("hello deletecomment")
+  //    console.log("hello deletecomment")
      
-     dispatch(
-       clearDeletedState()
-     )
+  //    dispatch(
+  //      clearDeletedState()
+  //    )
     
-    }
-   });
+  //   }
+  //  });
    
    
    console.log(isDeleted)
