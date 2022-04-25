@@ -248,8 +248,8 @@ const UserDashboard = () => {
           </div>
         </nav>
 
-        <div className="content  md:pt-10  md:mx-20  ">
-          <h1 className="mx-10 py-8 text-xl text-primary">Feeds</h1>
+        <div className="content  md:pt-10  md:mx-60  ">
+          {/* <h1 className="mx-10 py-8 text-xl text-primary">Feeds</h1> */}
           {isLoading ? (
             <div className="spiner w-1/4 mx-auto py-40">
               <svg
@@ -276,7 +276,7 @@ const UserDashboard = () => {
                   No feeds or internet, please refresh your network
                 </h1>
               ) : (
-                <div class=" grid grid-cols-2 h-full sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10">
+                <div class=" grid grid-cols-1 h-full sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-10">
                   {feeds.map((feed, i) => (
                     <div className=" ">
                       <div
@@ -284,14 +284,14 @@ const UserDashboard = () => {
                         className=" bg-white py-4 mb-10 shadow-2xl shadow-rounded-lg   p-4 md:flex md:flex-col justify-between leading-normal"
                       >
                         <div className="flex items-center w-full justify-between ">
-                          <div className="md:flex w-3/4 items-center ">
+                          <div className="md:flex w-full items-center ">
                             <img
                               className="w-10 h-10 rounded-full mr-4 p"
                               src={logo}
                             />
-                            <p className="text-xl  ">Ogplateau</p>
+                            <p className="text-xl pt-3  ">Ogplateau</p>
 
-                            <p className="pl-4 text-gray-600 text-sm leading-none   ">
+                            <p className="md:pl-4 text-gray-600 text-sm leading-none   ">
                               {format(new Date(feed.createdAt), 'dddd MMMM Do, YYYY hh')} at {format(new Date(2021, 11, 10, 5, 30, 20), 'shortTime')}
                             </p>
                           </div>

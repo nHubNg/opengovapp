@@ -62,7 +62,7 @@ export default () => {
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
           <div class="flex space-x-4 item-center">
-            <Link to="/dashboard">
+            <Link to="/feeds">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -71,7 +71,7 @@ export default () => {
               </a>
             </Link>
 
-            <Link to="/dashboard">
+            <Link to="/feeds">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -136,7 +136,7 @@ export default () => {
           </div>
 
           <div>
-            <Link to="/dashboard">
+            <Link to="/feeds">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "

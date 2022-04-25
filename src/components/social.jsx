@@ -92,7 +92,7 @@ const SocialSection = ({
           >
             {" "}
             <i className=" text-gray-400 hover:text-blue-600  fa fa-thumbs-down "></i>{" "}
-            <p className="pl-1 text-sm ">{feed.likeCount}</p>{" "}
+            <p className="pl-1 text-sm ">{feed.unLikeCount}</p>{" "}
           </Link>
         ) : (
           <Link
@@ -107,7 +107,7 @@ const SocialSection = ({
           >
             <i className=" text-gray-400 hover:text-blue-600 fa fa-thumbs-down "></i>{" "}
             <p className="pl-1 text-sm ">
-              {likeCount._id == feed._id ? likeCount.likeCount : feed.likeCount}
+              {unLikeCount._id == feed._id ? unLikeCount.unLikeCount : feed.unLikeCount}
             </p>
           </Link>
         )}

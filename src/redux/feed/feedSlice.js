@@ -111,6 +111,7 @@ const initialState = {
       
       [deletecomment.fulfilled]: (state, { payload }) => {
         state.isDeleted = true;
+        state.commentsdata = payload.feed;
         state.successMessage = payload.msg
         return state;
       },
@@ -124,6 +125,7 @@ const initialState = {
       [likePost.fulfilled]: (state, { payload }) => {
         console.log(payload)
         state.likeCount = payload.feed;
+        state.unLikeCount = payload.feed;
         return state
       },
       [likePost.rejected]: (state, { payload }) => {
@@ -146,9 +148,6 @@ const initialState = {
     } 
   
   })
-  
-  
-  
   
   export const userSelector = state => state.user
   export default authSlice;
