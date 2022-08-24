@@ -319,8 +319,7 @@ const HomePage = () => {
 							</div>
 						</div>
 					</div>
-				</section>
-
+				</section >
 				<section className='bg-primary py-10'>
 					<div className='citizen-engament pt-5 md:mx-48 mx-10'>
 						<div className='content grid grid-cols-1 md:grid-cols-2 gap-6'>
