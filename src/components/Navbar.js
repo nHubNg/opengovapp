@@ -45,7 +45,7 @@ export default function Navbar() {
 
           {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
-             <span className="text-primary text-center mt-auto ml-2">
+            <span className="text-primary text-center mt-auto ml-2">
               Government Partnership
             </span>
           </h1> */}
@@ -71,18 +71,17 @@ export default function Navbar() {
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
           <div class="flex space-x-4 h-full item-center">
-            <Link to="/feeds">
+            <Link to="/">
               <a
                 href="/"
                 className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md `}
               >
                 Home
               </a>
-             
             </Link>
             {/* <DropDown data={[{ id: 1, name: "test", link: "" }]} /> */}
 
-            <Link to="/feeds">
+            <Link to="/lga">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8 text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -147,7 +146,7 @@ export default function Navbar() {
           </div>
 
           <div>
-            <Link to="/feeds">
+            <Link to="/">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "

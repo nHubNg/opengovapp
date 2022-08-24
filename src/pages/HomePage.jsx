@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
 
-import banner_pic from "../assets/Group 222.png";
+import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
 import img_3 from "../assets/british.jpg";
 import img_4 from "../assets/british2.jpg";
 import img_5 from "../assets/british3.webp";
 import headerPic from "../assets/header.png";
-import logo from "../assets/Frame 6.png"
+import logo from "../assets/Frame 6.png";
 
 import img_logo from "../assets/logo.png";
 import glogo from "../assets/open-global.png";
@@ -29,12 +29,12 @@ const HomePage = () => {
               Plateau State-One <br /> Stop Investment Centre
             </h1>
             <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4 text-center">
-              The official platform for Plateau state Investment.{" "}
-              Bringing investors closer to their soon-to-be investments.
+              The official platform for Plateau state Investment. Bringing
+              investors closer to their soon-to-be investments.
             </p>
             <div className="heder-btns pt-10">
               <Link
-                to="/auth"
+                to="/lga"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
               >
                 Investors Highlights
@@ -104,31 +104,32 @@ const HomePage = () => {
           </div>
         </div> */}
 
-        <div className="citizen-engament md:mt-80 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
+        <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
-              <h1 className=" capitalize text-4xl">
-                Government plus click&tell{" "}
-              </h1>
-              <h1 className="text-secondary text-4xl pt-4">
-                {" "}
-                = Citizen engament{" "}
+              <h1 className=" capitalize text-3xl font-medium">Why </h1>
+              <h1 className="text-secondary text-3xl pt-2 font-medium">
+                Plateau...{" "}
               </h1>
               <p className="pt-6 text-sm leading-6">
-                This is people’s ability to successfully engage in governance
-                processes, particularly in terms of planning, implementation,
-                monitoring, and evaluation of policies, programs, and projects,
-                is hampered by insufficient citizen-government feedback systems
+                Plateau State is the twelfth largest state in the country with a
+                unique geographical location. Her wide range of natural
+                resources and rich soil has been a major source of revenue
+                generation for many years. The state records a large number of
+                Micro, Small and Medium business owners with fantastic growth
+                records with time. Plateau state contains a people dedicated to
+                growth and development in business and investment and has a
+                large export of great minds to other parts of the country.
               </p>
 
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <a
                   href="/auth/"
                   class="bg-secondary2 shadow-md text-primary capitalize   text-sm font-semibold  hover:text-primary  px-4 py-3 rounded-one "
                 >
                   Login / Register
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="img bg-primary h-auto">
               <img src={banner_pic} alt="" width="100%" height="" />
@@ -139,26 +140,25 @@ const HomePage = () => {
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
-              <h1 className=" capitalize text-4xl">
-                Current <span className="text-secondary">Action Plan</span>
+              <h1 className="capitalize text-3xl font-medium">
+                Our <span className="text-secondary font-medium">Services</span>
               </h1>
-              <p className="pt-4 text-sm leading-6">
+              {/* <p className="pt-4 text-sm leading-6">
                 Plateau joined OGP as part of the 2020 cohort. We are currently
                 executing our first action plan centerd
-              </p>
+              </p> */}
             </div>
             <div className="cards mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card shadow-2xl bg-primary py-4 px-4  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-white capitalize text-lg font-extrabold">
-                    Fiscal transparency
+                    Investment Promotiona & Facilitation
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-white">
-                    To ensure open contracting in public procurement in order to
-                    optimise financial efficiency and minimise/prevent financial
-                    recklessness/leakages
+                    To provide capacity building for development of online
+                    investment guides
                   </p>
-                  <h4
+                  {/* <h4
                     style={{
                       color: "white",
                       fontWeight: "bolder",
@@ -167,20 +167,27 @@ const HomePage = () => {
                     }}
                   >
                     Commitment
-                  </h4>
+                  </h4> */}
                   <ul class="pt-2">
                     <li
                       class="p-2 text-white text-sm font-light"
                       style={{ listStyleType: "disc" }}
                     >
-                      Improving Transparency in Procurement Processes.
+                      Advisory services
                     </li>
 
                     <li
                       class="p-2 text-white text-sm font-light"
                       style={{ listStyleType: "disc" }}
                     >
-                      Improving Participatory Budgeting
+                      Training
+                    </li>
+
+                    <li
+                      class="p-2 text-white text-sm font-light"
+                      style={{ listStyleType: "disc" }}
+                    >
+                      Capacity building
                     </li>
                   </ul>
                 </div>
@@ -189,15 +196,13 @@ const HomePage = () => {
               <div className="card shadow-2xl bg-primary py-4 px-4  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-white capitalize text-lg font-extrabold">
-                    Citizen engagement
+                    Aftercare Services
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-white">
-                    To create the space for citizens, organisations and the
-                    media to thrive, express themselves and participate in the
-                    different stages of the policy making process without fear
-                    or intimidation
+                    Post-investment customer services to follow up and earn
+                    customer's trust on
                   </p>
-                  <h4
+                  {/* <h4
                     style={{
                       color: "white",
                       fontWeight: "bolder",
@@ -206,14 +211,27 @@ const HomePage = () => {
                     }}
                   >
                     Commitment
-                  </h4>
+                  </h4> */}
                   <ul class="pt-2">
                     <li
                       class="p-2 text-white text-sm font-light"
                       style={{ listStyleType: "disc" }}
                     >
-                      Establishing Citizens Dialogue Mechanisms for improved
-                      Accountability and Transparency
+                      Communications
+                    </li>
+
+                    <li
+                      class="p-2 text-white text-sm font-light"
+                      style={{ listStyleType: "disc" }}
+                    >
+                      Actions
+                    </li>
+
+                    <li
+                      class="p-2 text-white text-sm font-light"
+                      style={{ listStyleType: "disc" }}
+                    >
+                      Processes
                     </li>
                   </ul>
                 </div>
@@ -221,34 +239,12 @@ const HomePage = () => {
               <div className="card shadow-2xl bg-primary py-4 px-4  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-white capitalize text-lg font-extrabold">
-                    Extractive Transparency
+                    Business Development Services
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-white">
-                    Increasing Transparency and Accountability in Extractive
-                    Sector through the establishment of the Plateau State
-                    Extractives Transparency Forum (PSETF)
+                    Non-financial services used by entrepreneurs to help improve
+                    business
                   </p>
-
-                  <h4
-                    style={{
-                      color: "white",
-                      fontWeight: "bolder",
-                      textDecoration: "underline",
-                      marginTop: "1.5rem",
-                    }}
-                  >
-                    Commitment
-                  </h4>
-
-                  <ul class="pt-2">
-                    <li
-                      class="p-2 text-white text-sm font-light"
-                      style={{ listStyleType: "disc" }}
-                    >
-                      Increasing Transparency and Accountability in Extractive
-                      Sector
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -258,30 +254,33 @@ const HomePage = () => {
               <div className="card border-4 border-t-0 border-x-0 border-b-secondary shadow-2xl bg-white py-4 px-4  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-black capitalize text-lg font-extrabold">
-                    Gender Commitments{" "}
+                    Policy Advocacy
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-black">
-                    To enhance participation of women in governance and
-                    decision-making processes
+                    To create, reform and change policies and ensure that
+                    policies are well implemented
                   </p>
-                  <h4
-                    style={{
-                      color: "Black",
-                      fontWeight: "bolder",
-                      textDecoration: "underline",
-                      marginTop: "1.5rem",
-                    }}
-                  >
-                    Commitment
-                  </h4>
 
                   <ul class="pt-2">
                     <li
                       class="p-2 text-black text-sm font-light"
                       style={{ listStyleType: "disc" }}
                     >
-                      Improving Gender Equality through the establishment of a
-                      Gender and Equal Opportunities Commission
+                      Build
+                    </li>
+
+                    <li
+                      class="p-2 text-black text-sm font-light"
+                      style={{ listStyleType: "disc" }}
+                    >
+                      Engage
+                    </li>
+
+                    <li
+                      class="p-2 text-black text-sm font-light"
+                      style={{ listStyleType: "disc" }}
+                    >
+                      Influence
                     </li>
                   </ul>
                 </div>
@@ -289,30 +288,12 @@ const HomePage = () => {
               <div className="card shadow-2xl bg-white py-4 px-4 border-4 border-t-0 border-x-0 border-b-secondary  ">
                 <div className="content px-5 py-8">
                   <h1 className="text-black capitalize text-lg font-extrabold">
-                    Peace and Security
+                    Provision of Informations on Investment Opportunities
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-black">
-                    To create and maintain a peaceful environment for
-                    development
+                    Prividing prompt and updated informations on investment
+                    opportunities for collaboration and growth
                   </p>
-                  <h4
-                    style={{
-                      color: "Black",
-                      fontWeight: "bolder",
-                      textDecoration: "underline",
-                      marginTop: "1.5rem",
-                    }}
-                  >
-                    Commitment
-                  </h4>
-                  <ul class="pt-2">
-                    <li
-                      class="p-2 text-black text-sm font-light"
-                      style={{ listStyleType: "disc" }}
-                    >
-                      Establishing an Independent Peace and Security Trust Fund
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -323,26 +304,25 @@ const HomePage = () => {
           <div className="citizen-engament pt-5 md:mx-48 mx-10">
             <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="text">
-                <h1 className=" text-white font-extrabold capitalize text-4xl">
-                  Open
+                <h1 className=" text-white font-extrabold capitalize text-3xl">
+                  Investment
                 </h1>
-                <h1 className="text-secondary font-extrabold text-4xl pt-4">
-                  Contracting
+                <h1 className="text-secondary font-extrabold text-3xl pt-1">
+                  News
                 </h1>
                 <p className="pt-6 text-sm text-white leading-6">
-                  One of the achievements in plateau state open government
-                  reform to date, achieved following the passage of the Plateau
-                  State Public Procurement Law 2018
+                  We are working to provide reliable updates and informations on
+                  profitable investments and requirements for investors and
+                  MSMEs.
                 </p>
 
                 <div className="bg-secondary mt-4">
                   <p className="pt-6 text-sm text-white leading-6 py-6 px-6">
-                    This was done to increase transparency in the procurement
-                    process and reduce corruption through the adoption of
-                    technology. Consequently, the Plateau State open contracting
-                    portal displays all contracts awarded in the state, the
-                    contract sum, the contractors handling the projects and the
-                    implementation status of those projects
+                    Equiping our audience with essential information on
+                    invstments, investors and relevant stakeholders. Following
+                    up on funding opportunities, funding activities and
+                    providing esssential updates on networking opportunities to
+                    scale businesses in different stages
                   </p>
                 </div>
               </div>
@@ -357,71 +337,46 @@ const HomePage = () => {
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
               <h1 className=" capitalize text-2xl">
-                Our latest <span className="text-secondary">Projects</span>
+                Our <span className="text-secondary">Mandate</span>
               </h1>
             </div>
             <div className="cards mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card relative shadow-2xl bg-white ">
                 <div className="content">
-                  <div className="card-img  bg-primary h-40">
-                    <img
-                      src={img_3}
-                      alt=""
-                      className="object-cover h-40 w-96"
-                    />
-                  </div>
-                  <div className="location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 ">
-                    <p className="text-white text-center">Jos North</p>
-                  </div>
-				  
+                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
+                    Boost affordable business
+                  </h4>
 
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    Plateau state Governor Bako Lalong will flag off the
-                    construction of the British-American Flyover and dualisation
-                    to the road to Lamingo junction roundabout.
+                    To reduce cost of doing business in Plateau state through
+                    transparent dealings with MSME's and investors.
                   </p>
                 </div>
               </div>
 
               <div className="card relative shadow-2xl bg-white  ">
                 <div className="content">
-                  <div className="card-img bg-primary h-40">
-                    <img
-                      src={img_4}
-                      alt=""
-                      className="object-cover h-40 w-96"
-                    />
-                  </div>
-
-                  <div className="location absolute top-28 mt-6 shadow-lg text-sm  bg-secondary w-20 py-2 ">
-                    <p className="text-white text-center">Jos North</p>
-                  </div>
+                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
+                    Pioneer reforms & easy admin procedures
+                  </h4>
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    Former Nigerian Head of State General Yakubu Gowon has
-                    flagged off the construction of a new interchange at the
-                    British-American Junction in Jos
+                    To trigger reforms in the public sector by advocating and
+                    following up the adoption of best practices.To also simplify
+                    administrative proceess for issuing licences and permits
                   </p>
                 </div>
               </div>
 
-              <div className="card relative shadow-2xl bg-white    ">
+              <div className="card relative shadow-2xl bg-white">
                 <div className="content">
-                  <div className="card-img bg-primary h-40">
-                    <img
-                      src={img_5}
-                      alt=""
-                      className="object-cover h-40 w-96"
-                    />
-                  </div>
+                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
+                    Foster smooth investing
+                  </h4>
 
-                  <div className="location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 ">
-                    <p className="text-white text-center">Jos North</p>
-                  </div>
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    The commencement of work by the contractor handling the
-                    British-American interchange flyover road project has caused
-                    hardship for motorists, pedestrians and residents of Jos
-                    metropolis.
+                    To remove the challenges faced by MSME's and investors in
+                    establishing and running their business and provide
+                    efficiancy and transparency in business.
                   </p>
                 </div>
               </div>
@@ -440,9 +395,7 @@ const HomePage = () => {
               </div>
 
               <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">
-                  Socials
-                </h1>
+                <h1 className="text-primary text-2xl text-center">Socials</h1>
                 <div className="link pt-4 flex flex-col items-start">
                   <p className="pt-2 text-sm">
                     <a href="">Facebook</a>
@@ -518,8 +471,8 @@ const HomePage = () => {
             </div>
             <hr className="mt-10 border-2 bg-inputcolor" />
             <p className="text-center text-sm">
-              Copyright © <span>{new Date().getFullYear()}</span> Designed and
-              Developed by nHub Nigeria. All Rights Reserved
+              Copyright © <span>{new Date().getFullYear()}</span> PS-OSIC. All
+              Rights Reserved
             </p>
           </div>
         </footer>
