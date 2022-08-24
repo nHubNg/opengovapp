@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
 import { Link, useNavigate } from "react-router-dom";
-import glogo from "../assets/open-global.png";
+// import glogo from "../assets/open-global.png";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
 
 const token = localStorage.token;
@@ -31,15 +31,15 @@ export default () => {
     <nav className=" ">
       <div className="first-nav flex justify-between mx-8 md:w-3/4 md:mx-auto py-4 bg-white">
         <div className="logo items-center flex ">
-          <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
-          <img class="block w-8 h-8 " src={logo} alt="Workflow" />
+          {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
+          <img class="block w-25 h-12 " src={logo} alt="Workflow" />
 
-          <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
+          {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
              <span className="text-primary text-center mt-auto ml-2">
               Government Partnership
             </span>
-          </h1>
+          </h1> */}
         </div>
         <Link to="" onClick={handleToggle}>
           <div class="md:hidden flex items-center ">
@@ -76,7 +76,7 @@ export default () => {
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
-                Feeds
+                Investors Highlight
               </a>
             </Link>
 

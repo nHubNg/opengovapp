@@ -35,12 +35,12 @@ const HomePage = () => {
 							>
 								Login / Register
 							</Link>
-							<a
+							{/* <a
 								href='#'
 								class=' ml-8 text-secondary  text-md font-semibold underline underline-offset-8  capitalize  px-4 py-3  '
 							>
 								Recent Feeds
-							</a>
+							</a> */}
 						</div>
 					</div>
 				</div>
@@ -142,7 +142,7 @@ const HomePage = () => {
 					<div className='current-action md:mx-48 mx-10 pt-20 pb-20'>
 						<div className='heading'>
 							<h1 className=' capitalize text-4xl'>
-								Current <span className='text-secondary'>Action Plan</span>
+								Our <span className='text-secondary'>Services</span>
 							</h1>
 							<p className='pt-4 text-sm leading-6'>
 								Plateau joined OGP as part of the 2020 cohort. We are currently
@@ -359,7 +359,7 @@ const HomePage = () => {
 					<div className='current-action md:mx-48 mx-10 pt-20 pb-20'>
 						<div className='heading'>
 							<h1 className=' capitalize text-2xl'>
-								Our latest <span className='text-secondary'>Projects</span>
+								Our <span className='text-secondary'>Mandate</span>
 							</h1>
 						</div>
 						<div className='cards mt-8 grid grid-cols-1 md:grid-cols-3 gap-6'>
