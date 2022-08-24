@@ -13,7 +13,7 @@ const decoded =
 
 console.log(decoded);
 
-export default () => {
+export default function Navbar() {
   const navigate = useNavigate();
 
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -36,7 +36,7 @@ export default () => {
 
           {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
-             <span className="text-primary text-center mt-auto ml-2">
+            <span className="text-primary text-center mt-auto ml-2">
               Government Partnership
             </span>
           </h1> */}
@@ -71,7 +71,7 @@ export default () => {
               </a>
             </Link>
 
-            <Link to="/feeds">
+            <Link to="/lga">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -188,4 +188,4 @@ export default () => {
       </div>
     </nav>
   );
-};
+}

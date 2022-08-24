@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import SignUpAndSignUp from "./pages/SignUpAndSignUp";
 import UserDashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
+import Lga from "./pages/lga/Lga";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -24,7 +25,7 @@ function App() {
 
           <Route path="/auth" element={<SignUpAndSignUp />} />
 
-          <Route path="/lga" element={<UserDashboard />} />
+          <Route path="/lga" element={<Lga />} />
         </Routes>
       </Router>
       <ToastContainer />
