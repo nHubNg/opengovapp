@@ -6,6 +6,7 @@ import img_3 from "../assets/british.jpg";
 import img_4 from "../assets/british2.jpg";
 import img_5 from "../assets/british3.webp";
 import headerPic from "../assets/header.png";
+import logo from "../assets/Frame 6.png"
 
 import img_logo from "../assets/logo.png";
 import glogo from "../assets/open-global.png";
@@ -23,30 +24,26 @@ const HomePage = () => {
             className="hidden lg:block absolute z-20 ml-10 mt-[30px] w-[120px]"
             alt=""
           />
-          <div className="content py-28 md:w-3/4 md:mx-48 mx-4">
-            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
-              Plateau state open <br /> government partnership
+          <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-center mx-4">
+            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize text-center">
+              Plateau State-One <br /> Stop Investment Centre
             </h1>
-            <p className="text-white leading-6 font-light text-sm pt-10 md:w-2/4 ">
-              The official platform for plateau state branch of the open
-              government partnership. <br /> With an action plan centered around
-              five(5) thematic area that promote participatory, transparent,
-              innovative, inclusive and accountable governance that would lead
-              to a safe, secure and adequately enabled environment for the
-              socio-economic development of the people of Plateau State.
+            <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4 text-center">
+              The official platform for Plateau state Investment.{" "}
+              Bringing investors closer to their soon-to-be investments.
             </p>
             <div className="heder-btns pt-10">
               <Link
                 to="/auth"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
               >
-                About
+                Investors Highlights
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
+        {/* <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
           <div className="card grid grid-cols-1 md:grid-cols-2">
             <div className="card shadow-2xl bg-white flex py-4 px-4 ">
               <div className="rounded-full h-8 w-auto bg-white">
@@ -105,7 +102,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="citizen-engament md:mt-80 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -376,6 +373,7 @@ const HomePage = () => {
                   <div className="location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 ">
                     <p className="text-white text-center">Jos North</p>
                   </div>
+				  
 
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
                     Plateau state Governor Bako Lalong will flag off the
@@ -435,90 +433,86 @@ const HomePage = () => {
           <div className="section md:mx-48 mx-10">
             <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
               <div className="card">
-                <h1 className="text-primary text-2xl text-center">
+                {/* <h1 className="text-primary text-2xl text-center">
                   OGP Plateau
-                </h1>
-                <p className="pt-8 text-sm">
-                  Plateau joined OGP as part of the 2020 cohort. They are
-                  currently implementing five commitments from their 2021-2023
-                  action plan.
-                </p>
+                </h1> */}
+                <img src={logo} alt="" />
               </div>
 
-              <div className="card">
+              <div className="card flex flex-col items-start">
                 <h1 className="text-primary text-2xl text-center">
-                  Our Action Plans
+                  Socials
                 </h1>
-                <div className="link pt-4">
+                <div className="link pt-4 flex flex-col items-start">
                   <p className="pt-2 text-sm">
-                    <a href="">Fiscal Transparency</a>
+                    <a href="">Facebook</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">CItizen Engagement</a>
+                    <a href="">Instagram</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Extractive Tranparency</a>
+                    <a href="">Twitter</a>
                   </p>
-                  <p className="pt-2 text-sm">
+                  {/* <p className="pt-2 text-sm">
                     {" "}
                     <a href="">Gender Commitment</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
                     <a href="">Peace and Security</a>
-                  </p>{" "}
+                  </p>{" "} */}
                 </div>
               </div>
-              <div className="card">
-                <h1 className="text-primary text-2xl text-center">Reports</h1>
+              <div className="card flex flex-col items-start">
+                <h1 className="text-primary text-2xl text-center">Events</h1>
                 <div className="link pt-4">
                   <p className="pt-2 text-sm">
-                    <a href="">Report of Accountant General</a>
+                    <a href="">E-news Letters</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Quarterly Report</a>
+                    <a href="">Gallery</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Audit Reports</a>
+                    <a href="">Investment News</a>
                   </p>
-                  <p className="pt-2 text-sm">
+                  {/* <p className="pt-2 text-sm">
                     {" "}
                     <a href="">Approved Reports</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
                     <a href="">Reports</a>
-                  </p>{" "}
+                  </p>{" "} */}
                 </div>
               </div>
-              <div className="card">
+              <div className="card flex flex-col items-start">
                 <h1 className="text-primary text-2xl text-center">
                   Quick LInks
                 </h1>
                 <div className="link pt-4">
                   <p className="pt-2 text-sm">
-                    <a href="">Plateau State Government</a>
+                    <a href="">Why Plateau</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Open Government Partnership</a>
+                    <a href="">Investors Highlights</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">GovernmentProjects</a>
+                    <a href="">OSIC</a>
                   </p>
-                  <p className="pt-2 text-sm ">
+                  {/* <p className="pt-2 text-sm ">
                     {" "}
                     <a href="">Open Contracting</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
                     <a href="">All Downloads</a>
-                  </p>{" "}
+                  </p>{" "} */}
                 </div>
               </div>
             </div>

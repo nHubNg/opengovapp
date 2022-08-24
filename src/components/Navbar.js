@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
+// import DropDown from "../components/DropDown"
 
 const token = localStorage.token;
 console.log(token);
@@ -13,7 +14,7 @@ const decoded =
 
 console.log(decoded);
 
-export default () => {
+export default function Navbar() {
   const navigate = useNavigate();
 
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -26,6 +27,14 @@ export default () => {
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  // Dropdown Hover
+  const [hover, setHover] = useState(false);
+
+  // hover function
+  // const isHover = () => {
+  //   setHover(!hover);
+  // };
 
   return (
     <nav className=" ">
@@ -61,33 +70,35 @@ export default () => {
         </Link>
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
-          <div class="flex space-x-4 item-center">
+          <div class="flex space-x-4 h-full item-center">
             <Link to="/feeds">
               <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                href="/"
+                className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md `}
               >
                 Home
               </a>
+             
             </Link>
+            {/* <DropDown data={[{ id: 1, name: "test", link: "" }]} /> */}
 
             <Link to="/feeds">
               <a
                 href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                class=" hover:underline hover:underline-offset-8 text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
                 Investors Highlight
               </a>
             </Link>
 
-            <Link to="/">
+            {/* <Link to="/">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
                 About
               </a>
-            </Link>
+            </Link> */}
 
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
@@ -188,4 +199,4 @@ export default () => {
       </div>
     </nav>
   );
-};
+}
