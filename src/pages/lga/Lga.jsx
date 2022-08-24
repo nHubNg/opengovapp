@@ -1,24 +1,38 @@
 import LgaCard from "../../components/lgaCard";
+// import Map from "../../components/maps/Map";
+import Navbar from "../../components/Navbar";
+import data from "../../data";
 import "./lga.css";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import map from "../../assets/opgov/map.png";
 
 export default function Lga() {
   return (
-    <div className="flex h-[100vh] w-full">
-      <div className="flex-[4] h-full bg-white overflow-y-scroll">
-        {/* wrapper div */}
-        <div className="p-3">
-          <h3 className="py-3 font-semibold text-[#6B7280]">
-            Local Government Areas
-          </h3>
-          <hr className="border-none h-[1px] bg-[#E5E7EB]" />
-          <LgaCard />
-          <LgaCard />
-          <LgaCard />
-          <LgaCard />
+    <>
+      <Navbar />
+      <div className="flex h-[calc(100vh_-_80px)] w-full">
+        <div className="flex-[4] h-full bg-white overflow-y-scroll">
+          {/* wrapper div */}
+          <div className="p-3">
+            <h3 className="py-3 font-semibold text-[#6B7280]">
+              Local Government Areas
+            </h3>
+            <hr className="border-none h-[1px] bg-[#E5E7EB]" />
+            {data.map((lga, index) => (
+              <LgaCard
+                key={index}
+                name={lga.lgaName}
+                tags={lga.tags}
+                info={lga.info}
+                img={lga.img}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="flex-[5] h-full">
+          <img className="w-full h-full object-cover" src={map} alt="map" />
+          {/* <Map location={data} /> */}
         </div>
       </div>
-      <div className="flex-[5] h-full bg-slate-400"></div>
-    </div>
+    </>
   );
 }
