@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
 import { Link, useNavigate } from "react-router-dom";
-import glogo from "../assets/open-global.png";
+// import glogo from "../assets/open-global.png";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
+// import DropDown from "../components/DropDown"
 
 const token = localStorage.token;
 console.log(token);
@@ -13,7 +14,7 @@ const decoded =
 
 console.log(decoded);
 
-export default () => {
+export default function Navbar() {
   const navigate = useNavigate();
 
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -27,19 +28,27 @@ export default () => {
     setNavbarOpen(!navbarOpen);
   };
 
+  // Dropdown Hover
+  const [hover, setHover] = useState(false);
+
+  // hover function
+  // const isHover = () => {
+  //   setHover(!hover);
+  // };
+
   return (
     <nav className=" ">
       <div className="first-nav flex justify-between mx-8 md:w-3/4 md:mx-auto py-4 bg-white">
         <div className="logo items-center flex ">
-          <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" />
-          <img class="block w-8 h-8 " src={logo} alt="Workflow" />
+          {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
+          <img class="block w-25 h-12 " src={logo} alt="Workflow" />
 
-          <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
+          {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
-             <span className="text-primary text-center mt-auto ml-2">
+            <span className="text-primary text-center mt-auto ml-2">
               Government Partnership
             </span>
-          </h1>
+          </h1> */}
         </div>
         <Link to="" onClick={handleToggle}>
           <div class="md:hidden flex items-center ">
@@ -61,33 +70,34 @@ export default () => {
         </Link>
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
-          <div class="flex space-x-4 item-center">
-            <Link to="/feeds">
+          <div class="flex space-x-4 h-full item-center">
+            <Link to="/">
               <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                href="/"
+                className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md `}
               >
                 Home
               </a>
             </Link>
+            {/* <DropDown data={[{ id: 1, name: "test", link: "" }]} /> */}
 
-            <Link to="/feeds">
+            <Link to="/lga">
               <a
                 href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                class=" hover:underline hover:underline-offset-8 text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
-                Feeds
+                Investors Highlight
               </a>
             </Link>
 
-            <Link to="/">
+            {/* <Link to="/">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
                 About
               </a>
-            </Link>
+            </Link> */}
 
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
@@ -136,7 +146,7 @@ export default () => {
           </div>
 
           <div>
-            <Link to="/feeds">
+            <Link to="/">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -188,4 +198,4 @@ export default () => {
       </div>
     </nav>
   );
-};
+}
