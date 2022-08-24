@@ -42,7 +42,7 @@ export default () => {
           </h1> */}
         </div>
         <Link to="" onClick={handleToggle}>
-          <div class="md:hidden flex items-center ">
+          <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
                 class="w-6 h-6 text-gray-500"
@@ -89,6 +89,17 @@ export default () => {
               </a>
             </Link>
 
+            <div>
+            <Link to="/ContactPage">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Contact
+              </a>
+            </Link>
+          </div>
+
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
                 <Link
@@ -119,9 +130,8 @@ export default () => {
       </div>
 
       <div
-        className={`md:hidden ${
-          navbarOpen ? "  relative block w-full   " : "hidden"
-        }`}
+        className={`md:hidden ${navbarOpen ? "  relative block w-full   " : "hidden"
+          }`}
       >
         <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
           <div>
@@ -145,7 +155,16 @@ export default () => {
               </a>
             </Link>
           </div>
-
+          <div>
+            <Link to="/">
+              <a
+                href="#"
+                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+              >
+                Contact
+              </a>
+            </Link>
+          </div>
           <div>
             <Link to="/">
               <a
@@ -156,6 +175,7 @@ export default () => {
               </a>
             </Link>
           </div>
+
 
           <div>
             {token != undefined || token != "undefined" ? (

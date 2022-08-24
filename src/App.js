@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
 	return (
@@ -21,6 +22,8 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
+					<Route path='/ContactPage' element={<ContactPage />} />
+
 
 					<Route path='/auth' element={<SignUpAndSignUp />} />
 
