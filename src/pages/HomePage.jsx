@@ -373,7 +373,6 @@ const HomePage = () => {
                       className="object-cover h-40 w-96"
                     />
                   </div>
-
                   <div className="location absolute top-28 mt-6 shadow-lg  text-sm  bg-secondary w-20 py-2 ">
                     <p className="text-white text-center">Jos North</p>
                   </div>

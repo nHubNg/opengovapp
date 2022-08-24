@@ -28,9 +28,9 @@ import { useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/Frame 6.png";
 
-import glogo from "../assets/open-global.png";
+// import glogo from "../assets/open-global.png";
 
 import { Link } from "react-router-dom";
 
@@ -133,15 +133,15 @@ const UserDashboard = () => {
 					<div className='first-nav items-center flex justify-between md:mx-40 mx-10  py-4 bg-white'>
 						<Link to='/'>
 							<div className='logo items-center flex  '>
-								<img class='block h-8 w-auto mr-2' src={glogo} alt='Workflow' />
-								<img class='block w-8 h-8 ' src={logo} alt='Workflow' />
+								{/* <img class='block h-8 w-auto mr-2' src={glogo} alt='Workflow' /> */}
+								<img class='block w-25 h-12 ' src={logo} alt='Workflow' />
 
-								<h1 className='font-bold text-secondary hidden  lg:block text-xl'>
+								{/* <h1 className='font-bold text-secondary hidden  lg:block text-xl'>
 									pen
 									<span className='text-primary text-center mt-auto ml-2'>
 										Government Partnership
 									</span>
-								</h1>
+								</h1> */}
 							</div>
 						</Link>
 
