@@ -32,9 +32,9 @@ const HomePage = () => {
               The official platform for Plateau state Investment. Bringing
               investors closer to their soon-to-be investments.
             </p>
-            <div className="heder-btns pt-10">
+            <div className="heder-btns pt-10 flex justify-center">
               <Link
-                to="/auth"
+                to="/lga"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
               >
                 Investors Highlights
@@ -104,7 +104,7 @@ const HomePage = () => {
           </div>
         </div> */}
 
-        <div className="citizen-engament md:mt-80 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
+        <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
               <h1 className=" capitalize text-3xl font-medium">Why </h1>
@@ -156,7 +156,7 @@ const HomePage = () => {
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-white">
                     To provide capacity building for development of online
-                    investment guides
+                    investment guides.
                   </p>
                   {/* <h4
                     style={{
@@ -200,7 +200,7 @@ const HomePage = () => {
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-white">
                     Post-investment customer services to follow up and earn
-                    customer's trust on
+                    customer's trust on;
                   </p>
                   {/* <h4
                     style={{
@@ -258,7 +258,7 @@ const HomePage = () => {
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-black">
                     To create, reform and change policies and ensure that
-                    policies are well implemented
+                    policies are well implemented.
                   </p>
 
                   <ul class="pt-2">
@@ -291,8 +291,8 @@ const HomePage = () => {
                     Provision of Informations on Investment Opportunities
                   </h1>
                   <p className="pt-6 text-sm leading-6 font-light text-black">
-                    Prividing prompt and updated informations on investment
-                    opportunities for collaboration and growth
+                    Providing prompt and updated informations on investment
+                    opportunities for collaboration and growth.
                   </p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ const HomePage = () => {
                     invstments, investors and relevant stakeholders. Following
                     up on funding opportunities, funding activities and
                     providing esssential updates on networking opportunities to
-                    scale businesses in different stages
+                    scale businesses in different stages.
                   </p>
                 </div>
               </div>
@@ -362,7 +362,7 @@ const HomePage = () => {
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
                     To trigger reforms in the public sector by advocating and
                     following up the adoption of best practices.To also simplify
-                    administrative proceess for issuing licences and permits
+                    administrative proceess for issuing licences and permits.
                   </p>
                 </div>
               </div>
@@ -376,7 +376,7 @@ const HomePage = () => {
                   <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
                     To remove the challenges faced by MSME's and investors in
                     establishing and running their business and provide
-                    efficiancy and transparency in business.
+                    efficiency and transparency in business.
                   </p>
                 </div>
               </div>

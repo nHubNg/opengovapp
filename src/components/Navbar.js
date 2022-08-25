@@ -38,10 +38,13 @@ export default function Navbar() {
 
   return (
     <nav className=" ">
-      <div className="first-nav flex justify-between mx-8 md:w-3/4 md:mx-auto py-4 bg-white">
+      <div className="first-nav flex justify-between items-center mx-8 md:w-3/4 md:mx-auto py-2 bg-white">
         <div className="logo items-center flex ">
           {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
-          <img class="block w-25 h-12 " src={logo} alt="Workflow" />
+
+          <Link to="/">
+            <img class="block w-25 h-12 " src={logo} alt="Workflow" />
+          </Link>
 
           {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
@@ -51,7 +54,7 @@ export default function Navbar() {
           </h1> */}
         </div>
         <Link to="" onClick={handleToggle}>
-          <div class="md:hidden flex items-center ">
+          <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
                 class="w-6 h-6 text-gray-500"
@@ -71,14 +74,13 @@ export default function Navbar() {
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
           <div class="flex space-x-4 h-full item-center">
-            <Link to="/feeds">
+            <Link to="/">
               <a
                 href="/"
                 className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md `}
               >
                 Home
               </a>
-             
             </Link>
             {/* <DropDown data={[{ id: 1, name: "test", link: "" }]} /> */}
 
@@ -100,6 +102,17 @@ export default function Navbar() {
               </a>
             </Link> */}
 
+            <div>
+              <Link to="/ContactPage">
+                <a
+                  href="#"
+                  class=" hover:underline hover:underline-offset-8  text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                >
+                  Contact
+                </a>
+              </Link>
+            </div>
+            {/* 
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
                 <Link
@@ -111,7 +124,7 @@ export default function Navbar() {
                 </Link>
               ) : (
                 <Link
-                  to="/auth"
+                  to="/Register"
                   class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
                 >
                   Login / Register
@@ -119,12 +132,12 @@ export default function Navbar() {
               )
             ) : (
               <Link
-                to="/auth"
+                to="/Register"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
               >
                 Login / Register
               </Link>
-            )}
+            )} */}
           </div>
         </div>
       </div>
@@ -147,27 +160,26 @@ export default function Navbar() {
           </div>
 
           <div>
-            <Link to="/feeds">
+            <Link to="/lga">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
-                Feeds
+                Investors Highlight
               </a>
             </Link>
           </div>
-
           <div>
-            <Link to="/">
+            <Link to="/ContactPage">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
-                About
+                Contact
               </a>
             </Link>
           </div>
-
+          {/* 
           <div>
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
@@ -180,7 +192,7 @@ export default function Navbar() {
                 </Link>
               ) : (
                 <Link
-                  to="/auth"
+                  to="/Regiser"
                   class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
                 >
                   Login / Register
@@ -188,13 +200,13 @@ export default function Navbar() {
               )
             ) : (
               <Link
-                to="/auth"
+                to="/Register"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
               >
                 Login / Register
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
