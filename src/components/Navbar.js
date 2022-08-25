@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <nav className=" ">
-      <div className="first-nav flex justify-between mx-8 md:w-3/4 md:mx-auto py-4 bg-white">
+      <div className="first-nav flex justify-between items-center mx-8 md:w-3/4 md:mx-auto py-2 bg-white">
         <div className="logo items-center flex ">
           {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
           <img class="block w-25 h-12 " src={logo} alt="Workflow" />
@@ -110,7 +110,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-            {token != undefined || token != "undefined" ? (
+            {/* {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
                 <Link
                   to="/auth"
@@ -134,7 +134,7 @@ export default function Navbar() {
               >
                 Login / Register
               </Link>
-            )}
+            )} */}
           </div>
         </div>
       </div>
