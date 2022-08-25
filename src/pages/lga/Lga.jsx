@@ -10,7 +10,7 @@ export default function Lga() {
     <>
       <Navbar />
       <div className="flex h-[calc(100vh_-_80px)] w-full">
-        <div className="md:flex-[4] h-full bg-white overflow-y-scroll">
+        <div className="md:block h-full bg-white overflow-y-scroll">
           {/* wrapper div */}
           <div className="p-3">
             <h3 className="py-3 font-semibold text-[#6B7280]">
@@ -28,7 +28,7 @@ export default function Lga() {
             ))}
           </div>
         </div>
-        <div className="md:flex-[5] md:h-full md:static absolute left-0 right-0 top-[80px] z-10">
+        <div className="hidden md:block md:h-full md:static absolute left-0 right-0 top-[80px]">
           <img className="w-full h-full object-cover" src={map} alt="map" />
           {/* <Map location={data} /> */}
         </div>
