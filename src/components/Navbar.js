@@ -100,17 +100,17 @@ export default function Navbar() {
             </Link> */}
 
             <div>
-            <Link to="/ContactPage">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                Contact
-              </a>
-            </Link>
-          </div>
-
-            {/* {token != undefined || token != "undefined" ? (
+              <Link to="/ContactPage">
+                <a
+                  href="#"
+                  class=" hover:underline hover:underline-offset-8  text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
+                >
+                  Contact
+                </a>
+              </Link>
+            </div>
+{/* 
+            {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
                 <Link
                   to="/auth"
@@ -121,7 +121,7 @@ export default function Navbar() {
                 </Link>
               ) : (
                 <Link
-                  to="/auth"
+                  to="/Register"
                   class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
                 >
                   Login / Register
@@ -129,7 +129,7 @@ export default function Navbar() {
               )
             ) : (
               <Link
-                to="/auth"
+                to="/Register"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
               >
                 Login / Register
@@ -140,8 +140,9 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`md:hidden ${navbarOpen ? "  relative block w-full   " : "hidden"
-          }`}
+        className={`md:hidden ${
+          navbarOpen ? "  relative block w-full   " : "hidden"
+        }`}
       >
         <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
           <div>
@@ -156,17 +157,17 @@ export default function Navbar() {
           </div>
 
           <div>
-            <Link to="/">
+            <Link to="/lga">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
               >
-                Feeds
+                Investors Highlight
               </a>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/ContactPage">
               <a
                 href="#"
                 class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
@@ -175,18 +176,7 @@ export default function Navbar() {
               </a>
             </Link>
           </div>
-          <div>
-            <Link to="/">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                About
-              </a>
-            </Link>
-          </div>
-
-
+{/* 
           <div>
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
@@ -199,7 +189,7 @@ export default function Navbar() {
                 </Link>
               ) : (
                 <Link
-                  to="/auth"
+                  to="/Regiser"
                   class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
                 >
                   Login / Register
@@ -207,13 +197,13 @@ export default function Navbar() {
               )
             ) : (
               <Link
-                to="/auth"
+                to="/Register"
                 class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
               >
                 Login / Register
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
