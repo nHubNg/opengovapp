@@ -10,7 +10,7 @@ const ContactPage = () => {
         <Navbar />
       </div>
       <div className="flex">
-        <div className=" w-[40%] absolute z-10 col-span-2 bg-gradient-to-r from-brand1 to-brand2 flex justify-center h-screen items-center">
+        <div className="w-full md:w-[40%] absolute z-10 col-span-2 bg-gradient-to-r from-brand1 to-brand2 flex justify-center h-screen items-center">
           <div className=" absolute left-5  z-10 opacity-75">
             <img src={header} alt="" />
           </div>
@@ -80,7 +80,7 @@ const ContactPage = () => {
           </div>
         </div>
 
-        <div className=" col-span-3  h-screen w-[60%] absolute right-0 top-0">
+        <div className="hidden md:block col-span-3  h-screen w-[60%] absolute right-0 top-0">
           <Map />
         </div>
       </div>
