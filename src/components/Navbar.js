@@ -41,7 +41,10 @@ export default function Navbar() {
       <div className="first-nav flex justify-between items-center mx-8 md:w-3/4 md:mx-auto py-2 bg-white">
         <div className="logo items-center flex ">
           {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
-          <img class="block w-25 h-12 " src={logo} alt="Workflow" />
+
+          <Link to="/">
+            <img class="block w-25 h-12 " src={logo} alt="Workflow" />
+          </Link>
 
           {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
             pen
@@ -109,7 +112,7 @@ export default function Navbar() {
                 </a>
               </Link>
             </div>
-{/* 
+            {/* 
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
                 <Link
@@ -176,7 +179,7 @@ export default function Navbar() {
               </a>
             </Link>
           </div>
-{/* 
+          {/* 
           <div>
             {token != undefined || token != "undefined" ? (
               decoded.isLoggedIn ? (
