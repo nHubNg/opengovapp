@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import { Icon } from "@iconify/react";
 
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
@@ -11,8 +12,70 @@ import logo from "../assets/Frame 6.png";
 // import img_logo from "../assets/logo.png";
 // import glogo from "../assets/open-global.png";
 import { Link } from "react-router-dom";
+// import { content } from "../../tailwind.config";
 
 const HomePage = () => {
+  const content = [
+    {
+      id: 1,
+      header: "The Agricultural Hub of Nigeria",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#FFFFFFA6]",
+      img: "emojione-monotone:tractor",
+    },
+    {
+      id: 2,
+      header: "Major Hub of Mineral Resources",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#02A75ABF] text-white",
+      img: "mdi:pickaxe",
+    },
+    {
+      id: 3,
+      header: "Accessibility",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "text-white",
+      img: "bi:truck",
+    },
+    {
+      id: 4,
+      header: "Climate",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#003B49BF] text-white",
+      img: "akar-icons:cloud",
+    },
+  ];
+
+  const secondContent = [
+    {
+      id: 1,
+      header: "Competitive and Productive Workforce",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#003B49BF] text-white",
+      img: "akar-icons:people-group",
+    },
+    {
+      id: 2,
+      header: "Favourable Business Regulatory Environment",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "text-white",
+      img: "bi:building",
+    },
+    {
+      id: 3,
+      header: "Peace an Security",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#02A75ABF] text-white",
+      img: "carbon:group-security",
+    },
+    {
+      id: 4,
+      header: "Abundant Natural Resources",
+      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      background: "bg-[#FFFFFFA6]",
+      img: "fluent-emoji-high-contrast:rock",
+    },
+  ];
   return (
     <div className="wrapper overflow-x-hidden">
       <div className="header">
@@ -136,6 +199,34 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+
+        {/* Content */}
+        <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+          {content.map((item) => (
+            <div
+              key={item.id}
+              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+            >
+              <Icon icon={item.img} width="100" />
+              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
+              <p className="text-center">{item.body}</p>
+            </div>
+          ))}
+        </section>
+
+         {/* Content */}
+         <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+          {secondContent.map((item) => (
+            <div
+              key={item.id}
+              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+            >
+              <Icon icon={item.img} width="100" />
+              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
+              <p className="text-center">{item.body}</p>
+            </div>
+          ))}
+        </section>
 
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
