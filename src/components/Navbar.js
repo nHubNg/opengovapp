@@ -73,6 +73,12 @@ export default function Navbar() {
       name: "Contact",
       link: "/ContactPage",
       dropdown: false
+    },
+    {
+      id: 6,
+      name: "Team",
+      link: "/team",
+      dropdown: false
     }
   ]
 
