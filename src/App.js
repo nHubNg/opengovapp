@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
-
+import Team from "./pages/Team";
 import SignUpAndSignUp from "./pages/SignUpAndSignUp";
 import UserDashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
@@ -28,6 +28,7 @@ function App() {
           <Route path="/auth" element={<SignUpAndSignUp />} />
 
           <Route path="/lga" element={<Lga />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </Router>
       <ToastContainer />
