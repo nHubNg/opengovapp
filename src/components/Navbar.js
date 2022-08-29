@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 // import glogo from "../assets/open-global.png";
 
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
+// import { NavItem } from "react-bootstrap";
 // import DropDown from "../components/DropDown"
 
 const token = localStorage.token;
@@ -29,12 +30,51 @@ export default function Navbar() {
   };
 
   // Dropdown Hover
-  const [hover, setHover] = useState(false);
+  // const [hover, setHover] = useState(false);
 
   // hover function
   // const isHover = () => {
   //   setHover(!hover);
   // };
+
+  const navItem = [
+    {
+      id: 1,
+      name: "Home",
+      link: "/",
+      dropdown: false
+    },
+    {
+      id: 2,
+      name: "About us",
+      link: "#",
+      dropdown: true
+    },
+    {
+      id: 3,
+      name: "Invest in Plateau",
+      link: "#",
+      dropdown: false
+    },
+    {
+      id: 4,
+      name: "Investors Highlight",
+      link: "/lga",
+      dropdown: false
+    },
+    {
+      id: 4,
+      name: "Media and Events",
+      link: "#",
+      dropdown: false
+    },
+    {
+      id: 5,
+      name: "Contact",
+      link: "/ContactPage",
+      dropdown: false
+    }
+  ]
 
   return (
     <nav className=" ">
@@ -74,110 +114,11 @@ export default function Navbar() {
 
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
           <div class="flex space-x-4 h-full item-center">
-            <Link to="/">
-              <a
-                href="/"
-                className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md `}
-              >
-                Home
-              </a>
-            </Link>
-            {/* <DropDown data={[{ id: 1, name: "test", link: "" }]} /> */}
-
-            <Link to="/lga">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8 text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                Investors Highlight
-              </a>
-            </Link>
-
-            {/* <Link to="/">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                About
-              </a>
-            </Link> */}
-
-            <div>
-              <Link to="/ContactPage">
-                <a
-                  href="#"
-                  class=" hover:underline hover:underline-offset-8  text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-                >
-                  Contact
-                </a>
-              </Link>
-            </div>
-            {/* 
-            {token != undefined || token != "undefined" ? (
-              decoded.isLoggedIn ? (
-                <Link
-                  to="/auth"
-                  onClick={logout}
-                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-2 rounded-one "
-                >
-                  Logout
-                </Link>
-              ) : (
-                <Link
-                  to="/Register"
-                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
-                >
-                  Login / Register
-                </Link>
-              )
-            ) : (
-              <Link
-                to="/Register"
-                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
-              >
-                Login / Register
-              </Link>
-            )} */}
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={`md:hidden ${
-          navbarOpen ? "  relative block w-full   " : "hidden"
-        }`}
-      >
-        <div class="w-full space-y-8 item-center bg-white  shadow-xl pt-8 px-4 pb-20 h-screen">
-          <div>
-            <Link to="/">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                Home
-              </a>
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/lga">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                Investors Highlight
-              </a>
-            </Link>
-          </div>
-          <div>
-            <Link to="/ContactPage">
-              <a
-                href="#"
-                class=" hover:underline hover:underline-offset-8    text-sm font-semibold  hover:text-primary px-3 py-2 rounded-md "
-              >
-                Contact
-              </a>
-            </Link>
+            {navItem.map((item) => (
+              <NavLink to={item.link} className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md active:text-secondary ${({isActive}) => isActive && "text-secondary"} `} key={item.id}>
+              {item.name}
+            </NavLink>
+            ))}
           </div>
           {/* 
           <div>
