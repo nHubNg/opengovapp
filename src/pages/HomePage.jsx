@@ -2,14 +2,14 @@ import Navbar from "../components/Navbar";
 
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
-import img_3 from "../assets/british.jpg";
-import img_4 from "../assets/british2.jpg";
-import img_5 from "../assets/british3.webp";
+// import img_3 from "../assets/british.jpg";
+// import img_4 from "../assets/british2.jpg";
+// import img_5 from "../assets/british3.webp";
 import headerPic from "../assets/header.png";
 import logo from "../assets/Frame 6.png";
 
-import img_logo from "../assets/logo.png";
-import glogo from "../assets/open-global.png";
+// import img_logo from "../assets/logo.png";
+// import glogo from "../assets/open-global.png";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -17,18 +17,18 @@ const HomePage = () => {
     <div className="wrapper overflow-x-hidden">
       <div className="header">
         <Navbar />
-        <div className="h-auto md:min-h-[603px] bg-img md:relative">
+        <div className="h-auto md:h-screen bg-img bg-cover flex items-center md:relative">
           {/* Header img */}
           <img
             src={headerPic}
-            className="hidden lg:block absolute z-20 ml-10 mt-[30px] w-[120px]"
+            className="hidden lg:block absolute z-20 ml-10 w-[120px]"
             alt=""
           />
-          <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-center mx-4">
-            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize text-center">
+          <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start mx-4">
+            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
               Plateau State-One <br /> Stop Investment Centre
             </h1>
-            <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4 text-center">
+            <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
               The official platform for Plateau state Investment. Bringing
               investors closer to their soon-to-be investments.
             </p>
