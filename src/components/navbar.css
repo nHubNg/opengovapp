@@ -9,9 +9,8 @@
   left: 0;
   right: 0;
   top: 63px;
-  /* height: 35px; */
   padding: 15px 0;
   opacity: 0;
   z-index: -10;
-  transition: 0.5s all ease-in;
+  transition: 0.25s all ease-in;
 }
