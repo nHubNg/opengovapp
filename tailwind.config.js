@@ -18,11 +18,14 @@ module.exports = {
       backgroundImage: {
         'img': "url('/src/assets/background-img.png')",
         'img2': "url('/src/assets/body-bg.png')",
+        'img3':"url('/src/assets/Group 2064 (1).png')"
       },
       fontFamily :{
         'sans': ['Helvetica', 'Arial', 'sans-serif']
       },
-
+      boxShadow :{
+       'ts':' -1px 0px 6px 2px rgba(0,0,0,.1)'
+      }
     },
   },
   plugins: [
