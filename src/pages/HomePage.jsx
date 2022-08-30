@@ -19,28 +19,28 @@ const HomePage = () => {
     {
       id: 1,
       header: "The Agricultural Hub of Nigeria",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
       img: "emojione-monotone:tractor",
     },
     {
       id: 2,
       header: "Major Hub of Mineral Resources",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
       img: "mdi:pickaxe",
     },
     {
       id: 3,
       header: "Accessibility",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "text-white",
       img: "bi:truck",
     },
     {
       id: 4,
       header: "Climate",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
       img: "akar-icons:cloud",
     },
@@ -50,28 +50,28 @@ const HomePage = () => {
     {
       id: 1,
       header: "Competitive and Productive Workforce",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
       img: "akar-icons:people-group",
     },
     {
       id: 2,
       header: "Favourable Business Regulatory Environment",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "text-white",
       img: "bi:building",
     },
     {
       id: 3,
       header: "Peace an Security",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
       img: "carbon:group-security",
     },
     {
       id: 4,
       header: "Abundant Natural Resources",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
+      // body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
       img: "fluent-emoji-high-contrast:rock",
     },
@@ -200,8 +200,9 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Content */}
-        <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+       <div className="h-screen flex flex-col">
+         {/* Content */}
+         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
           {content.map((item) => (
             <div
               key={item.id}
@@ -215,7 +216,7 @@ const HomePage = () => {
         </section>
 
          {/* Content */}
-         <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
           {secondContent.map((item) => (
             <div
               key={item.id}
@@ -227,6 +228,7 @@ const HomePage = () => {
             </div>
           ))}
         </section>
+       </div>
 
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
