@@ -26,6 +26,11 @@ export default function Navbar() {
     navigate("/auth");
   };
 
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+  };
   // Dropdown Hover
   // const [hover, setHover] = useState(false);
 
@@ -44,7 +49,7 @@ export default function Navbar() {
     {
       id: 2,
       name: "About us",
-      link: "#",
+      link: "/about",
       dropdown: true,
       dropDownMenu: [
         "Our Principles",
@@ -56,19 +61,19 @@ export default function Navbar() {
     {
       id: 3,
       name: "Invest in Plateau",
-      link: "#",
-      dropdown: true,
+      link: "/invest",
+      dropdown: false,
     },
     {
       id: 4,
       name: "Investors Highlight",
       link: "/lga",
-      dropdown: true,
+      dropdown: false,
     },
     {
       id: 5,
       name: "Media and Events",
-      link: "#",
+      link: "/media",
       dropdown: true,
       dropDownMenu: ["News", "Events", "Gallery"],
     },
@@ -78,8 +83,8 @@ export default function Navbar() {
       link: "/ContactPage",
       dropdown: true,
       dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
-    }
-  ]
+    },
+  ];
 
   return (
     <nav className=" ">
@@ -98,7 +103,7 @@ export default function Navbar() {
             </span>
           </h1> */}
         </div>
-        <Link to="">
+        <Link to="" onClick={handleToggle}>
           <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
@@ -122,9 +127,13 @@ export default function Navbar() {
             {navItem.map((item) => (
               <NavLink
                 to={item.link}
-                className={`nav-link hover:text-primary text-sm font-semibold px-3 py-2 ${({
-                  isActive,
-                }) => (isActive ? "text-secondary" : "text-[#004252]")}`}
+                style={({ isActive }) => ({
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  padding: "8px 12px",
+                  color: isActive && "#F78251",
+                })}
+                className={`nav-link hover:text-primary`}
                 key={item.id}
               >
                 <li
