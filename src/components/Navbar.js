@@ -47,7 +47,7 @@ export default function Navbar() {
     {
       id: 2,
       name: "About us",
-      link: "#",
+      link: "/about-us",
       dropdown: true
     },
     {
