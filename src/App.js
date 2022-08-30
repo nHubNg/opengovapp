@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
 import Team from "./pages/Team";
 import SignUpAndSignUp from "./pages/SignUpAndSignUp";
+import Principle from "./pages/Principle";
 import UserDashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
@@ -26,7 +27,7 @@ function App() {
           <Route path='/ContactPage' element={<ContactPage />} />
 
           <Route path="/auth" element={<SignUpAndSignUp />} />
-
+          <Route path="/principle" element={<Principle />} />
           <Route path="/lga" element={<Lga />} />
           <Route path="/team" element={<Team />} />
         </Routes>
