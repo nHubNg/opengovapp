@@ -5,6 +5,9 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { motion } from "framer-motion";
+import "./navbar.css";
 // import { NavItem } from "react-bootstrap";
 // import DropDown from "../components/DropDown"
 
@@ -18,15 +21,9 @@ console.log(decoded);
 export default function Navbar() {
   const navigate = useNavigate();
 
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
   const logout = async () => {
     await localStorage.removeItem("token");
     navigate("/auth");
-  };
-
-  const handleToggle = () => {
-    setNavbarOpen(!navbarOpen);
   };
 
   // Dropdown Hover
@@ -42,39 +39,47 @@ export default function Navbar() {
       id: 1,
       name: "Home",
       link: "/",
-      dropdown: false
+      dropdown: false,
     },
     {
       id: 2,
       name: "About us",
       link: "#",
-      dropdown: true
+      dropdown: true,
+      dropDownMenu: [
+        "Our Principles",
+        "Our Governance",
+        "Economic Advisory Coucil",
+        "Client Character",
+      ],
     },
     {
       id: 3,
       name: "Invest in Plateau",
       link: "#",
-      dropdown: false
+      dropdown: true,
     },
     {
       id: 4,
       name: "Investors Highlight",
       link: "/lga",
-      dropdown: false
-    },
-    {
-      id: 4,
-      name: "Media and Events",
-      link: "#",
-      dropdown: false
+      dropdown: true,
     },
     {
       id: 5,
+      name: "Media and Events",
+      link: "#",
+      dropdown: true,
+      dropDownMenu: ["News", "Events", "Gallery"],
+    },
+    {
+      id: 6,
       name: "Contact",
       link: "/ContactPage",
-      dropdown: false
-    }
-  ]
+      dropdown: true,
+      dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
+    },
+  ];
 
   return (
     <nav className=" ">
@@ -93,7 +98,7 @@ export default function Navbar() {
             </span>
           </h1> */}
         </div>
-        <Link to="" onClick={handleToggle}>
+        <Link to="">
           <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
@@ -115,9 +120,35 @@ export default function Navbar() {
         <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
           <div class="flex space-x-4 h-full item-center">
             {navItem.map((item) => (
-              <NavLink to={item.link} className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md active:text-secondary ${({isActive}) => isActive && "text-secondary"} `} key={item.id}>
-              {item.name}
-            </NavLink>
+              <NavLink
+                to={item.link}
+                className={`nav-link hover:text-primary text-sm font-semibold px-3 py-2 ${({
+                  isActive,
+                }) => (isActive ? "text-secondary" : "text-[#004252]")}`}
+                key={item.id}
+              >
+                <li
+                  className={`list-none flex justify-center items-center relative w-full h-full`}
+                >
+                  {item.name}
+                  {item.dropdown && <MdKeyboardArrowDown className="ml-1" />}
+                </li>
+                <div
+                  className={`flex item-center justify-center ${
+                    item.dropdown && "drop-down"
+                  }`}
+                >
+                  {item.dropDownMenu &&
+                    item.dropDownMenu.map((menuItem) => (
+                      <motion.li
+                        className="list-none text-white mx-3"
+                        whileHover={{ color: "#F78251" }}
+                      >
+                        {menuItem}
+                      </motion.li>
+                    ))}
+                </div>
+              </NavLink>
             ))}
           </div>
           {/* 
