@@ -49,14 +49,14 @@ export default function Navbar() {
     {
       id: 2,
       name: "About us",
-      link: "/about",
-      dropdown: true,
       dropDownMenu: [
         "Our Principles",
         "Our Governance",
         "Economic Advisory Coucil",
         "Client Character",
       ],
+      link: "/about-us",
+      dropdown: true,
     },
     {
       id: 3,
