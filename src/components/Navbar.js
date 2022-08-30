@@ -78,8 +78,8 @@ export default function Navbar() {
       link: "/ContactPage",
       dropdown: true,
       dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
-    },
-  ];
+    }
+  ]
 
   return (
     <nav className=" ">

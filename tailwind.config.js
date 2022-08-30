@@ -3,6 +3,7 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ], 
    theme: {
+    
     extend: {
       colors: {
         'primary': '#034B5A',
@@ -16,7 +17,11 @@ module.exports = {
       },
       backgroundImage: {
         'img': "url('/src/assets/background-img.png')",
-      }
+        'img2': "url('/src/assets/body-bg.png')",
+      },
+      fontFamily :{
+        'sans': ['Helvetica', 'Arial', 'sans-serif']
+      },
 
     },
   },
