@@ -10,6 +10,7 @@ const AboutUs = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
       img: "emojione-monotone:tractor",
+      backImg: "bg-img2 h-[50vh]",
       itemList: [
         { id: 1, name: "Only state growing and exporting Rose flowers" },
         { id: 2, name: "Largest producer of Irish Potatoes in Nigeria" },
@@ -27,6 +28,7 @@ const AboutUs = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
       img: "mdi:pickaxe",
+      backImg: "bg-img2 h-[50vh]",
       itemList: [
         {
           id: 1,
@@ -39,6 +41,7 @@ const AboutUs = () => {
       header: "Accessibility",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "text-white",
+      backImg: "bg-img2 h-[50vh]",
       img: "bi:truck",
       itemList: [
         {
@@ -56,6 +59,7 @@ const AboutUs = () => {
       header: "Climate",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
+      backImg: "bg-img2 h-[50vh]",
       img: "akar-icons:cloud",
       itemList: [
         {
@@ -71,8 +75,10 @@ const AboutUs = () => {
       id: 1,
       header: "Competitive and Productive Workforce",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
-      background: "bg-[#003B49BF] text-white",
+
+      backImg: "bg-img2 h-[50vh]",
       img: "akar-icons:people-group",
+      background: "text-white",
       itemList: [
         {
           id: 1,
@@ -84,7 +90,8 @@ const AboutUs = () => {
       id: 2,
       header: "Favourable Business Regulatory Environment",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
-      background: "text-white",
+      background: "bg-[#003B49BF] text-white",
+      backImg: "bg-img2 h-[50vh]",
       img: "bi:building",
       itemList: [
         {
@@ -98,6 +105,7 @@ const AboutUs = () => {
       header: "Peace an Security",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
+      backImg: "bg-img2 h-[50vh]",
       img: "carbon:group-security",
       itemList: [
         {
@@ -111,6 +119,7 @@ const AboutUs = () => {
       header: "Abundant Natural Resources",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
+      backImg: "bg-img2 h-[50vh]",
       img: "fluent-emoji-high-contrast:rock",
       itemList: [
         {
@@ -132,15 +141,15 @@ const AboutUs = () => {
     <div className="w-screen">
       <Navbar className="w-screen" />
       <div className="h-auto bg-white flex items-center">
-        <div className="content py-28 ">
-          <div className="text">
+        <div className="content">
+          <div className="text py-20 px-10 md:p-28">
             <h1 className=" capitalize text-4xl font-bold text-center">
               Why{" "}
-              <span className="text-secondary text-4xl pt-2 font-bold">
+              <span className="text-secondary text-4xl font-bold">
                 Plateau...{" "}
               </span>{" "}
             </h1>
-            <p className="pt-6 text-lg leading-6 text-center text-[#7D7D7D]">
+            <p className="pt-6 text-lg leading-6  text-center text-[#7D7D7D]">
               Plateau State is the twelfth largest state in the country with a
               unique geographical location. Her wide range of natural resources
               and rich soil has been a major source of revenue generation for
@@ -150,36 +159,31 @@ const AboutUs = () => {
               development in business and investment and has a large export of
               great minds to other parts of the country.
             </p>
-
-            {/* <div className="mt-8">
-                <a
-                  href="/auth/"
-                  class="bg-secondary2 shadow-md text-primary capitalize   text-sm font-semibold  hover:text-primary  px-4 py-3 rounded-one "
-                >
-                  Login / Register
-                </a>
-              </div> */}
           </div>
 
           {/* Content */}
-          <section className="w-full bg-img2 bg-cover grid grid-cols-1">
+          <section className="w-full grid grid-cols-1">
             {content.map((item) => (
-              <div
-                key={item.id}
-                className={`${item.background} opacity-80 h-full p-10 grid grid-cols-2`}
-              >
-                <div>
-                  <Icon icon={item.img} width="100" />
-                  <h2 className="text-center text-2xl font-bold">
-                    {item.header}
-                  </h2>
-                </div>
+              <div className={`${item.backImg}`} key={item.id}>
+                <div
+                  key={item.id}
+                  className={`${item.background} opacity-80 h-full md:px-28 p-10`}
+                >
+                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-2 flex items">
+                    <div className="flex flex-col items-center justify-center">
+                      <Icon icon={item.img} width="100" />
+                      <h2 className="text-center text-2xl font-bold">
+                        {item.header}
+                      </h2>
+                    </div>
 
-                <ul>
-                  {item.itemList.map((list) => (
-                    <li key={list.id}>{list.name}</li>
-                  ))}
-                </ul>
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg">
+                      {item.itemList.map((list) => (
+                        <li key={list.id}>{list.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             ))}
           </section>
@@ -187,23 +191,27 @@ const AboutUs = () => {
           {/* Content */}
           <section className="w-full bg-img2 bg-cover grid grid-cols-1">
             {secondContent.map((item) => (
-              <div
-                key={item.id}
-                className={`${item.background} opacity-80 h-full p-10 grid grid-cols-2`}
-              >
-                <div>
-                  <Icon icon={item.img} width="100" />
-                  <h2 className="text-center text-2xl font-bold">
-                    {item.header}
-                  </h2>
-                </div>
-                <ul>
-                  {item.itemList.map((list) => (
-                    <li key={list.id}>{list.name}</li>
-                  ))}
-                </ul>
+              <div className={`${item.backImg}`} key={item.id}>
+                <div
+                  key={item.id}
+                  className={`${item.background} opacity-80 h-full p-10`}
+                >
+                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-2">
+                    <div className="flex flex-col items-center justify-center">
+                      <Icon icon={item.img} width="100" />
+                      <h2 className="text-center text-2xl font-bold">
+                        {item.header}
+                      </h2>
+                    </div>
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg">
+                      {item.itemList.map((list) => (
+                        <li key={list.id}>{list.name}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-                {/* <p className="text-center">{item.body}</p> */}
+                  {/* <p className="text-center">{item.body}</p> */}
+                </div>
               </div>
             ))}
           </section>
