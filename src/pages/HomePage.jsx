@@ -7,11 +7,11 @@ import img_2 from "../assets/[GetPaidStock 3.png";
 // import img_4 from "../assets/british2.jpg";
 // import img_5 from "../assets/british3.webp";
 import headerPic from "../assets/header.png";
-import logo from "../assets/Frame 6.png";
 
 // import img_logo from "../assets/logo.png";
 // import glogo from "../assets/open-global.png";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 // import { content } from "../../tailwind.config";
 
 const HomePage = () => {
@@ -76,9 +76,42 @@ const HomePage = () => {
       img: "fluent-emoji-high-contrast:rock",
     },
   ];
+
+  const icons = [
+    {
+      id: 1,
+      class: "fa6-solid:map-location-dot",
+      text: "lorem ipsum"
+    },
+    {
+      id: 2,
+      class: "fluent-emoji-high-contrast:globe-showing-europe-africa",
+      text: "lorem ipsum"
+    },
+    {
+      id: 3,
+      class: "fluent:people-16-filled",
+      text: "lorem ipsum"
+    },
+    {
+      id: 4,
+      class: "fa6-solid:hill-rockslide",
+      text: "lorem ipsum"
+    },
+    {
+      id: 5,
+      class: "ic:baseline-grass",
+      text: "lorem ipsum"
+    },
+    {
+      id: 6,
+      class: "emojione-monotone:kiwi-fruit",
+      text: "lorem ipsum"
+    },
+  ];
   return (
     <div className="wrapper overflow-x-hidden">
-      <div className="header">
+      <div className="header w-screen">
         <Navbar />
         <div className="h-auto md:h-screen bg-img bg-cover flex items-center md:relative">
           {/* Header img */}
@@ -167,6 +200,15 @@ const HomePage = () => {
           </div>
         </div> */}
 
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[1040px] md:mx-auto h-screen text-secondary">
+          {icons.map((item) => (
+            <div key={item.id} className="flex flex-col items-center justify-center">
+              <Icon icon={item.class} width="80" />
+              <p className="text-lg">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
@@ -200,35 +242,39 @@ const HomePage = () => {
           </div>
         </div>
 
-       <div className="h-screen flex flex-col">
-         {/* Content */}
-         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
-          {content.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
+        <div className="h-screen flex flex-col">
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+            {content.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
 
-         {/* Content */}
-         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
-          {secondContent.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
-       </div>
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+            {secondContent.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
+        </div>
 
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
@@ -476,99 +522,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
-        <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
-          <div className="section md:mx-48 mx-10">
-            <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
-              <div className="card">
-                {/* <h1 className="text-primary text-2xl text-center">
-                  OGP Plateau
-                </h1> */}
-                <img src={logo} alt="" />
-              </div>
-
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Socials</h1>
-                <div className="link pt-4 flex flex-col items-start">
-                  <p className="pt-2 text-sm">
-                    <a href="">Facebook</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Instagram</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Twitter</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gender Commitment</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Peace and Security</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Events</h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">E-news Letters</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gallery</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investment News</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Approved Reports</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Reports</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">
-                  Quick LInks
-                </h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">Why Plateau</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investors Highlights</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">OSIC</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm ">
-                    {" "}
-                    <a href="">Open Contracting</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">All Downloads</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-            </div>
-            <hr className="mt-10 border-2 bg-inputcolor" />
-            <p className="text-center text-sm">
-              Copyright © <span>{new Date().getFullYear()}</span> PS-OSIC. All
-              Rights Reserved
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
