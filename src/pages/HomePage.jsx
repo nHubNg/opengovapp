@@ -1,18 +1,14 @@
 import Navbar from "../components/Navbar";
 import { Icon } from "@iconify/react";
-
+import Slider from "react-slick"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
-// import img_3 from "../assets/british.jpg";
-// import img_4 from "../assets/british2.jpg";
-// import img_5 from "../assets/british3.webp";
 import headerPic from "../assets/header.png";
 import logo from "../assets/Frame 6.png";
-
-// import img_logo from "../assets/logo.png";
-// import glogo from "../assets/open-global.png";
+import { News, upcomingNews } from "../data";
 import { Link } from "react-router-dom";
-// import { content } from "../../tailwind.config";
 
 const HomePage = () => {
   const content = [
@@ -76,35 +72,137 @@ const HomePage = () => {
       img: "fluent-emoji-high-contrast:rock",
     },
   ];
+  const Toppart = [
+    {
+      id: 1,
+      headerPic: "images/background-img.png",
+      plan: "Plateau State-One",
+      plan1: "Stop Investment Center",
+      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: 'Investment Highlights'
+
+    },
+    {
+      id: 2,
+      headerPic: "images/[GetPaidStock 2.png",
+      plan: "Plateau Nigeria",
+      plan1: "Lorem Ipsum",
+      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: 'Learn More'
+
+    }
+  ]
+
+  // const News = [
+  //   {
+  //     id: 1,
+  //     name : "Martin starba",
+  //     avatar : "images/[GetPaidStock 3.png",
+  //     newsTitle: "I enjoy hard work i love setting goals and achieving them",
+  //     newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+  //     newsDate : " Nov 15 2021 "
+  //   }
+  // ]
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red" }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green" }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    autoplay: true,
+    fade: true,
+    pauseOnHover: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <div className="wrapper overflow-x-hidden">
       <div className="header">
         <Navbar />
-        <div className="h-auto md:h-screen bg-img bg-cover flex items-center md:relative">
-          {/* Header img */}
-          <img
-            src={headerPic}
-            className="hidden lg:block absolute z-20 ml-10 w-[120px]"
-            alt=""
-          />
-          <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start mx-4">
-            <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
-              Plateau State-One <br /> Stop Investment Centre
-            </h1>
-            <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
-              The official platform for Plateau state Investment. Bringing
-              investors closer to their soon-to-be investments.
-            </p>
-            <div className="heder-btns pt-10 flex justify-center">
-              <Link
-                to="/lga"
-                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
-              >
-                Investors Highlights
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Slider {...settings}>
+
+          {
+            Toppart.map((item => {
+              return (
+
+
+                <div className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}>
+                  <div className="flex  ">
+                    <img
+                      src={headerPic}
+                      className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
+                      alt=""
+                    />
+                  </div>
+                  <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start md:justify-center h-full mx-4">
+                    <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
+                      {item.plan} <br /><span>{item.plan1}</span>
+                    </h1>
+                    <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
+                      {item.plan2}
+                    </p>
+                    <div className="heder-btns pt-10 flex justify-center">
+                      <Link
+                        to="/lga"
+                        class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
+                      >
+                        {item.button}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )
+            }))
+          }
+        </Slider>
 
         {/* <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
           <div className="card grid grid-cols-1 md:grid-cols-2">
@@ -214,8 +312,8 @@ const HomePage = () => {
           ))}
         </section>
 
-         {/* Content */}
-         <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+        {/* Content */}
+        <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
           {secondContent.map((item) => (
             <div
               key={item.id}
@@ -424,6 +522,68 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* News Section */}
+
+        <section >
+          <div className="flex ">
+            <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
+            <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
+          </div>
+
+
+          <div className="flex w-full h-screen">
+            <div className="flex flex-col flex-[4] p-3">
+              {/* <Slider > */}
+
+            {
+              News.map((item =>{
+                return (
+                  <div key={item.id} className="bg-primary text-white grid grid-cols-3 border p-4 w-auto">
+                  <div className="col-span-2">
+                    <div>
+                      <div className="flex items-center">
+                        <img src={item.avatar} alt="" className="w-[3rem] rounded-full mx-2 " /> <p className=" text-sm font-semibold">{item.name}</p>
+                      </div>
+                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
+                      <p>{item.newsBody}</p>
+                      <p className="pt-3 mt-10">{item.newsDate} <span></span></p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src={item.avatar} alt="" className="w-48 col-span-1 ml-auto" />
+                  </div>
+                </div>
+                
+               
+
+                )
+              }))
+            }
+            {/* </Slider> */}
+            </div>
+            <div className="flex-[2] flex flex-col">
+
+            {
+              upcomingNews.map((item =>{
+                return(
+                  <div key={item.id} className="  w-auto">
+                  <div className=" col-span-2 border grid grid-cols-2 p-4 w-auto">
+                    <div className="">
+                      <img src={item.avatar} alt="" className="w-48  " />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
+                      <p className="pt-3">{item.newsDate} <span></span></p>
+                    </div>
+                  </div>
+                </div>
+                )
+              }))
+            }
+           
+                    </div>
+            </div>
+        </section>
         <section className="bg-white">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
@@ -474,7 +634,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
         <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
           <div className="section md:mx-48 mx-10">
             <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
