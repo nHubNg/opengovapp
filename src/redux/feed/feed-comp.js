@@ -1,6 +1,6 @@
-import react from "react";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+// import react from "react";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+// import axios from "axios";
 const baseurl = "https://opengovapi.herokuapp.com/api/v1"
 
 
@@ -71,7 +71,7 @@ export const createComment = createAsyncThunk(
       });
       let data = await response.json();
       console.log("comentssssssss", data);
-      if (response.status == 201) {
+      if (response.status === 201) {
         return data.feed;
       } else {
         return thunkAPI.rejectWithValue(data);
@@ -215,7 +215,7 @@ export const deletecomment = createAsyncThunk(
       });
       let data = await response.json();
       console.log("deleted", data);
-      if (response.status == 200) {
+      if (response.status === 200) {
         return data;
       } else {
         return thunkAPI.rejectWithValue(data);

@@ -1,45 +1,93 @@
-.overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  bottom: -100%;
-  left: 0;
-  opacity: 0;
-  width: 100%;
-  /* height: 100%; */
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 0;
-  /* transition: 0.25s opacity ease-in-out; */
-  /* transition: 0.25s all ease-in-out; */
-}
-
-.team:hover > .overlay {
-  /* opacity: 1; */
-  z-index: 10;
-  animation: team 0.2s ease-out forwards;
-}
-
 .team:hover > .team-img {
-  transform: scale(0.5);
-  opacity: 0.6;
+  animation: team 0.25s linear forwards;
+}
+
+.team-img {
+  animation: hide-team 0.25s linear;
+}
+
+.team:hover > .team-info {
+  animation: info 0.25s 0.3s ease-in-out forwards;
+}
+
+.team:hover > .team-img img {
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @keyframes team {
   0% {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
     opacity: 0;
-    height: 0%;
   }
   25% {
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
     opacity: 0.25;
-    height: 25%;
+  }
+  50% {
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  75% {
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.75;
+  }
+  100% {
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes hide-team {
+  0% {
+    opacity: 0;
   }
   50% {
     opacity: 0.5;
-    height: 50%;
   }
   100% {
     opacity: 1;
-    height: 100%;
+  }
+}
+
+@keyframes info {
+  0% {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+  }
+  50% {
+    opacity: 0.5;
+    position: absolute;
+  }
+  100% {
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
   }
 }

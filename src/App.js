@@ -7,6 +7,7 @@ import {
 import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
 import Team from "./pages/team/Team";
+import Carousel from "./pages/testcarousel";
 import SignUpAndSignUp from "./pages/SignUpAndSignUp";
 import Principle from "./pages/Principle";
 import UserDashboard from "./pages/Dashboard";
@@ -26,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ContactPage" element={<ContactPage />} />
-
+          <Route path="cas" element={<Carousel />} />
           <Route path="/auth" element={<SignUpAndSignUp />} />
           <Route path="/principle" element={<Principle />} />
           <Route path="/lga" element={<Lga />} />

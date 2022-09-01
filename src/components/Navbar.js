@@ -7,7 +7,6 @@ import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
-import "./navbar.css";
 // import { NavItem } from "react-bootstrap";
 // import DropDown from "../components/DropDown"
 
@@ -27,17 +26,13 @@ export default function Navbar() {
   };
 
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [menu, setMenu] = useState(-1);
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
   // Dropdown Hover
   // const [hover, setHover] = useState(false);
-
-  // hover function
-  // const isHover = () => {
-  //   setHover(!hover);
-  // };
 
   const navItem = [
     {
@@ -52,7 +47,7 @@ export default function Navbar() {
       dropDownMenu: [
         "Our Principles",
         "Our Governance",
-        "Economic Advisory Coucil",
+        "Economic Advisory Council",
         "Client Character",
       ],
       link: "/about-us",
@@ -84,11 +79,40 @@ export default function Navbar() {
       dropdown: true,
       dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
     },
+    {
+      id: 7,
+      name: "Team",
+      link: "/team",
+      dropdown: false,
+    },
   ];
 
+  const check = (event) => {
+    if (
+      event.target.classList.contains("drop-down") ||
+      event.target.classList.contains("dd-menu")
+    ) {
+      if (event.target.id) {
+        let id = +event.target.id;
+        setMenu(id - 1);
+      }
+    } else {
+      setMenu(-1);
+    }
+  };
+
   return (
-    <nav className=" ">
-      <div className="first-nav flex justify-between items-center mx-8 md:w-3/4 md:mx-auto py-2 bg-white">
+    <nav
+      onMouseOver={check}
+      onMouseLeave={() => setMenu(-1)}
+      className="relative flex h-[64px]"
+    >
+      <div
+        className={`${
+          menu > -1 ? "z-10 opacity-100" : "z-0 opacity-0"
+        } bg-[#004252] w-full h-[40px] absolute -bottom-[40px] transition ease-in`}
+      ></div>
+      <div className="first-nav flex justify-between items-center w-full mx-8 md:w-3/4 md:mx-auto bg-white">
         <div className="logo items-center flex ">
           {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
 
@@ -122,7 +146,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
+        <div className="hidden md:block  sm:ml-6 pt-1 pl-3">
           <div class="flex space-x-4 h-full item-center">
             {navItem.map((item) => (
               <NavLink
@@ -130,33 +154,46 @@ export default function Navbar() {
                 style={({ isActive }) => ({
                   fontSize: "14px",
                   fontWeight: "600",
-                  padding: "8px 12px",
+                  margin: "0 12px",
                   color: isActive && "#F78251",
                 })}
-                className={`nav-link hover:text-primary`}
+                className={`hover:text-primary`}
                 key={item.id}
               >
                 <li
-                  className={`list-none flex justify-center items-center relative w-full h-full`}
+                  className={`${
+                    menu === item.id - 1 ? "relative" : ""
+                  } list-none flex flex-col justify-center w-full h-full`}
                 >
-                  {item.name}
-                  {item.dropdown && <MdKeyboardArrowDown className="ml-1" />}
+                  <span
+                    id={item.id}
+                    className={`${
+                      item.dropdown ? "drop-down" : ""
+                    } flex items-center py-[20px]`}
+                  >
+                    {item.name}
+                    {item.dropdown && <MdKeyboardArrowDown className="ml-1" />}
+                  </span>
+
+                  <div
+                    className={`${
+                      menu === item.id - 1
+                        ? "opacity-100 z-10 dd-menu"
+                        : "opacity-0 z-0"
+                    } bg-[#004252] text-white flex items-center justify-between w-max h-[40px] absolute left-[50%] -bottom-[39px] -translate-x-[50%] transition ease-in delay-100`}
+                  >
+                    {menu > -1 &&
+                      navItem[menu].dropDownMenu.map((link, index) => (
+                        <motion.span
+                          className="dd-menu mx-3"
+                          whileHover={{ color: "#F78251" }}
+                          key={index}
+                        >
+                          {link}
+                        </motion.span>
+                      ))}
+                  </div>
                 </li>
-                <div
-                  className={`flex item-center justify-center ${
-                    item.dropdown && "drop-down"
-                  }`}
-                >
-                  {item.dropDownMenu &&
-                    item.dropDownMenu.map((menuItem) => (
-                      <motion.li
-                        className="list-none text-white mx-3"
-                        whileHover={{ color: "#F78251" }}
-                      >
-                        {menuItem}
-                      </motion.li>
-                    ))}
-                </div>
               </NavLink>
             ))}
           </div>
