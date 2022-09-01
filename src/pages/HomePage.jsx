@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
@@ -81,32 +82,32 @@ const HomePage = () => {
     {
       id: 1,
       class: "fa6-solid:map-location-dot",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
     {
       id: 2,
       class: "fluent-emoji-high-contrast:globe-showing-europe-africa",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
     {
       id: 3,
       class: "fluent:people-16-filled",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
     {
       id: 4,
       class: "fa6-solid:hill-rockslide",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
     {
       id: 5,
       class: "ic:baseline-grass",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
     {
       id: 6,
       class: "emojione-monotone:kiwi-fruit",
-      text: "lorem ipsum"
+      text: "lorem ipsum",
     },
   ];
   return (
@@ -200,10 +201,26 @@ const HomePage = () => {
           </div>
         </div> */}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[1040px] md:mx-auto h-screen text-secondary">
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
           {icons.map((item) => (
-            <div key={item.id} className="flex flex-col items-center justify-center">
-              <Icon icon={item.class} width="80" />
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <motion.div
+                animate={{
+                  opacity: 1,
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                <Icon icon={item.class} width="80" />
+              </motion.div>
               <p className="text-lg">{item.text}</p>
             </div>
           ))}

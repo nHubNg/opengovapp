@@ -15,7 +15,7 @@ const ContactPage = () => {
             <img src={header} alt="" />
           </div>
           <div className="block p-6 py-10 rounded shadow-lg bg-white max-w-md z-20 w-[60%]">
-            <form>
+            {/* <form>
               <div className="mb-6">
                 <Input type="text" placeholder="Enter Name" />
               </div>
@@ -76,7 +76,7 @@ const ContactPage = () => {
               >
                 Send
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
 
@@ -88,28 +88,28 @@ const ContactPage = () => {
   );
 };
 
-const Input = ({ type, placeholder }) => {
-  return (
-    <input
-      type={type}
-      className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
-      id="exampleInput8"
-      placeholder={placeholder}
-    />
-  );
-};
+// const Input = ({ type, placeholder }) => {
+//   return (
+//     <input
+//       type={type}
+//       className="form-control block
+//         w-full
+//         px-3
+//         py-1.5
+//         text-base
+//         font-normal
+//         text-gray-700
+//         bg-white bg-clip-padding
+//         border border-solid border-gray-300
+//         rounded
+//         transition
+//         ease-in-out
+//         m-0
+//         focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
+//       id="exampleInput8"
+//       placeholder={placeholder}
+//     />
+//   );
+// };
 
 export default ContactPage;
