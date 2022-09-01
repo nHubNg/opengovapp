@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import ContactPage from "./pages/ContactPage";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           <Route path="/principle" element={<Principle />} />
           <Route path="/lga" element={<Lga />} />
           <Route path="/team" element={<Team />} />
+
+          {/* About Page */}
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </Router>
       <ToastContainer />
