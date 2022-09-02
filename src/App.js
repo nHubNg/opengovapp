@@ -19,6 +19,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import ContactPage from "./pages/ContactPage";
 import Invest from "./pages/Invest";
+import Contact2 from "./pages/Contact2";
+import Contact3 from "./pages/Contact3";
 
 function App() {
   return (
@@ -34,6 +36,11 @@ function App() {
           {/* <Route path="/principle" element={<Principle />} /> */}
           <Route path="/lga" element={<Lga />} />
           <Route path="/team" element={<Team />} />
+
+          <Route path="/secondContact" element={<Contact2 />} />
+          <Route path="/thirdContact" element={<Contact3 />} />
+
+          <Route path="*" element={"Sorry this route does not exist"} />
 
           {/* About Page */}
           {/* <Route path="/about-us" element={<AboutUs />} /> */}

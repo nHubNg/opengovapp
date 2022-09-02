@@ -1,5 +1,6 @@
 // import headerPic from "../assets/header.png";
 import { Icon } from "@iconify/react";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Invest = () => {
@@ -10,7 +11,7 @@ const Invest = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
       img: "emojione-monotone:tractor",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       itemList: [
         { id: 1, name: "Only state growing and exporting Rose flowers" },
         { id: 2, name: "Largest producer of Irish Potatoes in Nigeria" },
@@ -28,7 +29,7 @@ const Invest = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
       img: "mdi:pickaxe",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       itemList: [
         {
           id: 1,
@@ -41,7 +42,7 @@ const Invest = () => {
       header: "Accessibility",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "text-white",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "bi:truck",
       itemList: [
         {
@@ -59,7 +60,7 @@ const Invest = () => {
       header: "Climate",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "akar-icons:cloud",
       itemList: [
         {
@@ -76,7 +77,7 @@ const Invest = () => {
       header: "Competitive and Productive Workforce",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
 
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "akar-icons:people-group",
       background: "text-white",
       itemList: [
@@ -91,7 +92,7 @@ const Invest = () => {
       header: "Favourable Business Regulatory Environment",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "bi:building",
       itemList: [
         {
@@ -105,7 +106,7 @@ const Invest = () => {
       header: "Peace an Security",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "carbon:group-security",
       itemList: [
         {
@@ -119,7 +120,7 @@ const Invest = () => {
       header: "Abundant Natural Resources",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
-      backImg: "bg-img2 h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "fluent-emoji-high-contrast:rock",
       itemList: [
         {
@@ -149,7 +150,7 @@ const Invest = () => {
                 Plateau...{" "}
               </span>{" "}
             </h1>
-            <p className="pt-6 text-lg leading-6  text-center text-[#7D7D7D]">
+            <p className="pt-6 text-lg leading-7 md:leading-10  text-center text-[#7D7D7D]">
               Plateau State is the twelfth largest state in the country with a
               unique geographical location. Her wide range of natural resources
               and rich soil has been a major source of revenue generation for
@@ -167,9 +168,9 @@ const Invest = () => {
               <div className={`${item.backImg}`} key={item.id}>
                 <div
                   key={item.id}
-                  className={`${item.background} opacity-80 h-full md:px-28 p-10`}
+                  className={`${item.background} opacity-80 h-full w-screen md:px-28 p-10`}
                 >
-                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-2 flex items">
+                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-1 md:grid-cols-2 my-auto h-full">
                     <div className="flex flex-col items-center justify-center">
                       <Icon icon={item.img} width="100" />
                       <h2 className="text-center text-2xl font-bold">
@@ -177,7 +178,7 @@ const Invest = () => {
                       </h2>
                     </div>
 
-                    <ul className="flex flex-col items-start justify-center list-disc text-lg">
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-10">
                       {item.itemList.map((list) => (
                         <li key={list.id}>{list.name}</li>
                       ))}
@@ -196,14 +197,14 @@ const Invest = () => {
                   key={item.id}
                   className={`${item.background} opacity-80 h-full p-10`}
                 >
-                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-2">
+                  <div className="md:w-[1040px] md:mx-auto grid grid-cols-1 md:grid-cols-2 h-full">
                     <div className="flex flex-col items-center justify-center">
                       <Icon icon={item.img} width="100" />
                       <h2 className="text-center text-2xl font-bold">
                         {item.header}
                       </h2>
                     </div>
-                    <ul className="flex flex-col items-start justify-center list-disc text-lg">
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-10">
                       {item.itemList.map((list) => (
                         <li key={list.id}>{list.name}</li>
                       ))}
@@ -217,6 +218,7 @@ const Invest = () => {
           </section>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

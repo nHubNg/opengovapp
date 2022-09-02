@@ -1,11 +1,14 @@
 import Navbar from "../components/Navbar";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
+import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 import logo from "../assets/Frame 6.png";
 import { News, upcomingNews } from "../data/data";
 import { Link } from "react-router-dom";
@@ -72,7 +75,41 @@ const HomePage = () => {
       img: "fluent-emoji-high-contrast:rock",
     },
   ];
-  const Toppart = [
+
+  const icons = [
+    {
+      id: 1,
+      class: "fa6-solid:map-location-dot",
+      text: "lorem ipsum",
+    },
+    {
+      id: 2,
+      class: "fluent-emoji-high-contrast:globe-showing-europe-africa",
+      text: "lorem ipsum",
+    },
+    {
+      id: 3,
+      class: "fluent:people-16-filled",
+      text: "lorem ipsum",
+    },
+    {
+      id: 4,
+      class: "fa6-solid:hill-rockslide",
+      text: "lorem ipsum",
+    },
+    {
+      id: 5,
+      class: "ic:baseline-grass",
+      text: "lorem ipsum",
+    },
+    {
+      id: 6,
+      class: "emojione-monotone:kiwi-fruit",
+      text: "lorem ipsum",
+    },
+  ];
+
+  const topPart = [
     {
       id: 1,
       headerPic: "images/background-img.png",
@@ -163,9 +200,10 @@ const HomePage = () => {
       },
     ],
   };
+
   return (
     <div className="wrapper overflow-x-hidden">
-      <div className="header">
+      <div className="header w-screen">
         <Navbar />
         <Slider {...settings}>
           {Toppart.map((item) => {
@@ -173,10 +211,10 @@ const HomePage = () => {
               <div
                 className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}
               >
-                <div className="flex  ">
+                <div className="hidden md:flex">
                   <img
                     src={headerPic}
-                    className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
+                    className="mt-[10rem] absolute z-20 ml-10 w-[100px]"
                     alt=""
                   />
                 </div>
@@ -263,6 +301,31 @@ const HomePage = () => {
           </div>
         </div> */}
 
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
+          {icons.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <motion.div
+                animate={{
+                  opacity: 1,
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                }}
+              >
+                <Icon icon={item.class} width="80" />
+              </motion.div>
+              <p className="text-lg">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
@@ -313,7 +376,8 @@ const HomePage = () => {
             ))}
           </section>
 
-          <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
             {secondContent.map((item) => (
               <div
                 key={item.id}
@@ -647,98 +711,8 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
-          <div className="section md:mx-48 mx-10">
-            <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
-              <div className="card">
-                {/* <h1 className="text-primary text-2xl text-center">
-                  OGP Plateau
-                </h1> */}
-                <img src={logo} alt="" />
-              </div>
 
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Socials</h1>
-                <div className="link pt-4 flex flex-col items-start">
-                  <p className="pt-2 text-sm">
-                    <a href="">Facebook</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Instagram</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Twitter</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gender Commitment</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Peace and Security</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Events</h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">E-news Letters</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gallery</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investment News</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Approved Reports</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Reports</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">
-                  Quick LInks
-                </h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">Why Plateau</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investors Highlights</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">OSIC</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm ">
-                    {" "}
-                    <a href="">Open Contracting</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">All Downloads</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-            </div>
-            <hr className="mt-10 border-2 bg-inputcolor" />
-            <p className="text-center text-sm">
-              Copyright © <span>{new Date().getFullYear()}</span> PS-OSIC. All
-              Rights Reserved
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
