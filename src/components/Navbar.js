@@ -155,6 +155,7 @@ export default function Navbar() {
                   fontSize: "14px",
                   fontWeight: "600",
                   margin: "0 12px",
+                  width: "max-content",
                   color: isActive && "#F78251",
                 })}
                 className={`hover:text-primary`}
