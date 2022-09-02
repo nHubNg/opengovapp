@@ -10,7 +10,7 @@ const ContactUs = () => {
             <img src={header} alt="" />
           </div>
           <div className="block p-6 py-10 rounded shadow-lg bg-white max-w-md z-20 w-[60%]">
-            {/* <form>
+            <form>
               <div className="mb-6">
                 <Input type="text" placeholder="Enter Name" />
               </div>
@@ -71,7 +71,7 @@ const ContactUs = () => {
               >
                 Send
               </button>
-            </form> */}
+            </form>
           </div>
         </div>
 
