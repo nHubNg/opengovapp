@@ -137,4 +137,58 @@ const data = [
   },
 ];
 
-export default data;
+const News = [
+  {
+    id: 1,
+    name : "Martin starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  }, {
+    id: 2,
+    name : "John starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  }, {
+    id: 3,
+    name : "Lorem starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  }
+]
+const upcomingNews = [
+  {
+    id: 1,
+    name : "Martin starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  }, {
+    id: 2,
+    name : "John starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  }, {
+    id: 3,
+    name : "Lorem starba",
+    avatar : "images/[GetPaidStock 3.png",
+    newsTitle: "I enjoy hard work i love setting goals and achieving them",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsDate : " Nov 15 2021 "
+  },
+  
+]
+// export default {data, News};
+module.exports = {
+  data,
+  News,
+  upcomingNews
+}
