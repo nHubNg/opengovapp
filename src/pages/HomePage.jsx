@@ -576,6 +576,7 @@ const HomePage = () => {
                     </div>
                     <div className="w-auto mx-2 col-span-2">
                       <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
+                      <p>{item.newsBody}</p>
                       <p className="pt-3">{item.newsDate} <span></span></p>
                     </div>
                   </div>
