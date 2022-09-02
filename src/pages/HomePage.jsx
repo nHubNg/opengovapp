@@ -135,7 +135,7 @@ const HomePage = () => {
     pauseOnHover: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     responsive: [
       {
         breakpoint: 1024,
