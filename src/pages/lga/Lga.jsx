@@ -1,7 +1,7 @@
 import LgaCard from "../../components/lgaCard";
 // import Map from "../../components/maps/Map";
 import Navbar from "../../components/Navbar";
-import data from "../../data";
+import data from "../../data/data";
 import "./lga.css";
 import map from "../../assets/opgov/map.png";
 

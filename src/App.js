@@ -18,7 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import ContactPage from "./pages/ContactPage";
-import AboutUs from "./pages/AboutUs";
+import Invest from "./pages/Invest";
 
 function App() {
   return (
@@ -26,15 +26,25 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/ContactPage" element={<ContactPage />} />
+          <Route path="/ContactPage">
+            <Route index element={<ContactPage />} />
+          </Route>
           <Route path="cas" element={<Carousel />} />
           <Route path="/auth" element={<SignUpAndSignUp />} />
-          <Route path="/principle" element={<Principle />} />
+          {/* <Route path="/principle" element={<Principle />} /> */}
           <Route path="/lga" element={<Lga />} />
           <Route path="/team" element={<Team />} />
 
           {/* About Page */}
-          <Route path="/about-us" element={<AboutUs />} />
+          {/* <Route path="/about-us" element={<AboutUs />} /> */}
+          <Route path="/about-us">
+            <Route path="principle" element={<Principle />} />
+          </Route>
+          <Route path="/invest">
+            <Route index element={<Invest />} />
+          </Route>
+          <Route path="/industries"></Route>
+          <Route path="/media"></Route>
         </Routes>
       </Router>
       <ToastContainer />

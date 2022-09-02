@@ -7,7 +7,7 @@ import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
 import logo from "../assets/Frame 6.png";
-import { News, upcomingNews } from "../data";
+import { News, upcomingNews } from "../data/data";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {

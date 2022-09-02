@@ -5,7 +5,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { motion } from "framer-motion";
+import { navbarLinks } from "../data/navbarLinks";
 
 const token = localStorage.token;
 console.log(token);
@@ -28,61 +28,6 @@ export default function Navbar() {
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
-
-  const navItem = [
-    {
-      id: 1,
-      name: "Home",
-      link: "/",
-      dropdown: false,
-    },
-    {
-      id: 2,
-      name: "About us",
-      link: "/about-us",
-      dropdown: true,
-      dropDownMenu: [
-        "Our Principles",
-        "Our Governance",
-        "Economic Advisory Council",
-        "Client Character",
-        "MDA partners",
-      ],
-    },
-    {
-      id: 3,
-      name: "Invest in Plateau",
-      link: "/invest",
-      dropdown: false,
-    },
-    {
-      id: 4,
-      name: "Industries",
-      link: "/lga",
-      dropdown: true,
-      dropDownMenu: ["Investment Resources", "Investors Highlight"],
-    },
-    {
-      id: 5,
-      name: "Media and Events",
-      link: "/media",
-      dropdown: true,
-      dropDownMenu: ["News", "Events", "Gallery"],
-    },
-    {
-      id: 6,
-      name: "Contact",
-      link: "/ContactPage",
-      dropdown: true,
-      dropDownMenu: ["Enquiries", "Feedback", "Survey", "Contact"],
-    },
-    {
-      id: 7,
-      name: "Team",
-      link: "/team",
-      dropdown: false,
-    },
-  ];
 
   const check = (event) => {
     if (
@@ -145,7 +90,7 @@ export default function Navbar() {
 
         <div className={`hidden md:block  sm:ml-6 pt-1 pl-3`}>
           <div class="flex space-x-4 h-full item-center">
-            {navItem.map((item) => (
+            {navbarLinks.map((item) => (
               <NavLink
                 to={item.link}
                 style={({ isActive }) => ({
@@ -153,7 +98,7 @@ export default function Navbar() {
                   fontWeight: "600",
                   margin: "0 18px",
                   width: "max-content",
-                  color: isActive && "#F78251",
+                  color: isActive && "rgb(2, 167, 90)",
                 })}
                 className={`hover:text-primary`}
                 key={item.id}
@@ -181,14 +126,14 @@ export default function Navbar() {
                     } bg-[#004252] text-white flex items-center justify-between w-max h-[40px] absolute left-[50%] -bottom-[39px] -translate-x-[50%] transition ease-in delay-100`}
                   >
                     {menu > -1 &&
-                      navItem[menu].dropDownMenu.map((link, index) => (
-                        <motion.span
-                          className="dd-menu mx-4"
-                          whileHover={{ color: "#F78251" }}
+                      navbarLinks[menu].dropDownMenu.map((link, index) => (
+                        <Link
+                          to={`${item.link}/${link.path}`}
+                          className="dd-menu mx-4 transition hover:text-[limegreen]"
                           key={index}
                         >
-                          {link}
-                        </motion.span>
+                          {link.pathname}
+                        </Link>
                       ))}
                   </div>
                 </li>
