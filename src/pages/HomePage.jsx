@@ -213,10 +213,10 @@ const HomePage = () => {
               <div
                 className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}
               >
-                <div className="flex  ">
+                <div className="hidden md:flex">
                   <img
                     src={headerPic}
-                    className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
+                    className="mt-[10rem] absolute z-20 ml-10 w-[100px]"
                     alt=""
                   />
                 </div>
