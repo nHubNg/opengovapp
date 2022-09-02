@@ -528,32 +528,32 @@ const HomePage = () => {
         {/* News Section */}
 
         <section >
-          <div className="flex ">
-            <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
+          <div className="flex text-secondary">
+            <h2 className="text-2xl  m-5 font-bold">Latest Stories</h2>
             <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
           </div>
 
 
-          <div className="flex w-full h-screen">
-            <div className="flex flex-col flex-[4] p-3">
+          <div className="flex w-full h-full">
+            <div className="flex flex-col p-10 flex-[3] items-center ">
               {/* <Slider > */}
 
             {
               News.map((item =>{
                 return (
-                  <div key={item.id} className="bg-primary text-white grid grid-cols-3 border p-4 w-auto">
+                  <div key={item.id} className="my-2 shadow-news text-black bg-white  grid grid-cols-3 border p-4 w-[60rem]">
                   <div className="col-span-2">
                     <div>
                       <div className="flex items-center">
                         <img src={item.avatar} alt="" className="w-[3rem] rounded-full mx-2 " /> <p className=" text-sm font-semibold">{item.name}</p>
                       </div>
-                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
+                      <h2 className="text-xl my-2 font-semibold">{item.newsTitle}</h2>
                       <p>{item.newsBody}</p>
-                      <p className="pt-3 mt-10">{item.newsDate} <span></span></p>
+                      <p className="pt-3 mt-4 font-bold">{item.newsDate} <span></span></p>
                     </div>
                   </div>
                   <div>
-                    <img src={item.avatar} alt="" className="w-48 col-span-1 ml-auto" />
+                    <img src={item.avatar} alt="" className="w-[18rem] col-span-1 ml-auto" />
                   </div>
                 </div>
                 
@@ -564,17 +564,17 @@ const HomePage = () => {
             }
             {/* </Slider> */}
             </div>
-            <div className="flex-[2] flex flex-col">
+            <div className="flex-[2] flex p-8 flex-col">
 
             {
               upcomingNews.map((item =>{
                 return(
-                  <div key={item.id} className="  w-auto">
-                  <div className=" col-span-2 border grid grid-cols-2 p-4 w-auto">
-                    <div className="">
+                  <div key={item.id} className=" my-2 shadow-news w-auto">
+                  <div className=" col-span-2 border grid grid-cols-3 p-4 w-auto">
+                    <div className="col-span-1">
                       <img src={item.avatar} alt="" className="w-48  " />
                     </div>
-                    <div>
+                    <div className="w-auto mx-2 col-span-2">
                       <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
                       <p className="pt-3">{item.newsDate} <span></span></p>
                     </div>
