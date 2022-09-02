@@ -5,6 +5,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { motion } from "framer-motion";
 // import { NavItem } from "react-bootstrap";
 // import DropDown from "../components/DropDown"
 
@@ -18,73 +20,99 @@ console.log(decoded);
 export default function Navbar() {
   const navigate = useNavigate();
 
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
   const logout = async () => {
     await localStorage.removeItem("token");
     navigate("/auth");
   };
 
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [menu, setMenu] = useState(-1);
+
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
-
   // Dropdown Hover
   // const [hover, setHover] = useState(false);
-
-  // hover function
-  // const isHover = () => {
-  //   setHover(!hover);
-  // };
 
   const navItem = [
     {
       id: 1,
       name: "Home",
       link: "/",
-      dropdown: false
+      dropdown: false,
     },
     {
       id: 2,
       name: "About us",
+      dropDownMenu: [
+        "Our Principles",
+        "Our Governance",
+        "Economic Advisory Council",
+        "Client Character",
+      ],
       link: "/about-us",
-      dropdown: true
+      dropdown: true,
     },
     {
       id: 3,
       name: "Invest in Plateau",
-      link: "#",
-      dropdown: false
+      link: "/invest",
+      dropdown: false,
     },
     {
       id: 4,
       name: "Investors Highlight",
       link: "/lga",
-      dropdown: false
-    },
-    {
-      id: 4,
-      name: "Media and Events",
-      link: "#",
-      dropdown: false
+      dropdown: false,
     },
     {
       id: 5,
-      name: "Contact",
-      link: "/ContactPage",
-      dropdown: false
+      name: "Media and Events",
+      link: "/media",
+      dropdown: true,
+      dropDownMenu: ["News", "Events", "Gallery"],
     },
     {
       id: 6,
+      name: "Contact",
+      link: "/ContactPage",
+      dropdown: true,
+      dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
+    },
+    {
+      id: 7,
       name: "Team",
       link: "/team",
-      dropdown: false
+      dropdown: false,
+    },
+  ];
+
+  const check = (event) => {
+    if (
+      event.target.classList.contains("drop-down") ||
+      event.target.classList.contains("dd-menu")
+    ) {
+      if (event.target.id) {
+        let id = +event.target.id;
+        setMenu(id - 1);
+      }
+    } else {
+      setMenu(-1);
     }
-  ]
+  };
 
   return (
-    <nav className=" ">
-      <div className="first-nav flex justify-between items-center mx-8 md:w-3/4 md:mx-auto py-2 bg-white">
+    <nav
+      onMouseOver={check}
+      onMouseLeave={() => setMenu(-1)}
+      className="relative flex h-[64px]"
+    >
+      <div
+        className={`${
+          menu > -1 ? "z-10 opacity-100" : "z-0 opacity-0"
+        } bg-[#004252] w-full h-[40px] absolute -bottom-[40px] transition ease-in`}
+      ></div>
+      <div className="first-nav flex justify-between items-center w-full mx-8 md:w-3/4 md:mx-auto bg-white">
         <div className="logo items-center flex ">
           {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
 
@@ -118,12 +146,55 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className={` hidden md:block   sm:ml-6 pt-1 pl-3" `}>
+        <div className="hidden md:block  sm:ml-6 pt-1 pl-3">
           <div class="flex space-x-4 h-full item-center">
             {navItem.map((item) => (
-              <NavLink to={item.link} className={`hover:underline hover:underline-offset-8 text-sm font-semibold hover:text-primary px-3 py-2 rounded-md active:text-secondary ${({isActive}) => isActive && "text-secondary"} `} key={item.id}>
-              {item.name}
-            </NavLink>
+              <NavLink
+                to={item.link}
+                style={({ isActive }) => ({
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  margin: "0 12px",
+                  color: isActive && "#F78251",
+                })}
+                className={`hover:text-primary`}
+                key={item.id}
+              >
+                <li
+                  className={`${
+                    menu === item.id - 1 ? "relative" : ""
+                  } list-none flex flex-col justify-center w-full h-full`}
+                >
+                  <span
+                    id={item.id}
+                    className={`${
+                      item.dropdown ? "drop-down" : ""
+                    } flex items-center py-[20px]`}
+                  >
+                    {item.name}
+                    {item.dropdown && <MdKeyboardArrowDown className="ml-1" />}
+                  </span>
+
+                  <div
+                    className={`${
+                      menu === item.id - 1
+                        ? "opacity-100 z-10 dd-menu"
+                        : "opacity-0 z-0"
+                    } bg-[#004252] text-white flex items-center justify-between w-max h-[40px] absolute left-[50%] -bottom-[39px] -translate-x-[50%] transition ease-in delay-100`}
+                  >
+                    {menu > -1 &&
+                      navItem[menu].dropDownMenu.map((link, index) => (
+                        <motion.span
+                          className="dd-menu mx-3"
+                          whileHover={{ color: "#F78251" }}
+                          key={index}
+                        >
+                          {link}
+                        </motion.span>
+                      ))}
+                  </div>
+                </li>
+              </NavLink>
             ))}
           </div>
           {/* 
