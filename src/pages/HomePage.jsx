@@ -208,7 +208,7 @@ const HomePage = () => {
       <div className="header w-screen">
         <Navbar />
         <Slider {...settings}>
-          {topPart.map((item) => {
+          {Toppart.map((item) => {
             return (
               <div
                 className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}
