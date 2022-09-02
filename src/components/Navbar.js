@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-// import glogo from "../assets/open-global.png";
 
 import logo from "../assets/Frame 6.png";
 import jwt_decode from "jwt-decode";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
-// import { NavItem } from "react-bootstrap";
-// import DropDown from "../components/DropDown"
 
 const token = localStorage.token;
 console.log(token);
@@ -31,8 +28,6 @@ export default function Navbar() {
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
-  // Dropdown Hover
-  // const [hover, setHover] = useState(false);
 
   const navItem = [
     {
@@ -44,14 +39,15 @@ export default function Navbar() {
     {
       id: 2,
       name: "About us",
+      link: "/about-us",
+      dropdown: true,
       dropDownMenu: [
         "Our Principles",
         "Our Governance",
         "Economic Advisory Council",
         "Client Character",
+        "MDA partners",
       ],
-      link: "/about-us",
-      dropdown: true,
     },
     {
       id: 3,
@@ -61,9 +57,10 @@ export default function Navbar() {
     },
     {
       id: 4,
-      name: "Investors Highlight",
+      name: "Industries",
       link: "/lga",
-      dropdown: false,
+      dropdown: true,
+      dropDownMenu: ["Investment Resources", "Investors Highlight"],
     },
     {
       id: 5,
@@ -77,7 +74,7 @@ export default function Navbar() {
       name: "Contact",
       link: "/ContactPage",
       dropdown: true,
-      dropDownMenu: ["Home", "Pages", "About", "Dashboard"],
+      dropDownMenu: ["Enquiries", "Feedback", "Survey", "Contact"],
     },
     {
       id: 7,
@@ -146,7 +143,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden md:block  sm:ml-6 pt-1 pl-3">
+        <div className={`hidden md:block  sm:ml-6 pt-1 pl-3`}>
           <div class="flex space-x-4 h-full item-center">
             {navItem.map((item) => (
               <NavLink
@@ -154,7 +151,8 @@ export default function Navbar() {
                 style={({ isActive }) => ({
                   fontSize: "14px",
                   fontWeight: "600",
-                  margin: "0 12px",
+                  margin: "0 18px",
+                  width: "max-content",
                   color: isActive && "#F78251",
                 })}
                 className={`hover:text-primary`}
@@ -185,7 +183,7 @@ export default function Navbar() {
                     {menu > -1 &&
                       navItem[menu].dropDownMenu.map((link, index) => (
                         <motion.span
-                          className="dd-menu mx-3"
+                          className="dd-menu mx-4"
                           whileHover={{ color: "#F78251" }}
                           key={index}
                         >

@@ -1,8 +1,8 @@
 import Navbar from "../components/Navbar";
 import { Icon } from "@iconify/react";
-import Slider from "react-slick"
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
@@ -78,20 +78,20 @@ const HomePage = () => {
       headerPic: "images/background-img.png",
       plan: "Plateau State-One",
       plan1: "Stop Investment Center",
-      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
-      button: 'Investment Highlights'
-
+      plan2:
+        "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: "Investment Highlights",
     },
     {
       id: 2,
       headerPic: "images/[GetPaidStock 2.png",
       plan: "Plateau Nigeria",
       plan1: "Lorem Ipsum",
-      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
-      button: 'Learn More'
-
-    }
-  ]
+      plan2:
+        "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: "Learn More",
+    },
+  ];
 
   // const News = [
   //   {
@@ -143,65 +143,63 @@ const HomePage = () => {
           slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="wrapper overflow-x-hidden">
       <div className="header">
         <Navbar />
         <Slider {...settings}>
-
-          {
-            Toppart.map((item => {
-              return (
-
-
-                <div className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}>
-                  <div className="flex  ">
-                    <img
-                      src={headerPic}
-                      className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start md:justify-center h-full mx-4">
-                    <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
-                      {item.plan} <br /><span>{item.plan1}</span>
-                    </h1>
-                    <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
-                      {item.plan2}
-                    </p>
-                    <div className="heder-btns pt-10 flex justify-center">
-                      <Link
-                        to="/lga"
-                        class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
-                      >
-                        {item.button}
-                      </Link>
-                    </div>
+          {Toppart.map((item) => {
+            return (
+              <div
+                className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}
+              >
+                <div className="flex  ">
+                  <img
+                    src={headerPic}
+                    className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
+                    alt=""
+                  />
+                </div>
+                <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start md:justify-center h-full mx-4">
+                  <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
+                    {item.plan} <br />
+                    <span>{item.plan1}</span>
+                  </h1>
+                  <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
+                    {item.plan2}
+                  </p>
+                  <div className="heder-btns pt-10 flex justify-center">
+                    <Link
+                      to="/lga"
+                      class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
+                    >
+                      {item.button}
+                    </Link>
                   </div>
                 </div>
-              )
-            }))
-          }
+              </div>
+            );
+          })}
         </Slider>
 
         {/* <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
@@ -298,36 +296,38 @@ const HomePage = () => {
           </div>
         </div>
 
-       <div className="h-screen flex flex-col">
-         {/* Content */}
-         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
-          {content.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
+        <div className="h-screen flex flex-col">
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+            {content.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
 
-
-        <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
-
-          {secondContent.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
-       </div>
+          <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
+            {secondContent.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
+        </div>
 
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
@@ -527,65 +527,75 @@ const HomePage = () => {
 
         {/* News Section */}
 
-        <section >
+        <section>
           <div className="flex ">
             <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
             <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
           </div>
 
-
           <div className="flex w-full h-screen">
             <div className="flex flex-col flex-[4] p-3">
               {/* <Slider > */}
 
-            {
-              News.map((item =>{
+              {News.map((item) => {
                 return (
-                  <div key={item.id} className="bg-primary text-white grid grid-cols-3 border p-4 w-auto">
-                  <div className="col-span-2">
-                    <div>
-                      <div className="flex items-center">
-                        <img src={item.avatar} alt="" className="w-[3rem] rounded-full mx-2 " /> <p className=" text-sm font-semibold">{item.name}</p>
+                  <div
+                    key={item.id}
+                    className="bg-primary text-white grid grid-cols-3 border p-4 w-auto"
+                  >
+                    <div className="col-span-2">
+                      <div>
+                        <div className="flex items-center">
+                          <img
+                            src={item.avatar}
+                            alt=""
+                            className="w-[3rem] rounded-full mx-2 "
+                          />{" "}
+                          <p className=" text-sm font-semibold">{item.name}</p>
+                        </div>
+                        <h2 className="text-xl font-semibold">
+                          {item.newsTitle}
+                        </h2>
+                        <p>{item.newsBody}</p>
+                        <p className="pt-3 mt-10">
+                          {item.newsDate} <span></span>
+                        </p>
                       </div>
-                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
-                      <p>{item.newsBody}</p>
-                      <p className="pt-3 mt-10">{item.newsDate} <span></span></p>
+                    </div>
+                    <div>
+                      <img
+                        src={item.avatar}
+                        alt=""
+                        className="w-48 col-span-1 ml-auto"
+                      />
                     </div>
                   </div>
-                  <div>
-                    <img src={item.avatar} alt="" className="w-48 col-span-1 ml-auto" />
-                  </div>
-                </div>
-                
-               
-
-                )
-              }))
-            }
-            {/* </Slider> */}
+                );
+              })}
+              {/* </Slider> */}
             </div>
             <div className="flex-[2] flex flex-col">
-
-            {
-              upcomingNews.map((item =>{
-                return(
+              {upcomingNews.map((item) => {
+                return (
                   <div key={item.id} className="  w-auto">
-                  <div className=" col-span-2 border grid grid-cols-2 p-4 w-auto">
-                    <div className="">
-                      <img src={item.avatar} alt="" className="w-48  " />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
-                      <p className="pt-3">{item.newsDate} <span></span></p>
+                    <div className=" col-span-2 border grid grid-cols-2 p-4 w-auto">
+                      <div className="">
+                        <img src={item.avatar} alt="" className="w-48  " />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-semibold">
+                          {item.newsTitle}
+                        </h2>
+                        <p className="pt-3">
+                          {item.newsDate} <span></span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                )
-              }))
-            }
-           
-                    </div>
+                );
+              })}
             </div>
+          </div>
         </section>
         <section className="bg-white">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
