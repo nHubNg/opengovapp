@@ -143,21 +143,21 @@ const News = [
     name : "Martin starba",
     avatar : "images/[GetPaidStock 3.png",
     newsTitle: "I enjoy hard work i love setting goals and achieving them",
-    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsBody : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...",
     newsDate : " Nov 15 2021 "
   }, {
     id: 2,
     name : "John starba",
     avatar : "images/[GetPaidStock 3.png",
     newsTitle: "I enjoy hard work i love setting goals and achieving them",
-    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsBody : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...",
     newsDate : " Nov 15 2021 "
   }, {
     id: 3,
     name : "Lorem starba",
     avatar : "images/[GetPaidStock 3.png",
     newsTitle: "I enjoy hard work i love setting goals and achieving them",
-    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsBody : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...",
     newsDate : " Nov 15 2021 "
   }
 ]
@@ -167,7 +167,7 @@ const upcomingNews = [
     name : "Martin starba",
     avatar : "images/[GetPaidStock 3.png",
     newsTitle: "I enjoy hard work i love setting goals and achieving them",
-    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you that...",
+    newsBody : "Stay Focused and remember we design the best Reactjs News app closet to you thatStay Focused and remember we design the best Reactjs News app closet to you that...",
     newsDate : " Nov 15 2021 "
   }, {
     id: 2,
@@ -186,9 +186,73 @@ const upcomingNews = [
   },
   
 ]
+
+const Visit = [
+  {
+    id : "1",
+    logo : "images/Visit/bank-of-industry-logo.png",
+    link : "https://www.boi.ng/",
+    title: "Bank Of Industry"
+  } ,
+  {
+    id : "2",
+    logo : "images/Visit/cac logo.jpg",
+    link : "https://www.cac.gov.ng/",
+    title: "CAC"
+  },
+   {
+    id : "3",
+    logo : "images/Visit/firs logo.png",
+    link : "https://www.firs.gov.ng/",
+    title: "Federal Inland Revenue Service"
+  } ,
+    {
+    id : "4",
+    logo : "images/Visit/government logo.jpg",
+    link : "https://www.plateaustate.gov.ng/",
+    title: "PLATEAU STATE"
+  },
+  {
+    id : "5",
+    logo : "images/Visit/logo_top_dark-1.png",
+    link : "https://www.nipc.gov.ng/",
+    title: "Nigerian Investment Promotion Commission"
+  },
+   {
+    id : "6",
+    logo : "images/Visit/NEPC logo.png",
+    link : "https://nepc.gov.ng/",
+    title: "Nigerian Export Promotion Council"
+  },
+   {
+    id : "7",
+    logo : "images/Visit/NIPC-logo.webp",
+    link : "https://www.nipc.gov.ng/",
+    title: "Federal Inland Revenue Service"
+  },
+  {
+    id : "8",
+    logo : "images/Visit/pipc logo.png",
+    link : "https://www.pipcltd.com.ng/",
+    title: " Plateau Investment and Property Development Company LTD "
+  } ,
+  {
+    id : "9",
+    logo : "images/Visit/PLASMIDA logo.png",
+    link : "https://daaef.github.io/plasmida/index.html",
+    title: "Plateau State Microfinance Development Agency"
+  } ,
+  {
+    id : "10",
+    logo : "images/Visit/PSIRS logo.png",
+    link : "http://psirs.gov.ng/",
+    title: "Plateau State Internal Revenue Service "
+  },
+]
 // export default {data, News};
 module.exports = {
   data,
   News,
-  upcomingNews
+  upcomingNews,
+  Visit
 }

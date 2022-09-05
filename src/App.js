@@ -14,6 +14,7 @@ import UserDashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
 import { ToastContainer, toast } from "react-toastify";
+import Visit from "./pages/visit/Visit"
 import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/principle" element={<Principle />} />
           <Route path="/lga" element={<Lga />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/visit" element={<Visit />} />
 
           <Route path="/secondContact" element={<Contact2 /> } />
           <Route path="/thirdContact" element={<Contact3 /> } />
