@@ -169,6 +169,7 @@ const HomePage = () => {
         <Navbar />
         <Slider {...settings}>
 
+
           {
             Toppart.map((item => {
               return (
@@ -197,6 +198,8 @@ const HomePage = () => {
                         {item.button}
                       </Link>
                     </div>
+
+
                   </div>
                 </div>
               )

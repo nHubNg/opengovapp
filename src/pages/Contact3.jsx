@@ -1,22 +1,34 @@
 // import { Link } from "react-router-dom";
 // import header from "../assets/header.png";
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 // import Map from "./Map";
 
-const ContactPage = () => {
+const Contact3 = () => {
   return (
     <div>
       <div className="fixed bg-white z-20 top-0 left-0 w-full shadow-lg">
         <Navbar />
       </div>
 
-      <div className="h-screen bg-img bg-cover flex items-center mt-10">
-
-        <div className=" grid grid-cols-1 md:grid-cols-2 w-[70%] md:mx-auto md:h-[80%] shadow-2xl">
-          <div className="bg-white text-slate-800 flex flex-col justify-center p-10">
-            <h1 className="text-secondary text-2xl text-center font-bold">Contact Us</h1>
+      <div className="h-screen bg-white flex items-center mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-[70%] md:mx-auto md:h-[80%] shadow-2xl rounded-xl">
+          <div className="p-5">
+            <div className="bg-img bg-cover text-white h-full flex flex-col justify-center p-10 rounded-2xl">
+              <h1 className="text-2xl text-center font-bold">Contact Us</h1>
+              <p className="mt-3 text-center">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Accusamus magnam odit amet laborum officiis delectus illum vitae
+              natus consequatur quo unde repellat ipsam minima porro, enim
+              itaque eum dicta eius.
+            </p>
+            </div>
+          </div>
+          <div className="bg-white px-10 py-20">
+            <h1 className="text-secondary text-2xl text-center font-bold">
+              Contact Us
+            </h1>
             <form className="mt-5">
               <div className="mb-6">
                 <Input type="text" placeholder="Name" />
@@ -81,7 +93,6 @@ const ContactPage = () => {
               </button>
             </form>
           </div>
-          <div className="bg-img2 bg-cover"></div>
         </div>
       </div>
 
@@ -89,7 +100,6 @@ const ContactPage = () => {
     </div>
   );
 };
-
 
 const Input = ({ type, placeholder }) => {
   return (
@@ -116,4 +126,4 @@ const Input = ({ type, placeholder }) => {
   );
 };
 
-export default ContactPage;
+export default Contact3;

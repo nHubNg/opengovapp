@@ -12,7 +12,7 @@ const AboutUs = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
       img: "emojione-monotone:tractor",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       itemList: [
         { id: 1, name: "Only state growing and exporting Rose flowers" },
         { id: 2, name: "Largest producer of Irish Potatoes in Nigeria" },
@@ -30,7 +30,7 @@ const AboutUs = () => {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
       img: "mdi:pickaxe",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       itemList: [
         {
           id: 1,
@@ -43,7 +43,7 @@ const AboutUs = () => {
       header: "Accessibility",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "text-white",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "bi:truck",
       itemList: [
         {
@@ -61,7 +61,7 @@ const AboutUs = () => {
       header: "Climate",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "akar-icons:cloud",
       itemList: [
         {
@@ -78,7 +78,7 @@ const AboutUs = () => {
       header: "Competitive and Productive Workforce",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
 
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "akar-icons:people-group",
       background: "text-white",
       itemList: [
@@ -93,7 +93,7 @@ const AboutUs = () => {
       header: "Favourable Business Regulatory Environment",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#003B49BF] text-white",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "bi:building",
       itemList: [
         {
@@ -107,7 +107,7 @@ const AboutUs = () => {
       header: "Peace an Security",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#02A75ABF] text-white",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "carbon:group-security",
       itemList: [
         {
@@ -121,7 +121,7 @@ const AboutUs = () => {
       header: "Abundant Natural Resources",
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia error ea minus nemo vero aliquam aperiam, porro eaque repellat similique facilis ullam atque tempore rerum? Aliquam perferendis est corporis rem!",
       background: "bg-[#FFFFFFA6]",
-      backImg: "bg-img2 h-auto md:h-[50vh]",
+      backImg: "bg-img2 bg-cover h-auto md:h-[50vh]",
       img: "fluent-emoji-high-contrast:rock",
       itemList: [
         {
@@ -169,7 +169,7 @@ const AboutUs = () => {
               <div className={`${item.backImg}`} key={item.id}>
                 <div
                   key={item.id}
-                  className={`${item.background} opacity-80 h-full md:px-28 p-10`}
+                  className={`${item.background} opacity-80 h-full w-screen md:px-28 p-10`}
                 >
                   <div className="md:w-[1040px] md:mx-auto grid grid-cols-1 md:grid-cols-2 my-auto h-full">
                     <div className="flex flex-col items-center justify-center">
