@@ -1,6 +1,5 @@
 // import headerPic from "../assets/header.png";
 import { Icon } from "@iconify/react";
-import VisitOur from "./visit/Visit"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -219,7 +218,6 @@ const AboutUs = () => {
           </section>
         </div>
       </div>
-      <VisitOur />
       <Footer />
     </div>
   );
