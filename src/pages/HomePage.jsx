@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
-import img_2 from "../assets/[GetPaidStock 3.png";
+// import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -392,16 +392,41 @@ const HomePage = () => {
           </section>
         </div>
 
-        <section className="bg-secondary2">
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
+          {icons.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <motion.div
+                animate={{
+                  opacity: 1,
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                }}
+              >
+                <Icon icon={item.class} width="80" />
+              </motion.div>
+              <p className="text-lg">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
               <h1 className="capitalize text-3xl font-medium">
                 Our <span className="text-secondary font-medium">Services</span>
               </h1>
-              {/* <p className="pt-4 text-sm leading-6">
+              <p className="pt-4 text-sm leading-6">
                 Plateau joined OGP as part of the 2020 cohort. We are currently
                 executing our first action plan centerd
-              </p> */}
+              </p>
             </div>
             <div className="cards mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card shadow-2xl bg-primary py-4 px-4  ">
@@ -413,7 +438,7 @@ const HomePage = () => {
                     To provide capacity building for development of online
                     investment guides.
                   </p>
-                  {/* <h4
+                  <h4
                     style={{
                       color: "white",
                       fontWeight: "bolder",
@@ -422,7 +447,7 @@ const HomePage = () => {
                     }}
                   >
                     Commitment
-                  </h4> */}
+                  </h4>
                   <ul class="pt-2">
                     <li
                       class="p-2 text-white text-sm font-light"
@@ -457,7 +482,7 @@ const HomePage = () => {
                     Post-investment customer services to follow up and earn
                     customer's trust on;
                   </p>
-                  {/* <h4
+                  <h4
                     style={{
                       color: "white",
                       fontWeight: "bolder",
@@ -466,7 +491,7 @@ const HomePage = () => {
                     }}
                   >
                     Commitment
-                  </h4> */}
+                  </h4>
                   <ul class="pt-2">
                     <li
                       class="p-2 text-white text-sm font-light"
@@ -586,11 +611,12 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* News Section */}
 
-        <section>
+        {/* <section>
+
           <div className="flex ">
             <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
             <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
@@ -598,7 +624,7 @@ const HomePage = () => {
 
           <div className="flex w-full h-screen">
             <div className="flex flex-col flex-[4] p-3">
-              {/* <Slider > */}
+              <Slider >
 
               {News.map((item) => {
                 return (
@@ -635,7 +661,7 @@ const HomePage = () => {
                   </div>
                 );
               })}
-              {/* </Slider> */}
+              </Slider>
             </div>
             <div className="flex-[2] flex flex-col">
               {upcomingNews.map((item) => {
@@ -659,7 +685,9 @@ const HomePage = () => {
               })}
             </div>
           </div>
-        </section>
+
+        </section> */}
+
         <section className="bg-white">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">

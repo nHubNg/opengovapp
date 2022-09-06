@@ -12,24 +12,56 @@ const Contact3 = () => {
         <Navbar />
       </div>
 
-      <div className="h-screen bg-white flex items-center mt-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-[70%] md:mx-auto md:h-[80%] shadow-2xl rounded-xl">
-          <div className="p-5">
-            <div className="bg-img bg-cover text-white h-full flex flex-col justify-center p-10 rounded-2xl">
-              <h1 className="text-2xl text-center font-bold">Contact Us</h1>
+      <div className="h-screen bg-gradient-to-r from-brand1 to-brand2 flex items-center mt-10">
+        <div className="grid bg-white grid-cols-1 md:grid-cols-2 w-[80%] mx-auto md:w-[70%] md:mx-auto md:h-[80%] rounded-2xl">
+          <div className="p-5 bg-white rounded-l-3xl hidden md:block">
+            <div className="bg-img bg-cover rounded-3xl text-white h-full flex flex-col justify-center p-10">
+              {/* <h1 className="text-2xl text-center font-bold">Contact Us</h1>
               <p className="mt-3 text-center">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Accusamus magnam odit amet laborum officiis delectus illum vitae
               natus consequatur quo unde repellat ipsam minima porro, enim
               itaque eum dicta eius.
-            </p>
+            </p> */}
             </div>
           </div>
-          <div className="bg-white px-10 py-20">
+          <div className="bg-white px-10 py-20 rounded-r-3xl">
             <h1 className="text-secondary text-2xl text-center font-bold">
-              Contact Us
+              Enquiries
             </h1>
             <form className="mt-5">
+              <div className="mb-6">
+                <select
+                  name="categories"
+                  id="categories"
+                  value="category"
+                  className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        shadow-sm
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
+                >
+                  <option value="category" disabled>
+                    -- Choose Category --
+                  </option>
+                  <option value="1">
+                    lorem
+                  </option>
+                  <option value="2">
+                    lorem
+                  </option>
+                </select>
+              </div>
               <div className="mb-6">
                 <Input type="text" placeholder="Name" />
               </div>

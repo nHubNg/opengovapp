@@ -23,6 +23,7 @@ import Contact2 from "./pages/Contact2";
 import Contact3 from "./pages/Contact3";
 import News from "./pages/News";
 import SingleNews from "./pages/SingleNews";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
               <Route path=":id" element={<SingleNews />} />
             </Route>
           </Route>
+
+          {/* Gallery */}
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Router>
       <ToastContainer />
