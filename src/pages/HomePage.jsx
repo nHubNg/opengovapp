@@ -12,6 +12,7 @@ import headerPic from "../assets/header.png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
+
 const HomePage = () => {
   const content = [
     {
@@ -171,7 +172,7 @@ const HomePage = () => {
     pauseOnHover: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 1024,
@@ -199,9 +200,10 @@ const HomePage = () => {
       },
     ],
   };
+
   return (
     <div className="wrapper overflow-x-hidden">
-      <div className="header">
+      <div className="header w-screen">
         <Navbar />
         <Slider {...settings}>
           {topPart.map((item) => {
@@ -299,6 +301,31 @@ const HomePage = () => {
           </div>
         </div> */}
 
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
+          {icons.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <motion.div
+                animate={{
+                  opacity: 1,
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                }}
+              >
+                <Icon icon={item.class} width="80" />
+              </motion.div>
+              <p className="text-lg">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
@@ -365,6 +392,7 @@ const HomePage = () => {
             ))}
           </section>
         </div>
+
 
         <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
           {icons.map((item) => (
@@ -590,6 +618,7 @@ const HomePage = () => {
         {/* News Section */}
 
         {/* <section>
+
           <div className="flex ">
             <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
             <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
@@ -599,8 +628,7 @@ const HomePage = () => {
             <div className="flex flex-col flex-[4] p-3">
               <Slider >
 
-            {
-              News.map((item =>{
+              {News.map((item) => {
                 return (
                   <div
                     key={item.id}
@@ -659,7 +687,9 @@ const HomePage = () => {
               })}
             </div>
           </div>
+
         </section> */}
+
         <section className="bg-white">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
             <div className="heading">
