@@ -22,6 +22,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutUs from "./pages/AboutUs";
 import Contact2 from "./pages/Contact2";
 import Contact3 from "./pages/Contact3";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
 
           {/* About Page */}
           <Route path="/about-us" element={<AboutUs />} />
+
+          {/* Gallery */}
+          <Route path="/gallery" element={<Gallery />} />
+
         </Routes>
       </Router>
       <ToastContainer />
