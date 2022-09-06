@@ -7,8 +7,10 @@ import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
 // import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
-import logo from "../assets/Frame 6.png";
-import { News, upcomingNews } from "../data";
+// import logo from "../assets/Frame 6.png";
+// import { News, upcomingNews } from "../data";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const content = [
@@ -708,15 +710,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
-          <div className="section md:mx-48 mx-10">
-            <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
-              <div className="card">
-                {/* <h1 className="text-primary text-2xl text-center">
-                  OGP Plateau
-                </h1> */}
-                <img src={logo} alt="" />
-              </div>
 
         <Footer />
       </div>
