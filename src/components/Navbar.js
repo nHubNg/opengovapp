@@ -22,7 +22,7 @@ export default function Navbar() {
     navigate("/auth");
   };
 
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(true);
   const [menu, setMenu] = useState(-1);
 
   const handleToggle = () => {
@@ -89,7 +89,7 @@ export default function Navbar() {
         </Link>
 
         <div className={`hidden md:block  sm:ml-6 pt-1 pl-3`}>
-          <div class="flex space-x-4 h-full item-center">
+          <div class="h-full md:flex md:space-x-4 md:item-center">
             {navbarLinks.map((item) => (
               <NavLink
                 to={item.link}

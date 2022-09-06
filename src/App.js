@@ -21,6 +21,8 @@ import ContactPage from "./pages/ContactPage";
 import Invest from "./pages/Invest";
 import Contact2 from "./pages/Contact2";
 import Contact3 from "./pages/Contact3";
+import News from "./pages/News";
+import SingleNews from "./pages/SingleNews";
 
 function App() {
   return (
@@ -51,7 +53,12 @@ function App() {
             <Route index element={<Invest />} />
           </Route>
           <Route path="/industries"></Route>
-          <Route path="/media"></Route>
+          <Route path="/media">
+            <Route path="news">
+              <Route index element={<News />} />
+              <Route path=":id" element={<SingleNews />} />
+            </Route>
+          </Route>
         </Routes>
       </Router>
       <ToastContainer />
