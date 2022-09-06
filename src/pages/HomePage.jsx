@@ -1,14 +1,19 @@
 import Navbar from "../components/Navbar";
 import { Icon } from "@iconify/react";
-import Slider from "react-slick"
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
 import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
+// import img_logo from "../assets/logo.png";
+// import glogo from "../assets/open-global.png";
+import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+// import { content } from "../../tailwind.config";
 import logo from "../assets/Frame 6.png";
 import { News, upcomingNews } from "../data";
-import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const content = [
@@ -72,26 +77,60 @@ const HomePage = () => {
       img: "fluent-emoji-high-contrast:rock",
     },
   ];
-  const Toppart = [
+
+  const icons = [
+    {
+      id: 1,
+      class: "fa6-solid:map-location-dot",
+      text: "lorem ipsum",
+    },
+    {
+      id: 2,
+      class: "fluent-emoji-high-contrast:globe-showing-europe-africa",
+      text: "lorem ipsum",
+    },
+    {
+      id: 3,
+      class: "fluent:people-16-filled",
+      text: "lorem ipsum",
+    },
+    {
+      id: 4,
+      class: "fa6-solid:hill-rockslide",
+      text: "lorem ipsum",
+    },
+    {
+      id: 5,
+      class: "ic:baseline-grass",
+      text: "lorem ipsum",
+    },
+    {
+      id: 6,
+      class: "emojione-monotone:kiwi-fruit",
+      text: "lorem ipsum",
+    },
+  ];
+
+  const topPart = [
     {
       id: 1,
       headerPic: "images/background-img.png",
       plan: "Plateau State-One",
       plan1: "Stop Investment Center",
-      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
-      button: 'Investment Highlights'
-
+      plan2:
+        "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: "Investment Highlights",
     },
     {
       id: 2,
       headerPic: "images/[GetPaidStock 2.png",
       plan: "Plateau Nigeria",
       plan1: "Lorem Ipsum",
-      plan2: "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
-      button: 'Learn More'
-
-    }
-  ]
+      plan2:
+        "The official platform for Plateau state Investment. Bringing investors closer to their soon-to-be investments.",
+      button: "Learn More",
+    },
+  ];
 
   // const News = [
   //   {
@@ -135,7 +174,7 @@ const HomePage = () => {
     pauseOnHover: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 1024,
@@ -143,68 +182,64 @@ const HomePage = () => {
           slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
   return (
     <div className="wrapper overflow-x-hidden">
-      <div className="header">
+      <div className="header w-screen">
         <Navbar />
         <Slider {...settings}>
-
-
-          {
-            Toppart.map((item => {
-              return (
-
-
-                <div className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}>
-                  <div className="flex  ">
-                    <img
-                      src={headerPic}
-                      className="hidden lg:block mt-[10rem] absolute z-20 ml-10 w-[100px]"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start md:justify-center h-full mx-4">
-                    <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
-                      {item.plan} <br /><span>{item.plan1}</span>
-                    </h1>
-                    <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
-                      {item.plan2}
-                    </p>
-                    <div className="heder-btns pt-10 flex justify-center">
-                      <Link
-                        to="/lga"
-                        class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
-                      >
-                        {item.button}
-                      </Link>
-                    </div>
-
-
+          {Toppart.map((item) => {
+            return (
+              <div
+                className={`h-auto md:h-screen my-5  bg-img bg-cover flex items-center md:relative`}
+              >
+                <div className="hidden md:flex">
+                  <img
+                    src={headerPic}
+                    className="mt-[10rem] absolute z-20 ml-10 w-[100px]"
+                    alt=""
+                  />
+                </div>
+                <div className="content py-28 md:w-3/4 md:mx-48 md:flex md:flex-col md:items-start md:justify-center h-full mx-4">
+                  <h1 className="text-white text-2xl md:text-5xl font-extrabold capitalize">
+                    {item.plan} <br />
+                    <span>{item.plan1}</span>
+                  </h1>
+                  <p className="text-white leading-6 font-light text-lg pt-10 md:w-2/4">
+                    {item.plan2}
+                  </p>
+                  <div className="heder-btns pt-10 flex justify-center">
+                    <Link
+                      to="/lga"
+                      class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
+                    >
+                      {item.button}
+                    </Link>
                   </div>
                 </div>
-              )
-            }))
-          }
+              </div>
+            );
+          })}
         </Slider>
 
         {/* <div className="post md:mx-48 md:absolute md:top-80 md:pt-64">
@@ -268,6 +303,31 @@ const HomePage = () => {
           </div>
         </div> */}
 
+        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
+          {icons.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <motion.div
+                animate={{
+                  opacity: 1,
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                }}
+              >
+                <Icon icon={item.class} width="80" />
+              </motion.div>
+              <p className="text-lg">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
@@ -301,36 +361,39 @@ const HomePage = () => {
           </div>
         </div>
 
-       <div className="h-screen flex flex-col">
-         {/* Content */}
-         <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
-          {content.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
+        <div className="h-screen flex flex-col">
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+            {content.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
 
-
-        <section className="w-full bg-img2 min-h-[604px] grid grid-cols-1 md:grid-cols-4">
-
-          {secondContent.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
-            >
-              <Icon icon={item.img} width="100" />
-              <h2 className="text-center text-2xl font-bold">{item.header}</h2>
-              <p className="text-center">{item.body}</p>
-            </div>
-          ))}
-        </section>
-       </div>
+          {/* Content */}
+          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+            {secondContent.map((item) => (
+              <div
+                key={item.id}
+                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+              >
+                <Icon icon={item.img} width="100" />
+                <h2 className="text-center text-2xl font-bold">
+                  {item.header}
+                </h2>
+                <p className="text-center">{item.body}</p>
+              </div>
+            ))}
+          </section>
+        </div>
 
         <section className="bg-secondary2">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
@@ -530,66 +593,75 @@ const HomePage = () => {
 
         {/* News Section */}
 
-        <section >
-          <div className="flex text-secondary">
-            <h2 className="text-2xl  m-5 font-bold">Latest Stories</h2>
+        <section>
+          <div className="flex ">
+            <h2 className="text-2xl m-5 font-bold">Latest Stories</h2>
             <h2 className="text-2xl ml-auto m-5 font-bold">Upcoming Stories</h2>
           </div>
 
-
-          <div className="flex w-full h-full">
-            <div className="flex flex-col p-10 flex-[3] items-center ">
+          <div className="flex w-full h-screen">
+            <div className="flex flex-col flex-[4] p-3">
               {/* <Slider > */}
 
-            {
-              News.map((item =>{
+              {News.map((item) => {
                 return (
-                  <div key={item.id} className="my-2 shadow-news text-black bg-white  grid grid-cols-3 border p-4 w-[60rem]">
-                  <div className="col-span-2">
-                    <div>
-                      <div className="flex items-center">
-                        <img src={item.avatar} alt="" className="w-[3rem] rounded-full mx-2 " /> <p className=" text-sm font-semibold">{item.name}</p>
+                  <div
+                    key={item.id}
+                    className="bg-primary text-white grid grid-cols-3 border p-4 w-auto"
+                  >
+                    <div className="col-span-2">
+                      <div>
+                        <div className="flex items-center">
+                          <img
+                            src={item.avatar}
+                            alt=""
+                            className="w-[3rem] rounded-full mx-2 "
+                          />{" "}
+                          <p className=" text-sm font-semibold">{item.name}</p>
+                        </div>
+                        <h2 className="text-xl font-semibold">
+                          {item.newsTitle}
+                        </h2>
+                        <p>{item.newsBody}</p>
+                        <p className="pt-3 mt-10">
+                          {item.newsDate} <span></span>
+                        </p>
                       </div>
-                      <h2 className="text-xl my-2 font-semibold">{item.newsTitle}</h2>
-                      <p>{item.newsBody}</p>
-                      <p className="pt-3 mt-4 font-bold">{item.newsDate} <span></span></p>
+                    </div>
+                    <div>
+                      <img
+                        src={item.avatar}
+                        alt=""
+                        className="w-48 col-span-1 ml-auto"
+                      />
                     </div>
                   </div>
-                  <div>
-                    <img src={item.avatar} alt="" className="w-[18rem] col-span-1 ml-auto" />
-                  </div>
-                </div>
-                
-               
-
-                )
-              }))
-            }
-            {/* </Slider> */}
+                );
+              })}
+              {/* </Slider> */}
             </div>
-            <div className="flex-[2] flex p-8 flex-col">
-
-            {
-              upcomingNews.map((item =>{
-                return(
-                  <div key={item.id} className=" my-2 shadow-news w-auto">
-                  <div className=" col-span-2 border grid grid-cols-3 p-4 w-auto">
-                    <div className="col-span-1">
-                      <img src={item.avatar} alt="" className="w-48  " />
-                    </div>
-                    <div className="w-auto mx-2 col-span-2">
-                      <h2 className="text-xl font-semibold">{item.newsTitle}</h2>
-                      <p>{item.newsBody}</p>
-                      <p className="pt-3">{item.newsDate} <span></span></p>
+            <div className="flex-[2] flex flex-col">
+              {upcomingNews.map((item) => {
+                return (
+                  <div key={item.id} className="  w-auto">
+                    <div className=" col-span-2 border grid grid-cols-2 p-4 w-auto">
+                      <div className="">
+                        <img src={item.avatar} alt="" className="w-48  " />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-semibold">
+                          {item.newsTitle}
+                        </h2>
+                        <p className="pt-3">
+                          {item.newsDate} <span></span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                )
-              }))
-            }
-           
-                    </div>
+                );
+              })}
             </div>
+          </div>
         </section>
         <section className="bg-white">
           <div className="current-action md:mx-48 mx-10 pt-20 pb-20">
@@ -641,98 +713,8 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
-          <div className="section md:mx-48 mx-10">
-            <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
-              <div className="card">
-                {/* <h1 className="text-primary text-2xl text-center">
-                  OGP Plateau
-                </h1> */}
-                <img src={logo} alt="" />
-              </div>
 
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Socials</h1>
-                <div className="link pt-4 flex flex-col items-start">
-                  <p className="pt-2 text-sm">
-                    <a href="">Facebook</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Instagram</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Twitter</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gender Commitment</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Peace and Security</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">Events</h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">E-news Letters</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Gallery</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investment News</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Approved Reports</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Reports</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-              <div className="card flex flex-col items-start">
-                <h1 className="text-primary text-2xl text-center">
-                  Quick LInks
-                </h1>
-                <div className="link pt-4">
-                  <p className="pt-2 text-sm">
-                    <a href="">Why Plateau</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">Investors Highlights</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">OSIC</a>
-                  </p>
-                  {/* <p className="pt-2 text-sm ">
-                    {" "}
-                    <a href="">Open Contracting</a>
-                  </p>
-                  <p className="pt-2 text-sm">
-                    {" "}
-                    <a href="">All Downloads</a>
-                  </p>{" "} */}
-                </div>
-              </div>
-            </div>
-            <hr className="mt-10 border-2 bg-inputcolor" />
-            <p className="text-center text-sm">
-              Copyright © <span>{new Date().getFullYear()}</span> PS-OSIC. All
-              Rights Reserved
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
