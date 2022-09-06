@@ -43,7 +43,8 @@ const Gallery = () => {
         </div>
         <div className="flex flex-wrap py-5 w-3/4 mx-auto justify-evenly">
           {images.map((item) => (
-            <img src={item.link} className="w-auto" alt="" key={item.id} />
+
+            <img src={item.link} className="h-[min-content] w-full p-2 rounded-2xl lg:w-1/3 md:w-1/2" alt="" key={item.id} />
           ))}
         </div>
       </div>
