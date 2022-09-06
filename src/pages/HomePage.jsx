@@ -5,13 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
-import img_2 from "../assets/[GetPaidStock 3.png";
+// import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
-// import img_logo from "../assets/logo.png";
-// import glogo from "../assets/open-global.png";
-import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
-// import { content } from "../../tailwind.config";
 import logo from "../assets/Frame 6.png";
 import { News, upcomingNews } from "../data";
 
@@ -174,7 +169,7 @@ const HomePage = () => {
     pauseOnHover: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     responsive: [
       {
         breakpoint: 1024,
@@ -202,10 +197,9 @@ const HomePage = () => {
       },
     ],
   };
-
   return (
     <div className="wrapper overflow-x-hidden">
-      <div className="header w-screen">
+      <div className="header">
         <Navbar />
         <Slider {...settings}>
           {topPart.map((item) => {
@@ -603,7 +597,8 @@ const HomePage = () => {
             <div className="flex flex-col flex-[4] p-3">
               <Slider >
 
-              {News.map((item) => {
+            {
+              News.map((item =>{
                 return (
                   <div
                     key={item.id}
@@ -713,6 +708,15 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        <footer className="footer bg-secondary2  py-20 h-auto underline-offset-4 ">
+          <div className="section md:mx-48 mx-10">
+            <div className="content grid grid-cols-1 font-semi-bold md:grid-cols-4 gap-8">
+              <div className="card">
+                {/* <h1 className="text-primary text-2xl text-center">
+                  OGP Plateau
+                </h1> */}
+                <img src={logo} alt="" />
+              </div>
 
         <Footer />
       </div>
