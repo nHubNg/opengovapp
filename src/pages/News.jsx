@@ -50,7 +50,7 @@ export default function News() {
                   <span>Nov 15, 2022</span>
                   <span>10 min read</span>
                 </div>
-                <h2 className="text-lg text-slate-900 font-semibold leading-snug">
+                <h2 className="text-medium text-slate-900 font-normal leading-snug">
                   The top 10 Best Computer Speakers in the Market
                 </h2>
               </div>

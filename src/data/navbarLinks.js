@@ -103,10 +103,4 @@ export const navbarLinks = [
       },
     ],
   },
-  {
-    id: 7,
-    name: "Team",
-    link: "/team",
-    dropdown: false,
-  },
 ];

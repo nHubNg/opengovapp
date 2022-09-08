@@ -36,9 +36,8 @@ function App() {
           </Route>
           <Route path="cas" element={<Carousel />} />
           <Route path="/auth" element={<SignUpAndSignUp />} />
-          {/* <Route path="/principle" element={<Principle />} /> */}
           <Route path="/lga" element={<Lga />} />
-          <Route path="/team" element={<Team />} />
+          {/* <Route path="/team" element={<Team />} /> */}
 
           <Route path="/secondContact" element={<Contact2 />} />
           <Route path="/thirdContact" element={<Contact3 />} />
@@ -46,9 +45,10 @@ function App() {
           <Route path="*" element={"Sorry this route does not exist"} />
 
           {/* About Page */}
-          {/* <Route path="/about-us" element={<AboutUs />} /> */}
           <Route path="/about-us">
             <Route path="principle" element={<Principle />} />
+            <Route path="governance" element={<Team />} />
+            <Route path="advisory-council" element={<Team />} />
           </Route>
           <Route path="/invest">
             <Route index element={<Invest />} />
