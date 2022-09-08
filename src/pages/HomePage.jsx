@@ -7,11 +7,10 @@ import "slick-carousel/slick/slick-theme.css";
 import banner_pic from "../assets/Group 2063.png";
 // import img_2 from "../assets/[GetPaidStock 3.png";
 import headerPic from "../assets/header.png";
-// import logo from "../assets/Frame 6.png";
-// import { News, upcomingNews } from "../data";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-
+import Footer from "../components/Footer";
+import logo from "../assets/Frame 6.png";
+import { News, upcomingNews } from "../data/data";
 
 const HomePage = () => {
   const content = [
@@ -165,8 +164,8 @@ const HomePage = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     autoplay: true,
     fade: true,
     pauseOnHover: false,
@@ -177,8 +176,8 @@ const HomePage = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -186,8 +185,8 @@ const HomePage = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -301,31 +300,6 @@ const HomePage = () => {
           </div>
         </div> */}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
-          {icons.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col items-center justify-center"
-            >
-              <motion.div
-                animate={{
-                  opacity: 1,
-                }}
-                initial={{
-                  opacity: 0,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                }}
-              >
-                <Icon icon={item.class} width="80" />
-              </motion.div>
-              <p className="text-lg">{item.text}</p>
-            </div>
-          ))}
-        </div>
-
         <div className="citizen-engament md:mt-55 mx-10 mt-20 md:mb-32 mb-10 md:mx-48 ">
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text">
@@ -392,7 +366,6 @@ const HomePage = () => {
             ))}
           </section>
         </div>
-
 
         <div className="grid grid-cols-2 md:grid-cols-3 md:max-w-[800px] md:mx-auto h-screen text-secondary">
           {icons.map((item) => (
@@ -698,44 +671,50 @@ const HomePage = () => {
               </h1>
             </div>
             <div className="cards mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="card relative shadow-2xl bg-white ">
-                <div className="content">
-                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
-                    Boost affordable business
-                  </h4>
-
-                  <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    To reduce cost of doing business in Plateau state through
-                    transparent dealings with MSME's and investors.
-                  </p>
+              <div className="card relative shadow-2xl bg-white rounded-md p-5">
+                <div className="w-full flex items-center justify-between text-xs">
+                  <p>Lorem Ipsum Dolor</p>
+                  <p>27/01/2022</p>
                 </div>
+                <h4 className="my-3 text-gray-600 font-semibold">
+                  Boost affordable business
+                </h4>
+
+                <p className="text-sm leading-6 font-light text-black">
+                  To reduce cost of doing business in Plateau state through
+                  transparent dealings with MSME's and investors.
+                </p>
               </div>
 
-              <div className="card relative shadow-2xl bg-white  ">
-                <div className="content">
-                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
-                    Pioneer reforms & easy admin procedures
-                  </h4>
-                  <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    To trigger reforms in the public sector by advocating and
-                    following up the adoption of best practices.To also simplify
-                    administrative proceess for issuing licences and permits.
-                  </p>
+              <div className="card relative shadow-2xl bg-white rounded-md p-5">
+                <div className="w-full flex items-center justify-between text-xs">
+                  <p>Lorem Ipsum Dolor</p>
+                  <p>27/01/2022</p>
                 </div>
+                <h4 className="my-3 text-gray-600 font-semibold">
+                  Pioneer reforms & easy admin procedures
+                </h4>
+                <p className="text-sm leading-6 font-light text-black">
+                  To trigger reforms in the public sector by advocating and
+                  following up the adoption of best practices.To also simplify
+                  administrative proceess for issuing licences and permits.
+                </p>
               </div>
 
-              <div className="card relative shadow-2xl bg-white">
-                <div className="content">
-                  <h4 className="mt-6 text-center text-gray-600 font-semibold">
-                    Foster smooth investing
-                  </h4>
-
-                  <p className="pt-6 px-5 py-8 text-sm leading-6 font-light text-black">
-                    To remove the challenges faced by MSME's and investors in
-                    establishing and running their business and provide
-                    efficiency and transparency in business.
-                  </p>
+              <div className="card relative shadow-2xl bg-white rounded-md p-5">
+                <div className="w-full flex items-center justify-between text-xs">
+                  <p>Lorem Ipsum Dolor</p>
+                  <p>27/01/2022</p>
                 </div>
+                <h4 className="my-3 text-gray-600 font-semibold">
+                  Foster smooth investing
+                </h4>
+
+                <p className="text-sm leading-6 font-light text-black">
+                  To remove the challenges faced by MSME's and investors in
+                  establishing and running their business and provide efficiency
+                  and transparency in business.
+                </p>
               </div>
             </div>
           </div>

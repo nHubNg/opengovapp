@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const AboutUs = () => {
+const Invest = () => {
   const content = [
     {
       id: 1,
@@ -223,4 +223,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Invest;

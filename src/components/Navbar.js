@@ -1,230 +1,144 @@
 import React, { useState } from "react";
 import "react-tabs/style/react-tabs.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-
 import logo from "../assets/Frame 6.png";
-import jwt_decode from "jwt-decode";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdOutlineClose } from "react-icons/md";
+import { navbarLinks } from "../data/navbarLinks";
 import { motion } from "framer-motion";
 
-const token = localStorage.token;
-console.log(token);
-const decoded =
-  token === "undefined" || token === undefined ? "" : jwt_decode(token);
-
-console.log(decoded);
-
 export default function Navbar() {
-  const navigate = useNavigate();
-
-  const logout = async () => {
-    await localStorage.removeItem("token");
-    navigate("/auth");
-  };
-
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  let navigate = useNavigate();
   const [menu, setMenu] = useState(-1);
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
-  const handleToggle = () => {
-    setNavbarOpen(!navbarOpen);
+  const handleNavigate = (e, link, sublink) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate(`${link}/${sublink}`);
   };
 
-  const navItem = [
-    {
-      id: 1,
-      name: "Home",
-      link: "/",
-      dropdown: false,
-    },
-    {
-      id: 2,
-      name: "About us",
-      link: "/about-us",
-      dropdown: true,
-      dropDownMenu: [
-        "Our Principles",
-        "Our Governance",
-        "Economic Advisory Council",
-        "Client Character",
-        "MDA partners",
-      ],
-    },
-    {
-      id: 3,
-      name: "Invest in Plateau",
-      link: "/invest",
-      dropdown: false,
-    },
-    {
-      id: 4,
-      name: "Industries",
-      link: "/lga",
-      dropdown: true,
-      dropDownMenu: ["Investment Resources", "Investors Highlight"],
-    },
-    {
-      id: 5,
-      name: "Media and Events",
-      link: "/media",
-      dropdown: true,
-      dropDownMenu: ["News", "Events", "Gallery"],
-    },
-    {
-      id: 6,
-      name: "Contact",
-      link: "/ContactPage",
-      dropdown: true,
-      dropDownMenu: ["Enquiries", "Feedback", "Survey", "Contact"],
-    },
-    {
-      id: 7,
-      name: "Team",
-      link: "/team",
-      dropdown: false,
-    },
-  ];
-
-  const check = (event) => {
+  const handleHover = (e) => {
     if (
-      event.target.classList.contains("drop-down") ||
-      event.target.classList.contains("dd-menu")
+      e.target.classList.contains("drop-down") ||
+      e.target.classList.contains("dd-menu")
     ) {
-      if (event.target.id) {
-        let id = +event.target.id;
-        setMenu(id - 1);
+      if (e.target.id || e.target.parentElement.id) {
+        let id = +e.target.id || +e.target.parentElement.id;
+        setMenu(id);
       }
     } else {
       setMenu(-1);
     }
   };
 
+  const handleDropDown = (e, id) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (menu === id) {
+      setMenu(-1);
+    } else {
+      setMenu(id);
+    }
+  };
+
   return (
     <nav
-      onMouseOver={check}
+      onMouseOver={handleHover}
       onMouseLeave={() => setMenu(-1)}
-      className="relative flex h-[64px]"
+      className="w-full h-[60px] px-4 bg-white flex items-center relative justify-between md:px-16 md:justify-around"
     >
+      {/* Nav Underlay */}
       <div
         className={`${
-          menu > -1 ? "z-10 opacity-100" : "z-0 opacity-0"
-        } bg-[#004252] w-full h-[40px] absolute -bottom-[40px] transition ease-in`}
+          menu > -1 ? "z-[50] opacity-100" : "-z-[50] opacity-0"
+        } hidden bg-[#004252] w-full h-[45px] absolute top-[60px] transition ease-in-out md:block`}
       ></div>
-      <div className="first-nav flex justify-between items-center w-full mx-8 md:w-3/4 md:mx-auto bg-white">
-        <div className="logo items-center flex ">
-          {/* <img class="block h-8 w-auto mr-2" src={glogo} alt="Workflow" /> */}
-
-          <Link to="/">
-            <img class="block w-25 h-12 " src={logo} alt="Workflow" />
-          </Link>
-
-          {/* <h1 className="font-bold hidden md:block text-secondary text-xs md:text-xl">
-            pen
-            <span className="text-primary text-center mt-auto ml-2">
-              Government Partnership
-            </span>
-          </h1> */}
+      {/* Nav Logo */}
+      <Link to="/">
+        <div className="">
+          <img src={logo} alt="logo" />
         </div>
-        <Link to="" onClick={handleToggle}>
-          <div class="md:hidden flex items-center">
-            <button class="outline-none mobile-menu-button">
-              <svg
-                class="w-6 h-6 text-gray-500"
-                x-show="!showMenu"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+      </Link>
+      {/* Hamburger Icon */}
+      {navbarOpen ? (
+        <MdOutlineClose
+          onClick={() => setNavbarOpen(!navbarOpen)}
+          className="md:hidden text-2xl cursor-pointer"
+        />
+      ) : (
+        <div
+          onClick={() => setNavbarOpen(!navbarOpen)}
+          class="md:hidden flex items-center"
+        >
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-6 h-6 text-gray-500"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      )}
+      {/* Nav Links */}
+      <motion.ul
+        animate={{ left: navbarOpen ? 0 : "-100%" }}
+        className={`${
+          navbarOpen ? "left-0" : "-left-full"
+        } absolute top-[60px] w-full pt-3 h-screen items-start bg-[#004252] flex flex-col z-[15] md:z-50 md:items-center md:flex-row md:h-full md:mr-[70px] md:bg-white md:static md:w-max md:pt-0`}
+      >
+        {navbarLinks.map((link) => (
+          <NavLink
+            className={`${
+              link.dropdown ? "drop-down relative" : ""
+            } font-normal bg-[#004252] py-[10px] w-full flex flex-col text-white md:flex-row md:mx-3 md:pt-2 md:w-max md:items-center md:text-black md:hover:text-[#004252] md:h-full md:bg-white`}
+            style={({ isActive }) => ({
+              color: isActive && "rgb(2, 167, 90)",
+            })}
+            to={link.link}
+            key={link.id}
+            id={link.id}
+          >
+            <li className={`${link.dropdown ? "drop-down" : ""} ml-3 md:ml-0`}>
+              {link.name}
+              {link.dropdown && (
+                <MdKeyboardArrowDown
+                  onClick={(e) => handleDropDown(e, link.id)}
+                  className={`${link.dropdown ? "drop-down" : ""} ${
+                    menu === link.id ? "rotate-180" : ""
+                  } ml-2 inline-block transition`}
+                />
+              )}
+            </li>
+            {/* Dropdown Menu */}
+            {link.dropdown && (
+              <div
+                className={`${
+                  menu === link.id
+                    ? "max-h-[250px] md:opacity-100 md:z-[50]"
+                    : "max-h-0 md:opacity-0 md:-z-[50]"
+                } dd-menu bg-white text-black flex flex-col items-start w-full h-max overflow-auto md:flex-row md:absolute md:items-center md:h-[45px] md:max-h-max transition ease-in-out delay-75 md:top-[60px] md:left-[50%] md:-translate-x-[50%] md:bg-[#004252] md:w-max md:text-white`}
               >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </Link>
-
-        <div className={`hidden md:block  sm:ml-6 pt-1 pl-3`}>
-          <div class="flex space-x-4 h-full item-center">
-            {navItem.map((item) => (
-              <NavLink
-                to={item.link}
-                style={({ isActive }) => ({
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  margin: "0 18px",
-                  width: "max-content",
-                  color: isActive && "#F78251",
-                })}
-                className={`hover:text-primary`}
-                key={item.id}
-              >
-                <li
-                  className={`${
-                    menu === item.id - 1 ? "relative" : ""
-                  } list-none flex flex-col justify-center w-full h-full`}
-                >
+                {link.dropDownMenu.map((dropItem, index) => (
                   <span
-                    id={item.id}
-                    className={`${
-                      item.dropdown ? "drop-down" : ""
-                    } flex items-center py-[20px]`}
+                    onClick={(e) => handleNavigate(e, link.link, dropItem.path)}
+                    key={index}
+                    className="dd-menu py-2 px-3 md:py-0 md:mx-2 hover:text-secondary"
                   >
-                    {item.name}
-                    {item.dropdown && <MdKeyboardArrowDown className="ml-1" />}
+                    {dropItem.pathname}
                   </span>
-
-                  <div
-                    className={`${
-                      menu === item.id - 1
-                        ? "opacity-100 z-10 dd-menu"
-                        : "opacity-0 z-0"
-                    } bg-[#004252] text-white flex items-center justify-between w-max h-[40px] absolute left-[50%] -bottom-[39px] -translate-x-[50%] transition ease-in delay-100`}
-                  >
-                    {menu > -1 &&
-                      navItem[menu].dropDownMenu.map((link, index) => (
-                        <motion.span
-                          className="dd-menu mx-4"
-                          whileHover={{ color: "#F78251" }}
-                          key={index}
-                        >
-                          {link}
-                        </motion.span>
-                      ))}
-                  </div>
-                </li>
-              </NavLink>
-            ))}
-          </div>
-          {/* 
-          <div>
-            {token != undefined || token != "undefined" ? (
-              decoded.isLoggedIn ? (
-                <Link
-                  to="/auth"
-                  onClick={logout}
-                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-2 rounded-one "
-                >
-                  Logout
-                </Link>
-              ) : (
-                <Link
-                  to="/Regiser"
-                  class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
-                >
-                  Login / Register
-                </Link>
-              )
-            ) : (
-              <Link
-                to="/Register"
-                class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 py-3 rounded-one "
-              >
-                Login / Register
-              </Link>
+                ))}
+              </div>
             )}
-          </div> */}
-        </div>
-      </div>
+          </NavLink>
+        ))}
+      </motion.ul>
     </nav>
   );
 }
