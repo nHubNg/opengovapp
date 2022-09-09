@@ -28,7 +28,6 @@ function App() {
           </Route>
 
           <Route path="/visit" element={<VisitOur />} />
-          <Route path="/lga" element={<Lga />} />
 
           <Route path="*" element={"Sorry this route does not exist"} />
 
@@ -41,7 +40,9 @@ function App() {
           <Route path="/invest">
             <Route index element={<Invest />} />
           </Route>
-          <Route path="/industries"></Route>
+          <Route path="/industries">
+          <Route path="investors-highlight" element={<Lga />} />
+          </Route>
           <Route path="/media">
             <Route path="news">
               <Route index element={<News />} />
