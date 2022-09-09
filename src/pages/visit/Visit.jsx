@@ -1,9 +1,9 @@
-import {Visit} from "../../data"
+import { Visit } from "../../data/data";
 import "./visit.css"
 const VisitOur = () => {
     return ( 
         <div className="h-screen bg-primary ">
-            <p className="font-sans text-center text-3xl text-white font-bold">Our ----------</p>
+            <p className="font-sans text-center text-3xl text-white font-bold">Our Partners</p>
         <ul className="honeycomb">
             {
                 Visit.map((item =>{

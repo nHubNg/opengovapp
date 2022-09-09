@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import VisitOur from "./pages/visit/Visit";
 import "./App.css";
 import ContactPage from "./pages/ContactPage";
 import Invest from "./pages/Invest";
@@ -26,6 +26,8 @@ function App() {
             <Route path="enquiries" element={<Contact3 />} />
             <Route path="feedback" element={<Contact2 />} />
           </Route>
+
+          <Route path="/visit" element={<VisitOur />} />
           <Route path="/lga" element={<Lga />} />
 
           <Route path="*" element={"Sorry this route does not exist"} />
