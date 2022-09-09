@@ -15,7 +15,7 @@ import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import VisitOur from "./pages/visit/Visit";
 import "./App.css";
 import ContactPage from "./pages/ContactPage";
 import Invest from "./pages/Invest";
@@ -35,6 +35,7 @@ function App() {
             <Route index element={<ContactPage />} />
           </Route>
           <Route path="cas" element={<Carousel />} />
+          <Route path="/visit" element={<VisitOur />} />
           <Route path="/auth" element={<SignUpAndSignUp />} />
           <Route path="/lga" element={<Lga />} />
           {/* <Route path="/team" element={<Team />} /> */}
