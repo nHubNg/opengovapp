@@ -1,16 +1,6 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Team from "./pages/team/Team";
-import Carousel from "./pages/testcarousel";
-import SignUpAndSignUp from "./pages/SignUpAndSignUp";
 import Principle from "./pages/Principle";
-import UserDashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
 import { ToastContainer, toast } from "react-toastify";
@@ -33,15 +23,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/ContactPage">
             <Route index element={<ContactPage />} />
+            <Route path="enquiries" element={<Contact3 />} />
+            <Route path="feedback" element={<Contact2 />} />
           </Route>
-          <Route path="cas" element={<Carousel />} />
-          <Route path="/visit" element={<VisitOur />} />
-          <Route path="/auth" element={<SignUpAndSignUp />} />
-          <Route path="/lga" element={<Lga />} />
-          {/* <Route path="/team" element={<Team />} /> */}
 
-          <Route path="/secondContact" element={<Contact2 />} />
-          <Route path="/thirdContact" element={<Contact3 />} />
+          <Route path="/visit" element={<VisitOur />} />
+          <Route path="/lga" element={<Lga />} />
 
           <Route path="*" element={"Sorry this route does not exist"} />
 
@@ -60,20 +47,14 @@ function App() {
               <Route index element={<News />} />
               <Route path=":id" element={<SingleNews />} />
             </Route>
+            {/* Gallery */}
+            <Route path="gallery" element={<Gallery />} />
           </Route>
-
-          {/* Gallery */}
-          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Router>
       <ToastContainer />
     </>
   );
 }
-
-const PrivateRoute = ({ isAuthenticated, children }) => {
-  console.log(isAuthenticated);
-  return isAuthenticated ? children : <SignUpAndSignUp />;
-};
 
 export default App;
