@@ -41,9 +41,33 @@ const Gallery = () => {
             <h1 className="text-2xl font-bold">Photo Gallery</h1>
           </div>
         </div>
-        <div className="flex flex-wrap py-5 w-3/4 mx-auto justify-evenly">
+
+        <section className="overflow-hidden text-gray-700 w-full">
+          <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+            <div className="flex flex-wrap -m-1 md:-m-2">
+              <div className="flex flex-wrap w-4/4 mx-auto">
+                {images.map((item) => (
+                  <div className="w-1/3 p-1 md:p-2" key={item.id}>
+                    <img
+                      src={item.link}
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      alt=""
+                      key={item.id}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="flex flex-wrap py-5 w-3/4 mx-auto">
           {images.map((item) => (
-            <img src={item.link} className="h-[min-content] w-full my-auto p-2 rounded-2xl lg:w-1/3 md:w-1/2" alt="" key={item.id} />
+            <img
+              src={item.link}
+              className="h-[min-content] w-full mt-0 p-2 rounded-2xl lg:w-1/3 md:w-1/2"
+              alt=""
+              key={item.id}
+            />
           ))}
         </div>
       </div>
