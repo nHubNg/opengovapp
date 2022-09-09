@@ -45,13 +45,13 @@ export default function Navbar() {
     <nav
       onMouseOver={handleHover}
       onMouseLeave={() => setMenu(-1)}
-      className="w-full h-[60px] px-4 bg-white flex items-center relative justify-between md:px-16 md:justify-around"
+      className="w-full h-[60px] px-4 bg-white flex items-center relative justify-between lg:px-16 lg:justify-around"
     >
       {/* Nav Underlay */}
       <div
         className={`${
           menu > -1 ? "z-[50] opacity-100" : "-z-[50] opacity-0"
-        } hidden bg-[#004252] w-full h-[45px] absolute top-[60px] transition ease-in-out md:block`}
+        } hidden bg-[#004252] w-full h-[45px] absolute top-[60px] transition ease-in-out lg:block`}
       ></div>
       {/* Nav Logo */}
       <Link to="/">
@@ -63,12 +63,12 @@ export default function Navbar() {
       {navbarOpen ? (
         <MdOutlineClose
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className="md:hidden text-2xl cursor-pointer"
+          className="lg:hidden text-2xl cursor-pointer"
         />
       ) : (
         <div
           onClick={() => setNavbarOpen(!navbarOpen)}
-          class="md:hidden flex items-center"
+          class="lg:hidden flex items-center"
         >
           <button class="outline-none mobile-menu-button">
             <svg
@@ -91,13 +91,13 @@ export default function Navbar() {
         animate={{ left: navbarOpen ? 0 : "-100%" }}
         className={`${
           navbarOpen ? "left-0" : "-left-full"
-        } absolute top-[60px] w-full pt-3 h-screen items-start bg-[#004252] flex flex-col z-[15] md:z-50 md:items-center md:flex-row md:h-full md:mr-[70px] md:bg-white md:static md:w-max md:pt-0`}
+        } absolute top-[60px] w-full pt-3 h-screen items-start bg-[#004252] flex flex-col z-[15] lg:z-50 lg:items-center lg:flex-row lg:h-full lg:mr-[70px] lg:bg-white lg:static lg:w-max lg:pt-0`}
       >
         {navbarLinks.map((link) => (
           <NavLink
             className={`${
               link.dropdown ? "drop-down relative" : ""
-            } font-normal bg-[#004252] py-[10px] w-full flex flex-col text-white md:flex-row md:mx-3 md:pt-2 md:w-max md:items-center md:text-black md:hover:text-[#004252] md:h-full md:bg-white`}
+            } font-normal bg-[#004252] py-[10px] w-full flex flex-col text-white lg:flex-row lg:mx-3 lg:pt-2 lg:w-max lg:items-center lg:text-black lg:hover:text-[#004252] lg:h-full lg:bg-white`}
             style={({ isActive }) => ({
               color: isActive && "rgb(2, 167, 90)",
             })}
@@ -105,7 +105,7 @@ export default function Navbar() {
             key={link.id}
             id={link.id}
           >
-            <li className={`${link.dropdown ? "drop-down" : ""} ml-3 md:ml-0`}>
+            <li className={`${link.dropdown ? "drop-down" : ""} ml-3 lg:ml-0`}>
               {link.name}
               {link.dropdown && (
                 <MdKeyboardArrowDown
@@ -121,15 +121,15 @@ export default function Navbar() {
               <div
                 className={`${
                   menu === link.id
-                    ? "max-h-[250px] md:opacity-100 md:z-[50]"
-                    : "max-h-0 md:opacity-0 md:-z-[50]"
-                } dd-menu bg-white text-black flex flex-col items-start w-full h-max overflow-auto md:flex-row md:absolute md:items-center md:h-[45px] md:max-h-max transition ease-in-out delay-75 md:top-[60px] md:left-[50%] md:-translate-x-[50%] md:bg-[#004252] md:w-max md:text-white`}
+                    ? "max-h-[250px] lg:opacity-100 lg:z-[50]"
+                    : "max-h-0 lg:opacity-0 lg:-z-[50]"
+                } dd-menu bg-white text-black flex flex-col items-start w-full h-max overflow-auto lg:flex-row lg:absolute lg:items-center lg:h-[45px] lg:max-h-max transition ease-in-out delay-75 lg:top-[60px] lg:left-[50%] lg:-translate-x-[50%] lg:bg-[#004252] lg:w-max lg:text-white`}
               >
                 {link.dropDownMenu.map((dropItem, index) => (
                   <span
                     onClick={(e) => handleNavigate(e, link.link, dropItem.path)}
                     key={index}
-                    className="dd-menu py-2 px-3 md:py-0 md:mx-2 hover:text-secondary"
+                    className="dd-menu py-2 px-3 lg:py-0 lg:mx-2 hover:text-secondary"
                   >
                     {dropItem.pathname}
                   </span>

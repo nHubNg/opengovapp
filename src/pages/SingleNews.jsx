@@ -5,7 +5,7 @@ export default function SingleNews() {
   return (
     <div>
       <Navbar />
-      <div className="py-6 px-12">
+      <div className="py-6 lg:px-[8rem]">
         <img
           className="w-[400px] h-[320px] object-cover float-left mr-3"
           src={newsImg}

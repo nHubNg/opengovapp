@@ -9,7 +9,7 @@ export default function News() {
     <div>
       <Navbar />
       {/* Top Section */}
-      <div className="flex py-6 px-12 w-full h-[80vh]">
+      <div className="flex py-6 lg:px-[8rem] w-full h-[70vh]">
         {/* Big Image on the left */}
         <div className="pt-3 h-full flex-[3] relative">
           <img
@@ -60,7 +60,7 @@ export default function News() {
       </div>
 
       {/* Bottom Section/Top Stories */}
-      <div className="my-3 px-12">
+      <div className="my-3 lg:px-[8rem]">
         <h2 className="text-xl text-slate-900 font-bold mb-5">Top Stories</h2>
         <div className="flex flex-wrap items-center gap-5">
           {/* Top Story Card */}
