@@ -70,16 +70,16 @@ const Team = () => {
             return (
               <div
                 key={team.id}
-                className={`team shadow-ts m-[20px] sm:h-[35rem] lg:h-[360px] w-[25%] bg-white relative`}
+                className={`team rounded-md shadow-ts m-[20px] sm:h-[35rem] lg:h-[360px] w-[25%] bg-white relative`}
               >
                 {/* <div className="overlay"></div> */}
                 <div
-                  className={`team-img w-full h-full flex jusify-center items-center opacity-100 absolute top-0 right-0 left-0 rounded-none`}
+                  className={`team-img w-full h-full flex jusify-center items-center opacity-100 absolute top-0 right-0 left-0 rounded-md`}
                 >
                   <img
                     src={team.avatar}
                     alt=""
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover rounded-md"
                   />
                 </div>
                 <div className="team-info opacity-0 p-3 text-center flex flex-col items-center">
