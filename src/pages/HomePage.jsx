@@ -634,9 +634,21 @@ const HomePage = () => {
                       />
                     </div>
                   </div>
+<<<<<<< HEAD
+                  <div>
+                    <img src={item.avatar} alt="" className="w-[18rem] col-span-1 ml-auto" />
+                  </div>
+                </div>
+               
+
+                )
+              }))
+            }
+=======
                 );
               })}
               </Slider>
+>>>>>>> 34a0d86c8389064885770eae64d8c8693c083d78
             </div>
             <div className="flex-[2] flex flex-col">
               {upcomingNews.map((item) => {
