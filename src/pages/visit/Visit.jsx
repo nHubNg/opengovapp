@@ -10,7 +10,7 @@ const VisitOur = () => {
                     return(
                         <a href={item.link}>
                             <li className=" honeycomb-cell">
-                        <img src={item.logo} alt="Org Logo" className="honeycomb-cell_img " />
+                        <img src={item.logo} alt="Org Logo chek" className="honeycomb-cell_img " />
                         <div className="honeycomb-cell_title">{item.title}</div>
                             </li>
                         </a>

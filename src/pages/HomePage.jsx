@@ -559,13 +559,11 @@ const HomePage = () => {
                     <img src={item.avatar} alt="" className="w-[18rem] col-span-1 ml-auto" />
                   </div>
                 </div>
-                
                
 
                 )
               }))
             }
-            {/* </Slider> */}
             </div>
             <div className="flex-[2] flex p-8 flex-col">
 
