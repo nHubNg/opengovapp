@@ -1,5 +1,5 @@
 import Navbar from "../../components/Navbar";
-import { Visit } from "../../data/data";
+import { visit } from "../../data/data";
 import "./visit.css";
 const VisitOur = () => {
   return (
@@ -10,12 +10,12 @@ const VisitOur = () => {
           Our Partners
         </p>
         <ul className="honeycomb my-[80px]">
-          {Visit.map((item) => {
+          {visit.map((item) => {
             return (
               <a href={item.link}>
                 <li className=" honeycomb-cell">
                   <img
-                    src={item.logo}
+                    src={require(`../../assets/Visit/${item.logo}`)}
                     alt="Org Logo chek"
                     className="honeycomb-cell_img "
                   />

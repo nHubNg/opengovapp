@@ -29,7 +29,7 @@ function App() {
             <Route path="contact" element={<Contact2 />} />
           </Route>
 
-          <Route path="/visit" element={<VisitOur />} />
+          <Route path="/invest" element={<Invest />} />
 
           <Route path="*" element={"Sorry this route does not exist"} />
 
@@ -38,7 +38,7 @@ function App() {
             <Route path="principle" element={<Principle />} />
             <Route path="governance" element={<Team />} />
             <Route path="advisory-council" element={<Team />} />
-            <Route path="partners" element={<Invest /> } />
+            <Route path="partners" element={<VisitOur />} />
           </Route>
           <Route path="/industries">
             <Route path="investment-resources" element={<Resources />} />
