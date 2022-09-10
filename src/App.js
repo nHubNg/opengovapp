@@ -38,6 +38,7 @@ function App() {
             <Route path="principle" element={<Principle />} />
             <Route path="governance" element={<Team />} />
             <Route path="advisory-council" element={<Team />} />
+            <Route path="partners" element={<Invest /> } />
           </Route>
           <Route path="/industries">
             <Route path="investment-resources" element={<Resources />} />
