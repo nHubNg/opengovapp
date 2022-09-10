@@ -9,17 +9,17 @@ const VisitOur = () => {
         <p className="font-sans text-center text-3xl text-white font-bold">
           Our Partners
         </p>
-        <ul className="honeycomb my-[80px]">
+        <ul className="honeycomb my-[80px] grid grid-cols-2 md:flex md:flex-wrap">
           {visit.map((item) => {
             return (
-              <a href={item.link}>
-                <li className=" honeycomb-cell">
+              <a href={item.link} key={item.id}>
+                <li className=" honeycomb-cell w-[110px] h-[80px] md:w-[250px] md:h-[137.5px]">
                   <img
                     src={require(`../../assets/Visit/${item.logo}`)}
                     alt="Org Logo chek"
                     className="honeycomb-cell_img "
                   />
-                  <div className="honeycomb-cell_title">{item.title}</div>
+                  <div className="honeycomb-cell_title font-[600] text-[10px] md:font-[700] md:text-[1em]">{item.title}</div>
                 </li>
               </a>
             );
