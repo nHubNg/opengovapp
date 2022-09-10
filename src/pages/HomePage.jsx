@@ -228,7 +228,7 @@ const HomePage = () => {
                   <div className="heder-btns pt-10 flex justify-center">
                     <Link
                       to="/lga"
-                      class="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
+                      className="bg-secondary text-white capitalize  text-sm font-extrabold  hover:text-primary  px-4 md:px-11 py-3 rounded-one"
                     >
                       {item.button}
                     </Link>

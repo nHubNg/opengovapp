@@ -1,7 +1,7 @@
 import LgaCard from "../../components/lgaCard";
 // import Map from "../../components/maps/Map";
 import Navbar from "../../components/Navbar";
-import data from "../../data/data";
+import {data} from "../../data/data";
 import "./lga.css";
 import map from "../../assets/opgov/map.png";
 
@@ -9,7 +9,7 @@ export default function Lga() {
   return (
     <>
       <Navbar />
-      <div className="flex h-[calc(100vh_-_80px)] w-full">
+      <div className="flex h-[calc(100vh_-_80px)] w-full md:w-3/4 md:mx-auto">
         <div className="md:block h-full bg-white overflow-y-scroll">
           {/* wrapper div */}
           <div className="p-3">

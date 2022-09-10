@@ -1,7 +1,7 @@
 export default function LgaCard({ name, tags, info, img }) {
   return (
     <div className="mb-3 py-5 border-b-[1px] border-[#E5E7EB] cursor-pointer">
-      <div className="w-full flex md:flex-row md:flex-wrap flex-col">
+      <div className="w-full flex md:flex-row flex-col">
         <div className="md:w-[270px] md:h-[160px] md:mr-5 w-full h-[200px]">
           <img
             className="w-full h-full object-cover rounded-xl"

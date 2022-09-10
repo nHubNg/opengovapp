@@ -42,7 +42,7 @@ export const navbarLinks = [
   {
     id: 4,
     name: "Industries",
-    link: "/lga",
+    link: "/industries",
     dropdown: true,
     dropDownMenu: [
       {

@@ -178,7 +178,7 @@ const Invest = () => {
                       </h2>
                     </div>
 
-                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-10">
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-7">
                       {item.itemList.map((list) => (
                         <li key={list.id}>{list.name}</li>
                       ))}
@@ -204,7 +204,7 @@ const Invest = () => {
                         {item.header}
                       </h2>
                     </div>
-                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-10">
+                    <ul className="flex flex-col items-start justify-center list-disc text-lg leading-7">
                       {item.itemList.map((list) => (
                         <li key={list.id}>{list.name}</li>
                       ))}

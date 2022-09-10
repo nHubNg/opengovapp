@@ -14,6 +14,7 @@ import Contact3 from "./pages/Contact3";
 import News from "./pages/News";
 import SingleNews from "./pages/SingleNews";
 import Gallery from "./pages/Gallery";
+import Resources from "./pages/Resources";
 
 function App() {
   return (
@@ -22,13 +23,13 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ContactPage">
-            <Route index element={<ContactPage />} />
+            <Route index element={<Contact2 />} />
             <Route path="enquiries" element={<Contact3 />} />
-            <Route path="feedback" element={<Contact2 />} />
+            <Route path="feedback" element={ <ContactPage />} />
+            <Route path="contact" element={<Contact2 />} />
           </Route>
 
           <Route path="/visit" element={<VisitOur />} />
-          <Route path="/lga" element={<Lga />} />
 
           <Route path="*" element={"Sorry this route does not exist"} />
 
@@ -38,10 +39,11 @@ function App() {
             <Route path="governance" element={<Team />} />
             <Route path="advisory-council" element={<Team />} />
           </Route>
-          <Route path="/invest">
-            <Route index element={<Invest />} />
+          <Route path="/industries">
+            <Route path="investment-resources" element={<Resources />} />
+
+            <Route path="investors-highlight" element={<Lga />} />
           </Route>
-          <Route path="/industries"></Route>
           <Route path="/media">
             <Route path="news">
               <Route index element={<News />} />
