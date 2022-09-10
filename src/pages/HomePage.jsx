@@ -335,7 +335,7 @@ const HomePage = () => {
 
         <div className="md:h-screen flex flex-col">
           {/* Content */}
-          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+          <section className="w-full h-full bg-img2 bg-cover grid grid-cols-1 md:grid-cols-4">
             {content.map((item) => (
               <div
                 key={item.id}
@@ -351,7 +351,7 @@ const HomePage = () => {
           </section>
 
           {/* Content */}
-          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+          <section className="w-full h-full bg-img2 bg-cover grid grid-cols-1 md:grid-cols-4">
             {secondContent.map((item) => (
               <div
                 key={item.id}
