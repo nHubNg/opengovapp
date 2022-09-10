@@ -1,7 +1,7 @@
 .honeycomb {
   display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   list-style: none;
   -webkit-box-pack: center;
   justify-content: center;
@@ -16,8 +16,8 @@
 .honeycomb-cell {
   -webkit-box-flex: 0;
   flex: 0 1 250px;
-  width: 250px;
-  height: 137.5px;
+  /* width: 250px;
+  height: 137.5px; */
   margin: 65.4px 12.5px 25px;
   position: relative;
   padding: 0.5em;
@@ -44,8 +44,8 @@
   word-break: break-word;
   text-transform: uppercase;
   color: #fff;
-  font-weight: 700;
-  font-size: 1.5em;
+  /* font-weight: 700;
+  font-size: 1.5em; */
   transition: opacity 350ms;
 }
 .honeycomb-cell_title > small {
