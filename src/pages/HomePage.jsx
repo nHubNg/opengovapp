@@ -333,13 +333,13 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="h-screen flex flex-col">
+        <div className="md:h-screen flex flex-col">
           {/* Content */}
-          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+          <section className="w-full h-full bg-img2 bg-cover grid grid-cols-1 md:grid-cols-4">
             {content.map((item) => (
               <div
                 key={item.id}
-                className={`${item.background} opacity-80 flex flex-col items-center justify-center h-full p-10`}
+                className={`opacity-80 flex flex-col items-center justify-center h-full p-10 ${item.background}`}
               >
                 <Icon icon={item.img} width="100" />
                 <h2 className="text-center text-2xl font-bold">
@@ -351,7 +351,7 @@ const HomePage = () => {
           </section>
 
           {/* Content */}
-          <section className="w-full h-full bg-img2 grid grid-cols-1 md:grid-cols-4">
+          <section className="w-full h-full bg-img2 bg-cover grid grid-cols-1 md:grid-cols-4">
             {secondContent.map((item) => (
               <div
                 key={item.id}

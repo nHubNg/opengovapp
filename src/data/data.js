@@ -186,64 +186,64 @@ const upcomingNews = [
   },
   
 ]
-const Visit = [
+const visit = [
   {
     id : "1",
-    logo : "images/Visit/bank-of-industry-logo.png",
+    logo : "bank-of-industry-logo.png",
     link : "https://www.boi.ng/",
     title: "Bank Of Industry"
   } ,
   {
     id : "2",
-    logo : "images/Visit/cac logo.jpg",
+    logo : "cac logo.jpg",
     link : "https://www.cac.gov.ng/",
     title: "CAC"
   },
    {
     id : "3",
-    logo : "images/Visit/firs logo.png",
+    logo : "firs logo.png",
     link : "https://www.firs.gov.ng/",
     title: "Federal Inland Revenue Service"
   } ,
     {
     id : "4",
-    logo : "images/Visit/government logo.jpg",
+    logo : "government logo.jpg",
     link : "https://www.plateaustate.gov.ng/",
     title: "PLATEAU STATE"
   },
   {
     id : "5",
-    logo : "images/Visit/logo_top_dark-1.png",
+    logo : "logo_top_dark-1.png",
     link : "https://www.nipc.gov.ng/",
     title: "Nigerian Investment Promotion Commission"
   },
    {
     id : "6",
-    logo : "images/Visit/NEPC logo.png",
+    logo : "NEPC logo.png",
     link : "https://nepc.gov.ng/",
     title: "Nigerian Export Promotion Council"
   },
    {
     id : "7",
-    logo : "images/Visit/NIPC-logo.webp",
+    logo : "NIPC-logo.webp",
     link : "https://www.nipc.gov.ng/",
     title: "Federal Inland Revenue Service"
   },
   {
     id : "8",
-    logo : "images/Visit/pipc logo.png",
+    logo : "pipc logo.png",
     link : "https://www.pipcltd.com.ng/",
     title: " Plateau Investment and Property Development Company LTD "
   } ,
   {
     id : "9",
-    logo : "images/Visit/PLASMIDA logo.png",
+    logo : "PLASMIDA logo.png",
     link : "https://daaef.github.io/plasmida/index.html",
     title: "Plateau State Microfinance Development Agency"
   } ,
   {
     id : "10",
-    logo : "images/Visit/PSIRS logo.png",
+    logo : "PSIRS logo.png",
     link : "http://psirs.gov.ng/",
     title: "Plateau State Internal Revenue Service "
   },
@@ -253,5 +253,5 @@ module.exports = {
   data,
   News,
   upcomingNews,
-  Visit
+  visit
 }
