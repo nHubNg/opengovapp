@@ -15,6 +15,7 @@ import News from "./pages/News";
 import SingleNews from "./pages/SingleNews";
 import Gallery from "./pages/Gallery";
 import Resources from "./pages/Resources";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
 
           <Route path="/invest" element={<Invest />} />
 
-          <Route path="*" element={"Sorry this route does not exist"} />
+          <Route path="*" element={<ComingSoon /> } />
 
           {/* About Page */}
           <Route path="/about-us">
