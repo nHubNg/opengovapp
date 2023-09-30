@@ -9,8 +9,8 @@ import banner_pic from "../assets/Group 2063.png";
 import headerPic from "../assets/header.png";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import logo from "../assets/Frame 6.png";
-import { News, upcomingNews } from "../data/data";
+// import logo from "../assets/Frame 6.png";
+// import { News, upcomingNews } from "../data/data";
 
 const HomePage = () => {
   const content = [

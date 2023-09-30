@@ -3,7 +3,7 @@ import Team from "./pages/team/Team";
 import Principle from "./pages/Principle";
 import HomePage from "./pages/HomePage";
 import Lga from "./pages/lga/Lga";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VisitOur from "./pages/visit/Visit";
 import "./App.css";

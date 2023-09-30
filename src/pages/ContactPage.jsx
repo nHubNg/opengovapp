@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 // import header from "../assets/header.png";
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 // import Map from "./Map";
