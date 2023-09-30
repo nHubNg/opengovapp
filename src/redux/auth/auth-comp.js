@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const baseurl = "https://opengovapi.herokuapp.com/api/v1";
+const baseurl = "https://ogp-api-service.onrender.com/api/v1";
 
 export const loginUser = createAsyncThunk(
 	"users/login",
