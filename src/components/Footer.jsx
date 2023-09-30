@@ -16,23 +16,23 @@ const Footer = () => {
             <h1 className="text-primary text-2xl text-center">Socials</h1>
             <div className="link pt-4 flex flex-col items-start">
               <p className="pt-2 text-sm">
-                <a href="">Facebook</a>
+                <a href="/">Facebook</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">Instagram</a>
+                <a href="/">Instagram</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">Twitter</a>
+                <a href="/">Twitter</a>
               </p>
               {/* <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Gender Commitment</a>
+                    <a href="/">Gender Commitment</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Peace and Security</a>
+                    <a href="/">Peace and Security</a>
                   </p>{" "} */}
             </div>
           </div>
@@ -40,23 +40,23 @@ const Footer = () => {
             <h1 className="text-primary text-2xl text-center">Events</h1>
             <div className="link pt-4">
               <p className="pt-2 text-sm">
-                <a href="">E-news Letters</a>
+                <a href="/">E-news Letters</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">Gallery</a>
+                <a href="/">Gallery</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">Investment News</a>
+                <a href="/">Investment News</a>
               </p>
               {/* <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Approved Reports</a>
+                    <a href="/">Approved Reports</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">Reports</a>
+                    <a href="/">Reports</a>
                   </p>{" "} */}
             </div>
           </div>
@@ -64,23 +64,23 @@ const Footer = () => {
             <h1 className="text-primary text-2xl text-center">Quick LInks</h1>
             <div className="link pt-4">
               <p className="pt-2 text-sm">
-                <a href="">Why Plateau</a>
+                <a href="/">Why Plateau</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">Investors Highlights</a>
+                <a href="/">Investors Highlights</a>
               </p>
               <p className="pt-2 text-sm">
                 {" "}
-                <a href="">OSIC</a>
+                <a href="/">OSIC</a>
               </p>
               {/* <p className="pt-2 text-sm ">
                     {" "}
-                    <a href="">Open Contracting</a>
+                    <a href="/">Open Contracting</a>
                   </p>
                   <p className="pt-2 text-sm">
                     {" "}
-                    <a href="">All Downloads</a>
+                    <a href="/">All Downloads</a>
                   </p>{" "} */}
             </div>
           </div>
